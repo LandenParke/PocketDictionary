@@ -1,0 +1,34 @@
+---------6/10/2026---------
+Set up software, IDE, etc. onto my laptop. I followed the following tutorials.
+https://developer.spresense.sony-semicon.com/development-guides/?page=sdk_set_up&lang=en#_setup_for_windows_11_for_wsl2
+https://medium.com/@WamiqRaza/development-environment-for-sony-spresense-onarduino-ide-dd280334ccc2
+
+Then I added Ucglib as a library on the Arduino IDE to test the LED display.
+I used claude to debug until the display works.
+Pin requirements:
+VCC - 3.3v
+GND - GND
+CS - D10
+RESET - D08
+DC/RS - D09
+SDI/MOSI(text is upside down) - D11
+SCK - D13
+LED - 3.3V (on extension board or whatever it's called)
+SDO/MISO - D12
+Make sure the voltage jumper is set to 3.3V (Thank you claude and Jake)
+
+
+The following changes needed to be made to files for tests to compile.
+
+On the actual test, use this constructor:
+Ucglib_ILI9341_18x240x320_SWSPI ucg(/*sclk=*/ 13, /*data=*/ 11, /*cd=*/ 9, /*cs=*/ 10, /*reset=*/ 8);
+
+In Arduino\libraries\Ucglib\src\Ucglib.cpp:
+Add to top of file: 
+#ifndef __NOP
+#define __NOP __asm__ __volatile__("nop")
+#endif
+
+Change: volatile uint32_t *u8g_data_port[9];
+to
+volatile uint8_t *u8g_data_port[9];
