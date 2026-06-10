@@ -1,0 +1,2 @@
+Environment setup with Hello world
+developer.spresense.sony-semicon.com/development-guides/?page=sdk_set_up&lang=en#_example_application_of_hello_world
