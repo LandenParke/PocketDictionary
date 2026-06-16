@@ -1,2 +1,5 @@
 Environment setup with Hello world
 developer.spresense.sony-semicon.com/development-guides/?page=sdk_set_up&lang=en#_example_application_of_hello_world
+
+I2C Guide
+https://developer.spresense.sony-semicon.com/development-guides/index?page=arduino_developer_guide&lang=en#_wire_library
