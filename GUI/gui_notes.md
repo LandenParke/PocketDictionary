@@ -5,3 +5,11 @@ use open source LVGL library to create GUI
 
 # design reference
 ![](gui_design_reference.png)
+
+# important
+lv_conf.h params to be set
+```
+#define LV_USE_FONT_COMPRESSED 1
+#define LV_FONT_FMT_TXT_LARGE 1
+```
+---
