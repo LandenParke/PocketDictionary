@@ -1,5 +1,5 @@
 #include "lvgl.h"
-
+extern lv_font_t jp_font_24;
 
 // screen size
 int sx = 320;
@@ -97,8 +97,8 @@ void create_ui(void)
     lv_obj_t *scr = lv_screen_active();
     lv_obj_remove_flag(scr, LV_OBJ_FLAG_SCROLLABLE);
 
-	// need to create bitmaps from font for kanji etc
-    // lv_obj_set_style_text_font(scr, &lv_font_montserrat_16, 0);
+	// using 24px bitmap from noto sans CJK jp regular
+    lv_obj_set_style_text_font(scr, &jp_font_24, 0);
 
     // top search bar
     lv_obj_t *c1 = lv_obj_create(scr);
