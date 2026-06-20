@@ -139,33 +139,37 @@ static void poll_keyboard(void)
 // spresense buttons placeholder
 static void poll_buttons(void)
 {
-  g_key_pressed = false;
+	if (btn_up_pressed())
+		{
+		g_last_key = LV_KEY_UP;
+		g_key_pressed = true;
+		}
+	else if (btn_down_pressed())
+		{
+		g_last_key = LV_KEY_DOWN;
+		g_key_pressed = true;
+		}
+	else if (btn_left_pressed())
+		{
+		g_last_key = LV_KEY_LEFT;
+		g_key_pressed = true;
+		}
+	else if (btn_right_pressed())
+		{
+		g_last_key = LV_KEY_RIGHT;
+		g_key_pressed = true;
+		}
+	else if (btn_ok_pressed())
+		{
+		g_last_key = LV_KEY_ENTER;
+		g_key_pressed = true;
+		}
 
-  if (btn_up_pressed())
-    {
-      g_last_key = LV_KEY_UP;
-      g_key_pressed = true;
-    }
-  else if (btn_down_pressed())
-    {
-      g_last_key = LV_KEY_DOWN;
-      g_key_pressed = true;
-    }
-  else if (btn_left_pressed())
-    {
-      g_last_key = LV_KEY_LEFT;
-      g_key_pressed = true;
-    }
-  else if (btn_right_pressed())
-    {
-      g_last_key = LV_KEY_RIGHT;
-      g_key_pressed = true;
-    }
-  else if (btn_ok_pressed())
-    {
-      g_last_key = LV_KEY_ENTER;
-      g_key_pressed = true;
-    }
+	if (g_key_pressed)
+		{
+		printf("LVGL key=%lu\n", (unsigned long)g_last_key);
+		fflush(stdout);
+		}
 }
 
 #endif
@@ -355,7 +359,7 @@ static const int results_count = sizeof(entries) / sizeof(entries[0]);
 
 
 // word list
-#define list_element_count 4
+#define list_element_count 6
 static lv_obj_t *list_items[list_element_count];
 static int window_start = 0;
 
@@ -402,12 +406,36 @@ static void populate_list(int start)
 }
 
 
+static lv_group_t *g;
+
+static void keyboard_event_cb(lv_event_t *e);
+static lv_obj_t *search;
+static lv_obj_t *kb = NULL;
+void osc_keyboard(void)
+{
+	if (kb) {
+		lv_obj_del(kb);
+		kb = NULL;
+		return;
+	}
+
+	kb = lv_keyboard_create(lv_layer_top());
+	lv_obj_set_size(kb, LV_PCT(100), LV_PCT(50));
+	lv_obj_align(kb, LV_ALIGN_BOTTOM_MID, 0, 0);
+
+	lv_keyboard_set_textarea(kb, search);
+
+	lv_group_add_obj(g, search);
+	lv_group_focus_obj(search);
+	lv_obj_add_event_cb(kb, keyboard_event_cb, LV_EVENT_ALL, NULL);
+}
+
+lv_obj_t *list;
 static void keyboard_event_cb(lv_event_t *e)
 {
-    lv_event_code_t code = lv_event_get_code(e);
-    if (code != LV_EVENT_KEY) return;
+	lv_event_code_t code = lv_event_get_code(e);
 
-    uint32_t key = lv_event_get_key(e);
+	uint32_t key = lv_event_get_key(e);
 
 	if (key == LV_KEY_DOWN)
 	{
@@ -416,33 +444,54 @@ static void keyboard_event_cb(lv_event_t *e)
 			populate_list(window_start + 1);
 		}
 	}
-	else if (key == LV_KEY_UP)
+	if (key == LV_KEY_UP)
 	{
 		if (window_start > 0)
 		{
 			populate_list(window_start - 1);
 		}
 	}
-
-	else if (key == LV_KEY_LEFT) {
+	if (key == LV_KEY_LEFT) {
 		if (bottom_sel_index > 0) {
 			bottom_sel_index--;
 			update_bottom_highlight();
 		}
-	} else if (key == LV_KEY_RIGHT) {
+	}
+	if (key == LV_KEY_RIGHT) {
 		if (bottom_sel_index < BOTTOM_ITEM_COUNT - 1) {
 			bottom_sel_index++;
 			update_bottom_highlight();
 		}
 
-    } else if (key == LV_KEY_ENTER) {
+	}
+	if (key == LV_KEY_ENTER) {
 		int word_idx = window_start;
 		if (word_idx < results_count) {
 			printf("word=%s  option=%d\n", entries[word_idx].word, bottom_sel_index);
 			fflush(stdout);
 		}
+		if (bottom_sel_index == 1) {
+			osc_keyboard();
+		}
+	}
+
+	// on screen keyboard
+	if (code == LV_EVENT_READY) {
+		// enter/submit
+		printf("search text submitted: %s\n", lv_textarea_get_text(search));
+
+		lv_obj_del(kb);
+		kb = NULL;
+		lv_group_focus_obj(list);
+	}
+	else if (code == LV_EVENT_CANCEL) {
+		lv_obj_del(kb);
+		kb = NULL;
+		lv_group_focus_obj(list);
 	}
 }
+
+
 
 void create_ui(void)
 {
@@ -459,7 +508,7 @@ void create_ui(void)
 	
 
     // top search bar
-	lv_obj_t *search = lv_obj_create(root);
+	search = lv_textarea_create(root);
 	lv_obj_set_style_text_font(search, &lv_font_montserrat_14, 0);
 	lv_obj_set_width(search, LV_PCT(100));
 	lv_obj_set_height(search, 30);
@@ -496,21 +545,21 @@ void create_ui(void)
 	lv_obj_set_flex_flow(middle, LV_FLEX_FLOW_ROW);
 
     // left word list
-	lv_obj_t *list = lv_obj_create(middle);
+	list = lv_obj_create(middle);
 	lv_obj_set_width(list, 45);
 	lv_obj_set_height(list, LV_PCT(100));
 	lv_obj_set_flex_flow(list, LV_FLEX_FLOW_COLUMN);
 	for (int i = 1; i < list_element_count; i++)
 	{
 		lv_obj_t *item = lv_obj_create(list);
-		lv_obj_set_size(item, 45, 30);
+		lv_obj_set_size(item, 45, 32);
 
 		lv_obj_t *label = lv_label_create(item);
 		lv_obj_set_width(label, LV_PCT(100));
 		lv_label_set_long_mode(label, LV_LABEL_LONG_CLIP);
 		lv_obj_set_style_text_align(label, LV_TEXT_ALIGN_LEFT, 0);
+		lv_obj_align(label, LV_ALIGN_TOP_LEFT, 0, 0);
 		lv_obj_set_pos(label, 0, -10);
-
 
 		list_items[i] = item;
 
@@ -550,8 +599,6 @@ void create_ui(void)
 	lv_obj_set_width(bottom, LV_PCT(100));
 	lv_obj_set_height(bottom, 30);
 	lv_obj_set_flex_flow(bottom, LV_FLEX_FLOW_ROW);
-	lv_obj_set_flex_flow(bottom, LV_FLEX_FLOW_ROW);
-
 	for (int i = 0; i < BOTTOM_ITEM_COUNT; i++)
 	{
 		lv_obj_t *item = lv_obj_create(bottom);
@@ -579,26 +626,24 @@ void create_ui(void)
 		lv_obj_set_style_radius(label, 0, 0);
 		lv_obj_set_style_border_width(label, 0, 0);
 	}
+	lv_label_set_text(bottom_labels[1], "search");
+	lv_label_set_text(bottom_labels[2], "EN -> JP");
+	lv_label_set_text(bottom_labels[3], "options");
 
 
 
 
 	populate_list(0);
-	//update_bottom_highlight();
+	update_bottom_highlight();
 	update_results();
 	
 
-    lv_group_t *g = lv_group_get_default();
-	if (!g) {
-		g = lv_group_create();
-		lv_group_set_default(g);
-	}
+	g = lv_group_create();
+	lv_indev_set_group(kb_indev, g);
 	lv_group_add_obj(g, list);
 	lv_group_focus_obj(list);
-	lv_obj_add_event_cb(list, keyboard_event_cb, LV_EVENT_KEY, NULL);
-	if (kb_indev) {
-		lv_indev_set_group(kb_indev, g);
-	}
+	lv_obj_add_event_cb(list, keyboard_event_cb, LV_EVENT_ALL, NULL);
+
 
 	
 
