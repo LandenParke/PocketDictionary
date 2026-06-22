@@ -1,0 +1,1567 @@
+sim_initialize.o: sim/sim_initialize.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/audio/audio.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/ioctl.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/serial/tioctl.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spi/spi.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/kthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/motor/foc/foc_dummy.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/motor/foc/foc.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/motor/foc/foc_pwr.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/fixedmath.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mtd/mtd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/power/pm.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spi/spi_flash.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spi/qspi_flash.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spi/qspi.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdlib.h \
+ sim/sim_internal.h sim/sim_hostusrsock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/socket.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/uio.h
+sim_idle.o: sim/sim_idle.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/debug.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/syslog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/uio.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/power/pm.h \
+ sim/sim_internal.h
+sim_doirq.o: sim/sim_doirq.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/sched/sched/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/kmalloc.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdlib.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/mm.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/userspace.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/malloc.h \
+ sim/sim_internal.h
+sim_initialstate.o: sim/sim_initialstate.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/sched/sched/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/kmalloc.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdlib.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/mm.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/userspace.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/malloc.h \
+ sim/sim_internal.h
+sim_createstack.o: sim/sim_createstack.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/tls.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/atexit.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdlib.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/list.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/nuttx.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/kmalloc.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/mm.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/userspace.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/malloc.h \
+ sim/sim_internal.h
+sim_usestack.o: sim/sim_usestack.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/debug.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/syslog.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/uio.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/tls.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/atexit.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdlib.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/list.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/nuttx.h \
+ sim/sim_internal.h
+sim_releasestack.o: sim/sim_releasestack.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdlib.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/kmalloc.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/mm.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/userspace.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/malloc.h
+sim_stackframe.o: sim/sim_stackframe.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/debug.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/syslog.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/uio.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ sim/sim_internal.h
+sim_exit.o: sim/sim_exit.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/debug.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/syslog.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/uio.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/sched/task/task.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/sched/sched/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/kmalloc.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdlib.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/mm.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/userspace.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/malloc.h \
+ sim/sim_internal.h
+sim_schedulesigaction.o: sim/sim_schedulesigaction.c \
+ /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/debug.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/syslog.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/uio.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/sched/sched/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/kmalloc.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdlib.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/mm.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/userspace.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/malloc.h
+sim_switchcontext.o: sim/sim_switchcontext.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/debug.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/syslog.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/uio.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/sched/clock/clock.h \
+ sim/sim_internal.h
+sim_heap.o: sim/sim_heap.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/debug.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/syslog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/uio.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdatomic.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/procfs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/mm.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/userspace.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/malloc.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdlib.h \
+ sim/sim_internal.h
+sim_uart.o: sim/sim_uart.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/serial/serial.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/termios.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/ioctl.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/serial/tioctl.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/serial/uart_ram.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/fcntl.h \
+ sim/sim_internal.h
+sim_copyfullstate.o: sim/sim_copyfullstate.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ sim/sim_internal.h
+sim_sigdeliver.o: sim/sim_sigdeliver.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/debug.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/syslog.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/uio.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/sched/sched/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/kmalloc.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdlib.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/mm.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/userspace.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/malloc.h \
+ sim/sim_internal.h
+sim_tcbinfo.o: sim/sim_tcbinfo.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/param.h
+sim_cpuinfo.o: sim/sim_cpuinfo.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/fcntl.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/hostfs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/stat.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/statfs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h
+sim_registerdump.o: sim/sim_registerdump.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ sim/sim_internal.h
+sim_saveusercontext.o: sim/sim_saveusercontext.c \
+ /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ sim/sim_internal.h
+sim_textheap.o: sim/sim_textheap.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/mm.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/userspace.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/malloc.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdlib.h \
+ sim/sim_internal.h
+sim_fork.o: sim/sim_fork.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/debug.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/syslog.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/uio.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/sched/sched/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/kmalloc.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdlib.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/mm.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/userspace.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/malloc.h
+sim_checkstack.o: sim/sim_checkstack.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/debug.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/syslog.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/uio.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/board.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/sched/sched/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/kmalloc.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdlib.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/mm.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/userspace.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/malloc.h \
+ sim/sim_internal.h
+sim_oneshot.o: sim/sim_oneshot.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/debug.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/syslog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/uio.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/nuttx.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/kmalloc.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdlib.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/mm.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/userspace.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/malloc.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/timers/oneshot.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/ioctl.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/serial/tioctl.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/timers/arch_alarm.h \
+ sim/sim_internal.h
+sim_lcd.o: sim/sim_lcd.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/assert.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/debug.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/syslog.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/uio.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/arch.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/cache.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/pthread.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/unistd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/queue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/addrenv.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wqueue.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/clock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/wdog.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mutex.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/semaphore.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/fs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/dirent.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spinlock.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/map.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/mm/gran.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/net/net.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/board.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/lcd/lcd.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/video/fb.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/fs/ioctl.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/serial/tioctl.h \
+ sim/sim_internal.h
+sim_fork_x86_64.o: sim/sim_fork_x86_64.S /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/irq.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/setjmp.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h
+sim_hostirq.o: sim/posix/sim_hostirq.c /usr/include/stdc-predef.h \
+ /usr/include/signal.h /usr/include/features.h \
+ /usr/include/features-time64.h /usr/include/bits/wordsize.h \
+ /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-64.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h /usr/include/bits/time64.h \
+ /usr/include/bits/signum-generic.h /usr/include/bits/signum-arch.h \
+ /usr/include/bits/types/sig_atomic_t.h \
+ /usr/include/bits/types/sigset_t.h /usr/include/bits/types/__sigset_t.h \
+ /usr/include/bits/types/struct_timespec.h /usr/include/bits/endian.h \
+ /usr/include/bits/endianness.h /usr/include/bits/types/time_t.h \
+ /usr/include/bits/types/siginfo_t.h /usr/include/bits/types/__sigval_t.h \
+ /usr/include/bits/siginfo-arch.h /usr/include/bits/siginfo-consts.h \
+ /usr/include/bits/types/sigval_t.h /usr/include/bits/types/sigevent_t.h \
+ /usr/include/bits/sigevent-consts.h /usr/include/bits/sigaction.h \
+ /usr/include/bits/sigcontext.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
+ /usr/include/bits/types/stack_t.h /usr/include/sys/ucontext.h \
+ /usr/include/bits/sigstack.h /usr/include/bits/sigstksz.h \
+ /usr/include/bits/ss_flags.h /usr/include/bits/types/struct_sigstack.h \
+ /usr/include/bits/pthreadtypes.h /usr/include/bits/thread-shared-types.h \
+ /usr/include/bits/pthreadtypes-arch.h \
+ /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
+ /usr/include/bits/struct_rwlock.h /usr/include/bits/sigthread.h \
+ /usr/include/bits/signal_ext.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/libc-header-start.h \
+ /usr/include/bits/wchar.h /usr/include/bits/stdint-intn.h \
+ /usr/include/bits/stdint-uintn.h /usr/include/bits/stdint-least.h \
+ /usr/include/string.h /usr/include/bits/types/locale_t.h \
+ /usr/include/bits/types/__locale_t.h /usr/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/arch/sim/src/chip/sim_internal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/arch/sim/src/config.h \
+ /usr/include/sys/types.h /usr/include/bits/types/clock_t.h \
+ /usr/include/bits/types/clockid_t.h /usr/include/bits/types/timer_t.h \
+ /usr/include/endian.h /usr/include/bits/byteswap.h \
+ /usr/include/bits/uintn-identity.h /usr/include/sys/select.h \
+ /usr/include/bits/select.h /usr/include/bits/types/struct_timeval.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdbool.h
+sim_hostmemory.o: sim/posix/sim_hostmemory.c /usr/include/stdc-predef.h \
+ /usr/include/errno.h /usr/include/features.h \
+ /usr/include/features-time64.h /usr/include/bits/wordsize.h \
+ /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-64.h /usr/include/bits/errno.h \
+ /usr/include/linux/errno.h /usr/include/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/fcntl.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h /usr/include/bits/time64.h \
+ /usr/include/bits/fcntl.h /usr/include/bits/fcntl-linux.h \
+ /usr/include/bits/types/struct_timespec.h /usr/include/bits/endian.h \
+ /usr/include/bits/endianness.h /usr/include/bits/types/time_t.h \
+ /usr/include/bits/stat.h /usr/include/bits/struct_stat.h \
+ /usr/include/unistd.h /usr/include/bits/posix_opt.h \
+ /usr/include/bits/environments.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
+ /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
+ /usr/include/bits/getopt_core.h /usr/include/bits/unistd_ext.h \
+ /usr/include/string.h /usr/include/bits/libc-header-start.h \
+ /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
+ /usr/include/strings.h /usr/include/stdlib.h \
+ /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
+ /usr/include/bits/floatn.h /usr/include/bits/floatn-common.h \
+ /usr/include/sys/types.h /usr/include/bits/types/clock_t.h \
+ /usr/include/bits/types/clockid_t.h /usr/include/bits/types/timer_t.h \
+ /usr/include/bits/stdint-intn.h /usr/include/endian.h \
+ /usr/include/bits/byteswap.h /usr/include/bits/uintn-identity.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/types/sigset_t.h /usr/include/bits/types/__sigset_t.h \
+ /usr/include/bits/types/struct_timeval.h \
+ /usr/include/bits/pthreadtypes.h /usr/include/bits/thread-shared-types.h \
+ /usr/include/bits/pthreadtypes-arch.h \
+ /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
+ /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
+ /usr/include/bits/stdlib-bsearch.h /usr/include/bits/types/once_flag.h \
+ /usr/include/bits/stdlib-float.h /usr/include/sys/mman.h \
+ /usr/include/bits/mman.h /usr/include/bits/mman-map-flags-generic.h \
+ /usr/include/bits/mman-linux.h /usr/include/bits/mman-shared.h \
+ /usr/include/bits/mman_ext.h /usr/include/sys/stat.h \
+ /usr/include/sys/queue.h /usr/include/malloc.h /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /usr/include/bits/types/__fpos_t.h /usr/include/bits/types/__mbstate_t.h \
+ /usr/include/bits/types/__fpos64_t.h /usr/include/bits/types/__FILE.h \
+ /usr/include/bits/types/FILE.h /usr/include/bits/types/struct_FILE.h \
+ /usr/include/bits/types/cookie_io_functions_t.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/stdio.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/arch/sim/src/chip/sim_internal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/arch/sim/src/config.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdbool.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/wchar.h \
+ /usr/include/bits/stdint-uintn.h /usr/include/bits/stdint-least.h
+sim_hostmisc.o: sim/posix/sim_hostmisc.c /usr/include/stdc-predef.h \
+ /usr/include/errno.h /usr/include/features.h \
+ /usr/include/features-time64.h /usr/include/bits/wordsize.h \
+ /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-64.h /usr/include/bits/errno.h \
+ /usr/include/linux/errno.h /usr/include/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h \
+ /usr/include/limits.h /usr/include/bits/libc-header-start.h \
+ /usr/include/bits/posix1_lim.h /usr/include/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/bits/pthread_stack_min-dynamic.h \
+ /usr/include/bits/pthread_stack_min.h /usr/include/bits/posix2_lim.h \
+ /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/bits/time64.h /usr/include/bits/types/__fpos_t.h \
+ /usr/include/bits/types/__mbstate_t.h \
+ /usr/include/bits/types/__fpos64_t.h /usr/include/bits/types/__FILE.h \
+ /usr/include/bits/types/FILE.h /usr/include/bits/types/struct_FILE.h \
+ /usr/include/bits/types/cookie_io_functions_t.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/floatn.h \
+ /usr/include/bits/floatn-common.h /usr/include/bits/stdio.h \
+ /usr/include/spawn.h /usr/include/sched.h \
+ /usr/include/bits/types/time_t.h \
+ /usr/include/bits/types/struct_timespec.h /usr/include/bits/endian.h \
+ /usr/include/bits/endianness.h /usr/include/bits/sched.h \
+ /usr/include/bits/types/struct_sched_param.h /usr/include/bits/cpu-set.h \
+ /usr/include/sys/types.h /usr/include/bits/types/clock_t.h \
+ /usr/include/bits/types/clockid_t.h /usr/include/bits/types/timer_t.h \
+ /usr/include/bits/stdint-intn.h /usr/include/endian.h \
+ /usr/include/bits/byteswap.h /usr/include/bits/uintn-identity.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/types/sigset_t.h /usr/include/bits/types/__sigset_t.h \
+ /usr/include/bits/types/struct_timeval.h \
+ /usr/include/bits/pthreadtypes.h /usr/include/bits/thread-shared-types.h \
+ /usr/include/bits/pthreadtypes-arch.h \
+ /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
+ /usr/include/bits/struct_rwlock.h /usr/include/bits/spawn_ext.h \
+ /usr/include/stdlib.h /usr/include/bits/waitflags.h \
+ /usr/include/bits/waitstatus.h /usr/include/alloca.h \
+ /usr/include/bits/stdlib-bsearch.h /usr/include/bits/types/once_flag.h \
+ /usr/include/bits/stdlib-float.h /usr/include/string.h \
+ /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
+ /usr/include/strings.h /usr/include/unistd.h \
+ /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
+ /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
+ /usr/include/bits/getopt_core.h /usr/include/bits/unistd_ext.h \
+ /usr/include/sys/wait.h /usr/include/signal.h \
+ /usr/include/bits/signum-generic.h /usr/include/bits/signum-arch.h \
+ /usr/include/bits/types/sig_atomic_t.h \
+ /usr/include/bits/types/siginfo_t.h /usr/include/bits/types/__sigval_t.h \
+ /usr/include/bits/siginfo-arch.h /usr/include/bits/siginfo-consts.h \
+ /usr/include/bits/types/sigval_t.h /usr/include/bits/types/sigevent_t.h \
+ /usr/include/bits/sigevent-consts.h /usr/include/bits/sigaction.h \
+ /usr/include/bits/sigcontext.h /usr/include/bits/types/stack_t.h \
+ /usr/include/sys/ucontext.h /usr/include/bits/sigstack.h \
+ /usr/include/bits/sigstksz.h /usr/include/bits/ss_flags.h \
+ /usr/include/bits/types/struct_sigstack.h /usr/include/bits/sigthread.h \
+ /usr/include/bits/signal_ext.h /usr/include/bits/types/idtype_t.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/arch/sim/src/chip/sim_internal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/arch/sim/src/config.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdbool.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/wchar.h \
+ /usr/include/bits/stdint-uintn.h /usr/include/bits/stdint-least.h
+sim_hosttime.o: sim/posix/sim_hosttime.c /usr/include/stdc-predef.h \
+ /usr/include/errno.h /usr/include/features.h \
+ /usr/include/features-time64.h /usr/include/bits/wordsize.h \
+ /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-64.h /usr/include/bits/errno.h \
+ /usr/include/linux/errno.h /usr/include/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/signal.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h /usr/include/bits/time64.h \
+ /usr/include/bits/signum-generic.h /usr/include/bits/signum-arch.h \
+ /usr/include/bits/types/sig_atomic_t.h \
+ /usr/include/bits/types/sigset_t.h /usr/include/bits/types/__sigset_t.h \
+ /usr/include/bits/types/struct_timespec.h /usr/include/bits/endian.h \
+ /usr/include/bits/endianness.h /usr/include/bits/types/time_t.h \
+ /usr/include/bits/types/siginfo_t.h /usr/include/bits/types/__sigval_t.h \
+ /usr/include/bits/siginfo-arch.h /usr/include/bits/siginfo-consts.h \
+ /usr/include/bits/types/sigval_t.h /usr/include/bits/types/sigevent_t.h \
+ /usr/include/bits/sigevent-consts.h /usr/include/bits/sigaction.h \
+ /usr/include/bits/sigcontext.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
+ /usr/include/bits/types/stack_t.h /usr/include/sys/ucontext.h \
+ /usr/include/bits/sigstack.h /usr/include/bits/sigstksz.h \
+ /usr/include/bits/ss_flags.h /usr/include/bits/types/struct_sigstack.h \
+ /usr/include/bits/pthreadtypes.h /usr/include/bits/thread-shared-types.h \
+ /usr/include/bits/pthreadtypes-arch.h \
+ /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
+ /usr/include/bits/struct_rwlock.h /usr/include/bits/sigthread.h \
+ /usr/include/bits/signal_ext.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdbool.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/libc-header-start.h \
+ /usr/include/bits/wchar.h /usr/include/bits/stdint-intn.h \
+ /usr/include/bits/stdint-uintn.h /usr/include/bits/stdint-least.h \
+ /usr/include/sys/time.h /usr/include/bits/types/struct_timeval.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h /usr/include/time.h \
+ /usr/include/bits/time.h /usr/include/bits/types/clock_t.h \
+ /usr/include/bits/types/struct_tm.h /usr/include/bits/types/clockid_t.h \
+ /usr/include/bits/types/timer_t.h \
+ /usr/include/bits/types/struct_itimerspec.h \
+ /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
+ /usr/include/unistd.h /usr/include/bits/posix_opt.h \
+ /usr/include/bits/environments.h /usr/include/bits/confname.h \
+ /usr/include/bits/getopt_posix.h /usr/include/bits/getopt_core.h \
+ /usr/include/bits/unistd_ext.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/arch/sim/src/chip/sim_internal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/arch/sim/src/config.h \
+ /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/bits/byteswap.h /usr/include/bits/uintn-identity.h
+sim_hostuart.o: sim/posix/sim_hostuart.c /usr/include/stdc-predef.h \
+ /usr/include/fcntl.h /usr/include/features.h \
+ /usr/include/features-time64.h /usr/include/bits/wordsize.h \
+ /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-64.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h /usr/include/bits/time64.h \
+ /usr/include/bits/fcntl.h /usr/include/bits/fcntl-linux.h \
+ /usr/include/bits/types/struct_timespec.h /usr/include/bits/endian.h \
+ /usr/include/bits/endianness.h /usr/include/bits/types/time_t.h \
+ /usr/include/bits/stat.h /usr/include/bits/struct_stat.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdbool.h \
+ /usr/include/unistd.h /usr/include/bits/posix_opt.h \
+ /usr/include/bits/environments.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
+ /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
+ /usr/include/bits/getopt_core.h /usr/include/bits/unistd_ext.h \
+ /usr/include/string.h /usr/include/bits/libc-header-start.h \
+ /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
+ /usr/include/strings.h /usr/include/stdlib.h \
+ /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
+ /usr/include/bits/floatn.h /usr/include/bits/floatn-common.h \
+ /usr/include/sys/types.h /usr/include/bits/types/clock_t.h \
+ /usr/include/bits/types/clockid_t.h /usr/include/bits/types/timer_t.h \
+ /usr/include/bits/stdint-intn.h /usr/include/endian.h \
+ /usr/include/bits/byteswap.h /usr/include/bits/uintn-identity.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/types/sigset_t.h /usr/include/bits/types/__sigset_t.h \
+ /usr/include/bits/types/struct_timeval.h \
+ /usr/include/bits/pthreadtypes.h /usr/include/bits/thread-shared-types.h \
+ /usr/include/bits/pthreadtypes-arch.h \
+ /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
+ /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
+ /usr/include/bits/stdlib-bsearch.h /usr/include/bits/types/once_flag.h \
+ /usr/include/bits/stdlib-float.h /usr/include/termios.h \
+ /usr/include/bits/termios.h /usr/include/bits/termios-struct.h \
+ /usr/include/bits/termios-c_cc.h /usr/include/bits/termios-c_iflag.h \
+ /usr/include/bits/termios-c_oflag.h /usr/include/bits/termios-c_cflag.h \
+ /usr/include/bits/termios-cbaud.h /usr/include/bits/termios-c_lflag.h \
+ /usr/include/bits/termios-tcflow.h /usr/include/bits/termios-misc.h \
+ /usr/include/bits/termios-baud.h /usr/include/sys/ttydefaults.h \
+ /usr/include/poll.h /usr/include/sys/poll.h /usr/include/bits/poll.h \
+ /usr/include/errno.h /usr/include/bits/errno.h \
+ /usr/include/linux/errno.h /usr/include/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/arch/sim/src/chip/sim_internal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/arch/sim/src/config.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/wchar.h \
+ /usr/include/bits/stdint-uintn.h /usr/include/bits/stdint-least.h
+sim_hostfs.o: sim/posix/sim_hostfs.c /usr/include/stdc-predef.h \
+ /usr/include/sys/types.h /usr/include/features.h \
+ /usr/include/features-time64.h /usr/include/bits/wordsize.h \
+ /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-64.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h /usr/include/bits/time64.h \
+ /usr/include/bits/types/clock_t.h /usr/include/bits/types/clockid_t.h \
+ /usr/include/bits/types/time_t.h /usr/include/bits/types/timer_t.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
+ /usr/include/bits/stdint-intn.h /usr/include/endian.h \
+ /usr/include/bits/endian.h /usr/include/bits/endianness.h \
+ /usr/include/bits/byteswap.h /usr/include/bits/uintn-identity.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/types/sigset_t.h /usr/include/bits/types/__sigset_t.h \
+ /usr/include/bits/types/struct_timeval.h \
+ /usr/include/bits/types/struct_timespec.h \
+ /usr/include/bits/pthreadtypes.h /usr/include/bits/thread-shared-types.h \
+ /usr/include/bits/pthreadtypes-arch.h \
+ /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
+ /usr/include/bits/struct_rwlock.h /usr/include/sys/stat.h \
+ /usr/include/bits/stat.h /usr/include/bits/struct_stat.h \
+ /usr/include/sys/statvfs.h /usr/include/bits/statvfs.h \
+ /usr/include/sys/ioctl.h /usr/include/bits/ioctls.h \
+ /usr/include/asm/ioctls.h /usr/include/asm-generic/ioctls.h \
+ /usr/include/linux/ioctl.h /usr/include/asm/ioctl.h \
+ /usr/include/asm-generic/ioctl.h /usr/include/linux/sockios.h \
+ /usr/include/asm/bitsperlong.h /usr/include/asm-generic/bitsperlong.h \
+ /usr/include/asm/sockios.h /usr/include/asm-generic/sockios.h \
+ /usr/include/bits/ioctl-types.h /usr/include/sys/ttydefaults.h \
+ /usr/include/dirent.h /usr/include/bits/dirent.h \
+ /usr/include/bits/posix1_lim.h /usr/include/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/bits/pthread_stack_min-dynamic.h \
+ /usr/include/bits/pthread_stack_min.h /usr/include/bits/dirent_ext.h \
+ /usr/include/stdio.h /usr/include/bits/libc-header-start.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /usr/include/bits/types/__fpos_t.h /usr/include/bits/types/__mbstate_t.h \
+ /usr/include/bits/types/__fpos64_t.h /usr/include/bits/types/__FILE.h \
+ /usr/include/bits/types/FILE.h /usr/include/bits/types/struct_FILE.h \
+ /usr/include/bits/types/cookie_io_functions_t.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/floatn.h \
+ /usr/include/bits/floatn-common.h /usr/include/bits/stdio.h \
+ /usr/include/unistd.h /usr/include/bits/posix_opt.h \
+ /usr/include/bits/environments.h /usr/include/bits/confname.h \
+ /usr/include/bits/getopt_posix.h /usr/include/bits/getopt_core.h \
+ /usr/include/bits/unistd_ext.h /usr/include/string.h \
+ /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
+ /usr/include/strings.h /usr/include/fcntl.h /usr/include/bits/fcntl.h \
+ /usr/include/bits/fcntl-linux.h /usr/include/errno.h \
+ /usr/include/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/asm/errno.h /usr/include/asm-generic/errno.h \
+ /usr/include/asm-generic/errno-base.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/arch/sim/src/hostfs.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/arch/sim/src/config.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/wchar.h \
+ /usr/include/bits/stdint-uintn.h /usr/include/bits/stdint-least.h
+sim_x11framebuffer.o: sim/posix/sim_x11framebuffer.c \
+ /usr/include/stdc-predef.h /usr/include/stdio.h \
+ /usr/include/bits/libc-header-start.h /usr/include/features.h \
+ /usr/include/features-time64.h /usr/include/bits/wordsize.h \
+ /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/bits/time64.h /usr/include/bits/types/__fpos_t.h \
+ /usr/include/bits/types/__mbstate_t.h \
+ /usr/include/bits/types/__fpos64_t.h /usr/include/bits/types/__FILE.h \
+ /usr/include/bits/types/FILE.h /usr/include/bits/types/struct_FILE.h \
+ /usr/include/bits/types/cookie_io_functions_t.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/floatn.h \
+ /usr/include/bits/floatn-common.h /usr/include/bits/stdio.h \
+ /usr/include/stdlib.h /usr/include/bits/waitflags.h \
+ /usr/include/bits/waitstatus.h /usr/include/sys/types.h \
+ /usr/include/bits/types/clock_t.h /usr/include/bits/types/clockid_t.h \
+ /usr/include/bits/types/time_t.h /usr/include/bits/types/timer_t.h \
+ /usr/include/bits/stdint-intn.h /usr/include/endian.h \
+ /usr/include/bits/endian.h /usr/include/bits/endianness.h \
+ /usr/include/bits/byteswap.h /usr/include/bits/uintn-identity.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/types/sigset_t.h /usr/include/bits/types/__sigset_t.h \
+ /usr/include/bits/types/struct_timeval.h \
+ /usr/include/bits/types/struct_timespec.h \
+ /usr/include/bits/pthreadtypes.h /usr/include/bits/thread-shared-types.h \
+ /usr/include/bits/pthreadtypes-arch.h \
+ /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
+ /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
+ /usr/include/bits/stdlib-bsearch.h /usr/include/bits/types/once_flag.h \
+ /usr/include/bits/stdlib-float.h /usr/include/string.h \
+ /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
+ /usr/include/strings.h /usr/include/syslog.h /usr/include/sys/syslog.h \
+ /usr/include/bits/syslog-path.h /usr/include/errno.h \
+ /usr/include/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/asm/errno.h /usr/include/asm-generic/errno.h \
+ /usr/include/asm-generic/errno-base.h /usr/include/X11/Xlib.h \
+ /usr/include/X11/X.h /usr/include/X11/Xfuncproto.h \
+ /usr/include/X11/Xosdefs.h /usr/include/X11/Xutil.h \
+ /usr/include/X11/keysym.h /usr/include/X11/keysymdef.h \
+ /usr/include/sys/ipc.h /usr/include/bits/ipctypes.h \
+ /usr/include/bits/ipc.h /usr/include/bits/ipc-perm.h \
+ /usr/include/sys/shm.h /usr/include/bits/shm.h \
+ /usr/include/bits/shmlba.h /usr/include/bits/types/struct_shmid_ds.h \
+ /usr/include/bits/types/struct_shmid64_ds.h \
+ /usr/include/X11/extensions/XShm.h /usr/include/X11/extensions/shm.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/arch/sim/src/chip/sim_internal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/arch/sim/src/config.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdbool.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
+ /usr/include/stdint.h /usr/include/bits/wchar.h \
+ /usr/include/bits/stdint-uintn.h /usr/include/bits/stdint-least.h

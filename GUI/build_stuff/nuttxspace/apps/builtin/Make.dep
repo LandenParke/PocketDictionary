@@ -1,0 +1,44 @@
+builtin_list.c.mnt.jefuty.110_estudiar.2026_summer_JAPAN.perfprog.nuttxspace.apps.builtin.o: \
+ builtin_list.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/lib/builtin.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/param.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/stat.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ builtin_proto.h builtin_list.h
+exec_builtin.c.mnt.jefuty.110_estudiar.2026_summer_JAPAN.perfprog.nuttxspace.apps.builtin.o: \
+ exec_builtin.c /usr/include/stdc-predef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/config.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/spawn.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/compiler.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdint.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/types.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/inttypes.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/arch/limits.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sched.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stdbool.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/strings.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/string.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/stddef.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/alloca.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/time.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/signal.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/fcntl.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/errno.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/debug.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/syslog.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/sys/uio.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/apps/include/builtin/builtin.h \
+ /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/nuttxspace/nuttx/include/nuttx/lib/builtin.h
+# No files specified for dependency generation
+# No files specified for dependency generation
