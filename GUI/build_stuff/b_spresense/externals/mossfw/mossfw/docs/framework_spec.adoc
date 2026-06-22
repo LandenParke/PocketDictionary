@@ -1,0 +1,2361 @@
+= Motion Sensor Software Framework Specification
+Copyright 2023 Sony Semiconductor Solutions Corporatation
+v1.0.0, 2023-03-07
+:sectnums:
+:toc:
+:table-caption: Table
+:figure-caption: figure
+:stem: latexmath
+:doctype: book
+:mathematical-format: svg
+:scripts: cjk
+:pdf-theme: framework_theme.yml
+:chapter-signifier: 
+:xrefstyle: short
+:toc-title: Table of Contents
+:chapter-refsig: Chapter
+:section-refsig:
+:appendix-caption: Appendix
+:appendix-refsig: Appendix
+:toclevels: 4
+:sectnumlevels: 4
+:docinfo: shared
+:data-uri:
+
+== Summary
+
+=== Purpose
+
+This document describes the software feature specifications of the Framework.
+Describe the configuration, behavior and interfaces of the Framework from an external perspective.
+
+=== License
+
+All the source code, including documentation, is licensed under the Apache License, Version 2.0.
+
+=== Possible Readers
+
+<<tableid_reader>> lists the probable readers of this book.
+
+[#tableid_reader]
+[cols="1,2"]
+.Possible readers
+|===
+|Reader |Description
+
+|This Framework Implementer
+|This book serves as input
+|===
+
+=== Notation
+
+<<tableid_description>> lists the notations used in this manual.
+
+[#tableid_description]
+[cols="1,2"]
+.List of notations
+|===
+|Notation |Description
+
+|FIXME
+|Indicates that listed specifications will change
+
+|TODO
+|indicates that it will be described later
+
+|NOTE
+|Show information
+
+|IMPORTANT
+|Show important information
+|===
+
+== System configuration
+
+=== Software Configuration
+
+The Framework, which runs on Linux or NuttX, acts as a library that continues to provide applications with the results of operations performed on sensor data.
+
+.Software configuration
+[graphviz, format=svg, align=center]
+....
+graph swstruct {
+    node1 [
+        shape=plaintext
+        label = <
+        <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td colspan="9" border="1">Application</td>
+        </tr>
+        <tr>
+            <td colspan="9" border="0" fixedsize="true" height="10" width="300"></td>
+        </tr>
+        <tr>
+            <td colspan="6" border="1" height="30" bgcolor="#318C3A" color="#216528">
+                <font color="white">Framework</font>
+            </td>
+            <td colspan="3" border="1">SensorLIB</td>
+        </tr>
+        <tr>
+            <td colspan="9" border="0" fixedsize="true" height="10" width="300"></td>
+        </tr>
+        <tr>
+            <td colspan="9" border="1" height="30">Linux / Nuttx</td>
+        </tr>
+        <tr>
+            <td colspan="3" border="1">driver</td>
+            <td colspan="3" border="1">driver</td>
+            <td colspan="3" border="1">driver</td>
+        </tr>
+        <tr>
+            <td colspan="9" border="0" fixedsize="true" height="10" width="300"></td>
+        </tr>
+        <tr>
+            <td border="0" fixedsize="true" height="20" width="20"></td>
+            <td border="1" fixedsize="true" height="20" width="60" bgcolor="lightgray">sensor</td>
+            <td border="0" fixedsize="true" height="20" width="20"></td>
+            <td border="0" fixedsize="true" height="20" width="20"></td>
+            <td border="1" fixedsize="true" height="20" width="60" bgcolor="lightgray">sensor</td>
+            <td border="0" fixedsize="true" height="20" width="20"></td>
+            <td border="0" fixedsize="true" height="20" width="20"></td>
+            <td border="1" fixedsize="true" height="20" width="60" bgcolor="lightgray">sensor</td>
+            <td border="0" fixedsize="true" height="20" width="20"></td>
+        </tr>
+        </table>
+        >
+    ]
+}
+....
+
+. Interface with applications
+* C language
+
+. Execution Environment
+* Linux
+* NuttX
+
+== Functional specifications
+
+=== Features
+
+==== Framework
+
+The Framework performs operations on data continuously coming in from multiple types of sensors and continuously outputs the results.
+Operations are constructed by dynamically combining multiple components that perform operations in a pipelined fashion.
+
+[graphviz, format=svg, align=center]
+.Example of a pipeline
+--
+digraph component {
+    rankdir=LR
+    compound=true
+    sensor0 [shape=box, label="sensor0", style=filled, color=lightgray]
+    sensor1 [shape=box, label="sensor1", style=filled, color=lightgray]
+    sensor2 [shape=box, label="sensor2", style=filled, color=lightgray]
+    component0 [shape=box, label="component0" style=rounded]
+    component1 [shape=box, label="component1" style=rounded]
+    component2 [shape=box, label="component2" style=rounded]
+    component3 [shape=box, label="component3" style=rounded]
+    component4 [shape=box, label="component4" style=rounded]
+    component5 [shape=box, label="component5" style=rounded]
+    application [shape=box, label="application", style=filled, color=lightgray]
+    sensor0 -> component0
+    sensor1 -> component1
+    sensor2 -> component2
+    component0 -> component3
+    component1 -> component3
+    component2 -> component3
+    component3 -> component4
+    component3 -> component5
+    component4 -> application
+    component5 -> application
+}
+--
+
+Framework features include:
+
+.Features
+* Ability to generate components
+* Ability to connect a component's output to another component's input
+* Ability to continuously output calculation results of sensor data obtained by combination of components
+* Ability to control input and output of data between connected components
+* Ability to perform operations on some components in parallel
+
+NOTE: Component connections can not be changed while data is being processed continuously.
+
+==== Components
+
+A component consists of a part for inputting data into the component, a part for performing an operation on the input data, and a part for outputting the result of the operation. Input has a queue, and input data is stored in the queue. When the specified accumulation amount is reached, the part to perform the operation is called. You do the arithmetic in it, send the data to the output, and the Framework sends it to the destination.
+
+Operations performed within a component are performed by functions provided outside the Framework and associated with the component at the time of component creation being called from the Framework.
+This function shall have the C interface specified in the Framework specification.
+
+<<graphid_component>> provides examples of components. In stands for input, op for operation and out for output.
+The output can be connected to multiple inputs.
+It can be executed asynchronously when outputting data from an operation.
+
+[#graphid_component]
+[graphviz, format=svg, align=center]
+.Examples of Components
+--
+digraph component {
+    rankdir=LR
+    compound=true
+    sensor0 [shape=box, style=filled, color="#CF1111", fontcolor="white"]
+    sensor1 [shape=box, style=filled, color="#CF1111", fontcolor="white"]
+    sensor2 [shape=box, style=filled, color="#CF1111", fontcolor="white"]
+    subgraph cluster0 {
+            in0 [shape=box, style=filled, color="#1952A6", fontcolor="white"]
+            in1 [shape=box, style=filled, color="#1952A6", fontcolor="white"]
+            in2 [shape=box, style=filled, color="#1952A6", fontcolor="white"]
+            op0 [shape=box, label="op0"]
+            out0 [shape=box, label="out0", style=filled, color="#CF1111", fontcolor="white"]
+            out1 [shape=box, label="out1", style=filled, color="#CF1111", fontcolor="white"]
+        in0 -> op0
+        in1 -> op0
+        in2 -> op0
+        op0 ->out0
+        op0 ->out1 [color="#216528", label="async", fontcolor="#216528"]
+        label="component0";
+        style=rounded;
+    }
+    subgraph cluster3 {
+        label="component3"
+        style=rounded
+        in3 [shape=box, style=filled, color="#1952A6", fontcolor="white"]
+        op3 [shape=box]
+        in3 -> op3
+    }
+    subgraph cluster4 {
+        label="component4"
+        style=rounded
+        in4 [shape=box, style=filled, color="#1952A6", fontcolor="white"]
+        op4 [shape=box]
+        in4 -> op4
+    }
+    subgraph cluster5 {
+        label="component5"
+        style=rounded
+        in5 [shape=box, style=filled, color="#1952A6", fontcolor="white"]
+        op5 [shape=box]
+        in5 -> op5 [color="#216528"]
+    }
+    sensor0 -> in0;
+    sensor1 -> in1;
+    sensor2 -> in2;
+    out0 -> in3;
+    out0 -> in4;
+    out1 -> in5 [color="#216528"]
+}
+--
+
+==== Input-Output Between Components
+
+Data input and output between components are shown in <<graphid_componentio>>. Data sent to an output using xref:_mossfw_deliver_data[xrefstyle=basic] or xref:_mossfw_deliver_dataarray[xrefstyle=basic] is immediately queued by the Framework to the input of the destination. If the data accumulated in the input queue exceeds a threshold, further component operations are called. When data is used in a component operation, if xref:_mossfw_get_delivereddata_single[xrefstyle=basic] or xref:_mossfw_get_delivereddata_array[xrefstyle=basic] is called to retrieve data from the input queue, the data is removed from the input queue.
+
+[#graphid_componentio]
+[graphviz, format=svg, align=center]
+.Flow of data between components
+--
+digraph component {
+    rankdir=LR
+    subgraph cluster0 {
+        label="component0"
+        style=rounded
+        op0 [shape=box]
+        out0 [shape=box, label="out0", style=filled, color="#CF1111", fontcolor="white"]
+	op0 -> out0 [label="mossfw_deliver_data\nmossfw_deliver_dataarray"]
+    }
+    subgraph cluster1 {
+        label="component1"
+        style=rounded
+        in1 [
+            shape=box
+	    style=filled
+	    color="#1952A6"
+	    fontcolor="white"
+            label = <
+                <table color="#216528" border="0" cellspacing="0">
+                    <tr>
+                        <td border="0" colspan="3">in1</td>
+                    </tr>
+                    <tr>
+                        <td border="1" fixedsize="true" width="10" height="10" bgcolor="white"></td>
+                        <td border="1" fixedsize="true" width="10" height="10" bgcolor="white"></td>
+                        <td border="1" fixedsize="true" width="10" height="10" bgcolor="#318C3A"></td>
+                    </tr>
+                </table>
+            >
+        ]  
+        op1 [shape=box]
+        in1 -> op1 [label="mossfw_get_delivereddata_single/array"]
+    }
+    subgraph cluster2 {
+        label="component2"
+        style=rounded
+        in2 [
+            shape=box
+	    style=filled
+	    color="#1952A6"
+	    fontcolor="white"
+            label = <
+                <table color="#216528" border="0" cellspacing="0">
+                    <tr>
+                        <td border="0" colspan="3">in2</td>
+                    </tr>
+                    <tr>
+                        <td border="1" fixedsize="true" width="10" height="10" bgcolor="white"></td>
+                        <td border="1" fixedsize="true" width="10" height="10" bgcolor="white"></td>
+                        <td border="1" fixedsize="true" width="10" height="10" bgcolor="#318C3A"></td>
+                    </tr>
+                </table>
+            >
+        ]  
+        op2 [shape=box]
+        in2 -> op2 [label="mossfw_get_delivereddata_single/array"]
+    }
+    out0 -> in1
+    out0 -> in2
+}
+--
+
+There are two ways to pass data from a component's output to a component's input:
+
+single data:: Copy output data to next input
+array data:: pass dynamically allocated memory space to the next input
+
+These methods depend on the APIs and parameters listed in <<tableid_singlearray_api>>.
+
+:xrefstyle: basic
+[#tableid_singlearray_api]
+[cols="1,1,1"]
+.single / array APIs and parameters to use
+|===
+|API and parameters |For single |For array
+
+|API to send data to output object
+|mossfw_deliver_data
+|mossfw_deliver_dataarray
+
+|API to retrieve data from input queue
+|mossfw_get_delivereddata_single
+|mossfw_get_delivereddata_array
+
+|Flags to use for the <<_mossfw_input_create>> and <<_mossfw_output_create>> arguments type
+|MOSSFW_DATA_TYPEARRAY_SINGLE
+|MOSSFW_DATA_TYPEARRAY_ARRAY
+|===
+
+==== Memory Management for array Data
+
+When using array data to input and output data between components, dynamically allocated memory areas are used using memory allocators. Memory allocator is a function that allocates memory areas collectively at the time of initialization and divides them into fixed-length blocks within the Framework to allocate and free memory for components. Proper block sizing can prevent memory fragmentation.
+
+Because the memory allocated by the memory allocator is referenced across multiple components, it is difficult to map between allocation and release. Therefore, reference counters are used to manage allocations and releases. A reference counter is a variable that exists one for each dynamically allocated memory area and holds the number of locations referencing that memory. The number of references to memory is managed as follows:
+
+* Allocating a new memory area by calling <<_mossfw_data_alloc>> increases the reference counter by 1. When it finishes referring to that memory, it calls <<_mossfw_data_free>> to reduce the reference counter by one. (<<sourceid_alloc>>)
+* When <<_mossfw_get_delivereddata_array>> is called to retrieve data from the input queue, the reference counter is incremented by 1. When it finishes referring to that memory, it calls <<_mossfw_data_free>> to reduce the reference counter by one. (<<sourceid_get_delivereddata>>)
+* If there is a reference to a memory region in the formal argument of the function, the reference counter is incremented by one by calling <<_mossfw_data_refer>> when the function starts. When the function exits, it calls <<_mossfw_data_free>> to reduce the reference counter by one. (<<sourceid_sensordata>>)
+* Increase the reference counter by 1 by calling <<_mossfw_data_refer>> when starting a new reference to the memory region. When it finishes referring to that memory, it calls <<_mossfw_data_free>> to reduce the reference counter by one.
+
+[#sourceid_alloc]
+[source, C]
+.Example of Using mossfw_data_alloc
+----
+void example_alloc(mossfw_allocator_t *alloc)
+{
+    mossfw_data_t *data;
+    data = mossfw_data_alloc(alloc);
+    /* process data */
+    mossfw_data_free(data);
+}
+----
+
+[#sourceid_get_delivereddata]
+[source, C]
+.Example of Using mossfw_get_delivereddata_array
+----
+void example_get_delivereddata(mossfw_input_t *input, int size)
+{
+    mossfw_data_t *data;
+    int *used;
+
+    data = mossfw_get_delivereddata_array(input, size, used); // increment
+    /* process data */
+    mossfw_data_free(data); // decrement
+}
+----
+
+[#sourceid_sensordata]
+[source, C]
+.Example of Using Memory Space in Formal Arguments
+----
+void example_sensordata(mossfw_data_t *data)
+{
+    mossfw_data_refer(data); // increment
+    call(data);
+    mossfw_data_free(data); // decrement
+}
+----
+
+If <<_mossfw_data_free>> is called and the value of the reference counter becomes zero, this means that this memory area is no longer referenced anywhere, so the memory area is freed.
+
+=== Operation
+:xrefstyle: short
+
+Here is an example of operation in a component configuration such as <<graphid_sequence_component>>.
+
+[#graphid_sequence_component]
+[graphviz, format=svg, align=center]
+.Component configuration used to explain operation
+--
+digraph component {
+    rankdir=LR
+    compound=true
+    sensor0 [shape=box, label="Sensor0", style=filled, color=lightgray]
+    component1 [shape=box, label="Component1" style=rounded]
+    component2 [shape=box, label="Component2" style=rounded]
+    sensor0 -> component1
+    component1 -> component2
+}
+--
+
+==== Generating Components
+
+[plantuml, format=svg, align=center]
+.Sequence of component generation
+--
+@startuml
+autoactivate on
+skinparam responseMessageBelowArrow true
+participant Application order 0
+participant Sensor0     order 1
+participant Framework   order 2
+alt array data
+    Application -> Framework: mossfw_fixedmem_create
+    return allocator
+end
+Sensor0 -> Framework: mossfw_output_create
+return out0
+Application -> Framework: mossfw_input_create
+return in1
+Application -> Framework: mossfw_callback_op_create
+return op1
+Application -> Framework: mossfw_output_create
+return out1
+Application -> Framework: mossfw_set_waitcondition(in1, size, op1)
+return
+Application -> Framework: mossfw_input_create
+return in2
+Application -> Framework: mossfw_callback_op_create
+return op2
+Application -> Framework: mossfw_set_waitcondition(in2, size, op2)
+return
+@enduml
+--
+
+==== Connecting Components
+[plantuml, format=svg, align=center]
+.Sequence of connections between components
+--
+@startuml
+autoactivate on
+skinparam responseMessageBelowArrow true
+Application -> Framework: mossfw_bind_inout (out0, in1, type)
+return
+skinparam responseMessageBelowArrow true
+Application -> Framework: mossfw_bind_inout (out1, in2, type)
+return
+@enduml
+--
+
+==== Processing Sensor Data
+
+[plantuml, format=svg, align=center]
+.Sequence of sensor data processing
+--
+@startuml
+participant Application order 0
+participant Sensor0     order 1
+participant Framework   order 2
+participant Component1  order 3
+participant Component2  order 4
+loop
+    alt array data
+        Application -> Framework: mossfw_data_alloc(allocator)
+	activate Framework
+        return data
+    end
+    alt array data
+        Sensor0 -> Framework: fw_deliver_dataarray(out0, data)
+	activate Framework
+    else single data
+        Sensor0 -> Framework: mossfw_deliver_data(out0, data)
+    end
+    note over Framework: data is added to the queue of in1
+    ref over Framework, Component1, Component2: sequence of Component1 and Component2
+    return
+    alt array data
+        Application -> Framework: mossfw_data_free(data)
+        return
+    end
+end
+@enduml
+--
+
+==== Component Operations
+
+The sequence of Component 1 and Component 2 shown in <<Processing Sensor Data>> is shown.
+
+[plantuml, format=svg, align=center]
+.Sequence of operations for Component 1 and Component 2
+--
+@startuml
+mainframe: sequence of Component1 and Component2
+participant Framework   order 1
+participant Component1  order 2
+participant Component2  order 3
+    activate Framework
+    Framework  -> Component1: call
+    activate Component1
+        alt array data
+            Component1 -> Framework: mossfw_get_delivereddata_array(in1, data)
+            activate Framework
+        else single data
+            Component1 -> Framework: mossfw_get_delivereddata_single(in1, data)
+        end
+        note over Framework: data is removed from the queue of in1
+        return data
+        note over Component1: process data
+        alt array data
+            Component1 -> Framework: mossfw_deliver_dataarray(out1, data)
+            activate Framework
+        else single data
+            Component1 -> Framework: mossfw_deliver_data(out1, data)
+        end
+        note over Framework: data is added to the queue of in2
+        ref over Framework, Component2
+            sequence of Component2
+	end ref
+        return
+        alt array data
+            Component1 -> Framework: mossfw_data_free(data)
+            activate Framework
+            return
+        end
+    return
+@enduml
+--
+
+[plantuml, format=svg, align=center]
+.Sequence of operations for Component2
+--
+@startuml
+mainframe: sequence of Component2
+participant Framework   order 1
+participant Component2  order 2
+    activate Framework
+    ?-[#white]> Framework:
+    activate Framework
+        Framework  -> Component2: call
+            activate Component2
+            alt array data
+                Component2 -> Framework: mossfw_get_delivereddata_array(in2, data)
+                activate Framework
+            else single data
+                Component2 -> Framework: mossfw_get_delivereddata_single(in2, data)
+            end
+            note over Framework: data is removed from the queue of in2
+            return data
+            note over Component2: process data
+            alt array data
+                Component2 -> Framework: mossfw_data_free(data)
+                activate Framework
+                return
+            end
+        return
+    return
+@enduml
+--
+==== Releasing a Component
+
+[plantuml, format=svg, align=center]
+.Component release sequence
+--
+@startuml
+skinparam responseMessageBelowArrow true
+
+participant Application order 0
+participant Sensor      order 1
+participant Framework   order 2
+
+Application -> Framework: mossfw_input_delete(in2)
+activate Framework
+return
+Application -> Framework: mossfw_callback_op_delete(op2)
+activate Framework
+return
+
+Application -> Framework: mossfw_input_create(in1)
+activate Framework
+return
+Application -> Framework: mossfw_output_create(out1)
+activate Framework
+return
+Application -> Framework: mossfw_callback_op_create(op1)
+activate Framework
+return
+
+Application -> Framework: mossfw_output_create(out0)
+activate Framework
+return
+
+alt array data
+    Sensor -> Framework: mossfw_fixedmem_create
+    activate Framework
+    return allocator
+end
+
+@enduml
+--
+
+== Constant
+
+=== MOSSFW_DATA OFFSET
+:xrefstyle: basic
+
+Define the positions of the bits assigned to each element of the data type used in the arguments type of <<_mossfw_input_create>> and <<_mossfw_output_create>> and member type of the structure <<_mossfw_input_t>> <<_mossfw_output_t>>.
+The value is expressed as a left-shifted value from the least significant bit of type.
+
+[cols="45,15,40"]
+.the position of the bits assigned to each element of the data type
+|===
+|Macro name |Definition |Description
+
+|MOSSFW_DATA_TYPE_OFFSET
+|0
+|Least significant bit position of the element's data type
+
+|MOSSFW_DATA_TYPEGRP_OFFSET
+|4
+|Least significant bit position of the data structure
+
+|MOSSFW_DATA_TYPENAME_OFFSET
+|12
+|Least significant bit position of the sensor type
+
+|MOSSFW_DATA_TYPEARRAY_OFFSET
+|28
+|Least significant bit position of memory usage
+|===
+
+=== MOSSFW_DATA MASK
+
+Define flags representing the positions of the bits assigned to each element of the data type used in the argument type of <<_mossfw_input_create>> and <<_mossfw_output_create>> and in the member type of structures <<_mossfw_input_t>> and <<_mossfw_output_t>>.
+
+[cols="39,13,48"]
+.a flag representing the position assigned to each element of the data type
+|===
+|Macro name |Definition |Description
+
+|MOSSFW_DATA_TYPE_MASK
+|0xF
+|Flag representing the bit position assigned to the element's data type
+
+|MOSSFW_DATA_TYPEGRP_MASK
+|0xFF0
+|Flag representing the bit position assigned to the data structure
+
+|MOSSFW_DATA_TYPENAME_MASK
+|0xFFFF000
+|Flag representing the bit position assigned to the sensor type
+
+|MOSSFW_DATA_TYPEARRAY_MASK
+|0xF0000000
+|Flag representing the bit position allocated for memory usage
+|===
+
+=== MOSSFW_DATA
+
+Define a macro with arguments that finds each element from the type of data used in the argument types of <<_mossfw_input_create>> and <<_mossfw_output_create>> and the member types of structures <<_mossfw_input_t>> and <<_mossfw_output_t>>.
+
+[cols="34,45,21"]
+.Argument macro for each element from data type
+|===
+|Macro name |Definition |Description
+
+|MOSSFW_DATA_TYPE(s)
+|((s) & MOSSFW_DATA_TYPE_MASK)
+|Find the TYPE element of the type given in the argument
+
+|MOSSFW_DATA_TYPEGRP(s)
+|((s) & MOSSFW_DATA_TYPEGRP_MASK)
+|Find a TYPEGRP element of the type given by the argument
+
+|MOSSFW_DATA_TYPENAME(s)
+|((s) & MOSSFW_DATA_TYPENAME_MASK)
+|Find a TYPENAME element of type given in argument
+
+|MOSSFW_DATA_TYPEARRAY(s)
+|((s) & MOSSFW_DATA_TYPEARRAY_MASK)
+|Find a TYPEARRAY element of type given in argument
+|===
+
+=== MOSSFW_DATA_TYPE
+
+Define the data element types to be used in the argument type of <<_mossfw_input_create>> and <<_mossfw_output_create>> and the element TYPE of the member type of structures <<_mossfw_input_t>> and <<_mossfw_output_t>>.
+
+[cols="45,15,40"]
+.Type of data element used in TYPE
+|===
+|Macro name |Definition |Description
+
+|MOSSFW_DATA_TYPE_INT32
+|0
+|int 32_t
+
+|MOSSFW_DATA_TYPE_SHORT
+|1
+|short
+
+|MOSSFW_DATA_TYPE_CHAR
+|2
+|char type
+
+|MOSSFW_DATA_TYPE_FLOAT
+|3
+|float
+
+|MOSSFW_DATA_TYPE_INT64
+|4
+|int 64_t
+|===
+
+=== MOSSFW_DATA_TYPEGRP
+
+Define the data structure to be used in the element TYPEGRP with the argument type of <<_mossfw_input_create>> and <<_mossfw_output_create>> and the member type of the structure <<_mossfw_input_t>> and <<_mossfw_output_t>>.
+
+[cols="37,44,19"]
+.Data structures used by TYPEGRP
+|===
+|Macro name |Definition |Description
+
+|MOSSFW_DATA_TYPEGRP_V1
+|0 <<MOSSFW_DATA_TYPEGRP_OFFSET
+|Scalar
+
+|MOSSFW_DATA_TYPEGRP_V2
+|1 <<MOSSFW_DATA_TYPEGRP_OFFSET
+|Two-dimensional vector
+
+|MOSSFW_DATA_TYPEGRP_V3
+|2 <<MOSSFW_DATA_TYPEGRP_OFFSET
+|Three-dimensional vector
+
+|MOSSFW_DATA_TYPEGRP_V8
+|7 <<MOSSFW_DATA_TYPEGRP_OFFSET
+|Eight-dimensional vector
+
+|MOSSFW_DATA_TYPEGRP_Q
+|8 <<MOSSFW_DATA_TYPEGRP_OFFSET
+|Quaternion
+|===
+
+
+=== MOSSFW_DATA_TYPENAME
+
+Define the type of sensor to be used in the argument type of <<_mossfw_input_create>> and <<_mossfw_output_create>> and the element TYPENAME of the member type of structures <<_mossfw_input_t>> and <<_mossfw_output_t>>.
+
+[cols="385,440,175"]
+.Types of Sensors Used in TYPENAME
+|===
+|Macro name |Definition |Description
+
+|MOSSFW_DATA_TYPENAME_NONE
+|0 <<MOSSFW_DATA_TYPENAME_OFFSET
+|none
+
+|MOSSFW_DATA_TYPENAME_ACCEL
+|1 <<MOSSFW_DATA_TYPENAME_OFFSET
+|Accelerometer
+
+|MOSSFW_DATA_TYPENAME_GYRO
+|2 <<MOSSFW_DATA_TYPENAME_OFFSET
+|Gyroscope
+
+|MOSSFW_DATA_TYPENAME_GNSS
+|3 <<MOSSFW_DATA_TYPENAME_OFFSET
+|GNSS
+
+|MOSSFW_DATA_TYPENAME_BARO
+|4 <<MOSSFW_DATA_TYPENAME_OFFSET
+|Barometer
+
+|MOSSFW_DATA_TYPENAME_TEMP
+|5 <<MOSSFW_DATA_TYPENAME_OFFSET
+|Thermometer
+
+|MOSSFW_DATA_TYPENAME_AUDIO
+|6 <<MOSSFW_DATA_TYPENAME_OFFSET
+|Audio
+|===
+
+=== MOSSFW_DATA_TYPEARRAY
+
+It defines how memory is used to input and output between components used in the type argument of <<_mossfw_input_create>> and <<_mossfw_output_create>> and the element TYPEARRAY of the type member of the structure <<_mossfw_input_t>> and <<_mossfw_output_t>>.
+
+[cols="40,45,15"]
+.How memory is used for input and output between components used in TYPEARRAY
+|===
+|Macro name |Definition |Description
+
+|MOSSFW_DATA_TYPEARRAY_SINGLE
+|0 <<MOSSFW_DATA_TYPEARRAY_OFFSET
+|single
+
+|MOSSFW_DATA_TYPEARRAY_ARRAY
+|1 <<MOSSFW_DATA_TYPEARRAY_OFFSET
+|array
+|===
+
+== Type
+:xrefstyle: short
+
+=== Structures
+
+==== mossfw_data_v1c_t
+
+Structure representing an 8-bit integer
+
+[cols="1,1,3"]
+.Members of the mossfw_data_xc_t structure
+|===
+|Type |Member name |Description
+
+|char
+|x
+|Data
+|===
+
+==== mossfw_data_v1s_t
+
+Structure representing a 16 bit integer
+
+[cols="1,1,3"]
+.Members of the mossfw_data_xs_t structure
+|===
+|Type |Member name |Description
+
+|short
+|x
+|Data
+|===
+
+==== mossfw_data_v1i32_t
+
+Structure representing a 32 bit integer
+
+[cols="1,1,3"]
+.Members of the mossfw_data_xi 32_t structure
+|===
+|Type |Member name |Description
+
+|int32_t
+|x
+|Data
+|===
+
+==== mossfw_data_v1f_t
+
+Floating-point number structure
+
+[cols="1,1,3"]
+.Members of the mossfw_data_xf_t structure
+|===
+|Type |Member name |Description
+
+|float
+|x
+|Data
+|===
+
+==== mossfw_data_v2c_t
+
+Structure representing a 2-dimensional vector of 8-bit integers
+
+[cols="1,1,3"]
+.Members of the mossfw_data_xyc_t structure
+|===
+|Type |Member name |Description
+
+|char
+|x
+|x Component
+
+|char
+|y
+|y component
+|===
+
+==== mossfw_data_v2s_t
+
+Structure representing a 2-dimensional vector of 16 bit integers
+
+[cols="1,1,3"]
+.Members of the mossfw_data_xys_t structure
+|===
+|Type |Member name |Description
+
+|short
+|x
+|x Component
+
+|short
+|y
+|y component
+|===
+
+==== mossfw_data_v2i32_t
+
+Structure representing a 2-dimensional vector of 32 bit integers
+
+[cols="1,1,3"]
+.Members of the mossfw_data_xyi 32_t structure
+|===
+|Type |Member name |Description
+
+|int32_t
+|x
+|x Component
+
+|int32_t
+|y
+|y component
+|===
+
+==== mossfw_data_v2f_t
+
+Structure representing a two-dimensional vector of floating-point numbers
+
+[cols="1,1,3"]
+.Members of the mossfw_data_xyf_t structure
+|===
+|Type |Member name |Description
+
+|float
+|x
+|x Component
+
+|float
+|y
+|y component
+|===
+
+==== mossfw_data_v3c_t
+
+Structure representing a 3-dimensional vector of 8-bit integers
+
+[cols="1,1,3"]
+.Members of the mossfw_data_xyzc_t structure
+|===
+|Type |Member name |Description
+
+|char
+|x
+|x Component
+
+|char
+|y
+|y component
+
+|char
+|z
+|z component
+|===
+
+==== mossfw_data_v3s_t
+
+Structure representing a 3-dimensional vector of 16 bit integers
+
+[cols="1,1,3"]
+.Members of the mossfw_data_xyzes_t structure
+|===
+|Type |Member name |Description
+
+|short
+|x
+|x Component
+
+|short
+|y
+|y component
+
+|short
+|z
+|z component
+|===
+
+==== mossfw_data_v3i32_t
+
+Structure representing a 3-dimensional vector of 32 bit integers
+
+[cols="1,1,3"]
+.Members of the mossfw_data_xyzi 32_t structure
+|===
+|Type |Member name |Description
+
+|int32_t
+|x
+|x Component
+
+|int32_t
+|y
+|y component
+
+|int32_t
+|z
+|z component
+|===
+
+==== mossfw_data_v3f_t
+
+A structure that represents a three-dimensional vector of floating point numbers.
+
+[cols="1,1,3"]
+.Members of the mossfw_data_xyzf_t structure
+|===
+|Type |Member name |Description
+
+|float
+|x
+|x Component
+
+|float
+|y
+|y component
+
+|float
+|z
+|z component
+|===
+
+==== mossfw_data_v3ts_t
+
+A time-stamped structure representing a 3-dimensional vector of 16 bit integers.
+
+[cols="1,1,3"]
+.Members of the mossfw_data_xyzes_t structure
+|===
+|Type |Member name |Description
+
+|short
+|x
+|x Component
+
+|short
+|y
+|y component
+
+|short
+|z
+|z component
+
+|uint16_t
+|t
+|timestamp
+|===
+
+==== mossfw_data_v3tf_t
+
+A time-stamped structure representing a three-dimensional vector of floating-point numbers.
+
+[cols="1,1,3"]
+.Members of the mossfw_data_xyzf_t structure
+|===
+|Type |Member name |Description
+
+|float
+|x
+|x Component
+
+|float
+|y
+|y component
+
+|float
+|z
+|z component
+
+|uint32_t
+|t
+|timestamp
+|===
+
+==== mossfw_data_qs_t
+
+Structure representing a quaternion with 16 bit integer components
+
+[cols="1,1,3"]
+.Members of the mossfw_data_qf_t structure
+|===
+|Type |Member name |Description
+
+|short
+|w
+|Integer component
+
+|short
+|x
+|imaginary x component
+
+|short
+|y
+|Imaginary y component
+
+|short
+|z
+|imaginary z component
+|===
+
+
+==== mossfw_data_qf_t
+
+Structure representing a quaternion with a floating-point component
+
+[cols="1,1,3"]
+.Members of the mossfw_data_qf_t structure
+|===
+|Type |Member name |Description
+
+|float
+|w
+|Integer component
+
+|float
+|x
+|imaginary x component
+
+|float
+|y
+|Imaginary y component
+
+|float
+|z
+|imaginary z component
+|===
+
+==== mossfw_data_qts_t
+
+Time-stamped structure representing a quaternion with 16 bit integer components
+
+[cols="1,1,3"]
+.Members of the mossfw_data_qf_t structure
+|===
+|Type |Member name |Description
+
+|short
+|w
+|Integer component
+
+|short
+|x
+|imaginary x component
+
+|short
+|y
+|Imaginary y component
+
+|short
+|z
+|imaginary z component
+
+|uint16_t
+|t
+|timestamp
+|===
+
+==== mossfw_data_qtf_t
+
+Timestamped structure representing a quaternion with a floating-point component
+
+[cols="1,1,3"]
+.Members of the mossfw_data_qf_t structure
+|===
+|Type |Member name |Description
+
+|float
+|w
+|Integer component
+
+|float
+|x
+|imaginary x component
+
+|float
+|y
+|Imaginary y component
+
+|float
+|z
+|imaginary z component
+
+|uint32_t
+|t
+|timestamp
+|===
+
+==== mossfw_data_v8s_t
+
+Structure representing an 8-dimensional vector of 16 bit integers
+
+[cols="1,1,3"]
+.Members of the mossfw_data_xyzes_t structure
+|===
+|Type |Member name |Description
+
+|short
+|v[8]
+|vector
+|===
+
+==== mossfw_data_t
+:xrefstyle: basic
+
+a struct type representing array data, generated by <<_mossfw_data_alloc>>, and
+<<_mossfw_data_free>> when there are no more references to the data.
+
+:xrefstyle: short
+.Members of the mossfw_data_t structure
+[cols="1,1,3"]
+|===
+|Type |Member name |Description
+
+|int
+|refcnt
+|Reference countor
+
+|mossfw_lock_t
+|lock
+|data lock
+
+|int
+|data_bytes
+|Size of valid data (byte)
+
+|int
+|timestamp
+|Time of data
+
+|int
+|fs
+|Sampling frequency
+
+|struct mossfw_allocator_s
+|*allocator
+|allocator
+
+|union
+|data
+|Union type data for <<tableid_union>>
+|===
+
+The union of data is defined as follows:
+
+:xrefstyle: basic
+[#tableid_union]
+.Members of the union used by data in mossfw_data_t
+[cols="3,1,6"]
+|===
+|Type |Member name |Description
+
+|<<_mossfw_data_v1c_t>> *
+|v1c, xc
+|Array of char scalar data
+
+|<<_mossfw_data_v1s_t>> *
+|v1s, xs
+|Array of short scalar data
+
+|<<_mossfw_data_v1i32_t>> *
+|v1i32, xi32 
+|Array of scalar data of type int 32_t
+
+|<<_mossfw_data_v1f_t>> *
+|v1f, xf
+|Array of float scalar data
+
+|<<_mossfw_data_v2c_t>> *
+|v2c, xyc
+|Array of two-dimensional vector data of type char
+
+|<<_mossfw_data_v2s_t>> *
+|v2s, xys
+|Array of short 2D vector data
+
+|<<_mossfw_data_v2i32_t>> *
+|v2i32, xyi32
+|Array of 2-D vector data of type int 32_t
+
+|<<_mossfw_data_v2f_t>> *
+|v2f, xyf
+|Array of two-dimensional vector data of type float
+
+|<<_mossfw_data_v3c_t>> *
+|v3c, xyzc
+|Array of three-dimensional vector data of type char
+
+|<<_mossfw_data_v3s_t>> *
+|v3s, xyzs
+|Array of short 3D vector data
+
+|<<_mossfw_data_v3i32_t>> *
+|v3i32, xyzi32
+|Array of 3D vector data of type int 32_t
+
+|<<_mossfw_data_v3f_t>> *
+|v3f, xyzf
+|Array of 3D vector data of type float
+
+|<<_mossfw_data_v3ts_t>> *
+|vt3s, xyzts
+|Array of short 3D vector data + Time Stamp
+
+|<<_mossfw_data_v3tf_t>> *
+|v3tf, xyztf
+|Array of 3D vector data of type float + Time Stamp
+
+|<<_mossfw_data_qs_t>> *
+|qs
+|Array of short quaternion data
+
+|<<_mossfw_data_qf_t>> *
+|qf
+|Array of float quaternion data
+
+|<<_mossfw_data_qts_t>> *
+|qts
+|Array of short quaternion data + Time Stamp
+
+|<<_mossfw_data_qtf_t>> *
+|qtf
+|Array of float quaternion data + Time Stamp
+
+|<<_mossfw_data_v4s_t>> *
+|v8s
+|Array of short 8-dimensional vector data
+|===
+
+==== mossfw_onedata_t
+:xrefstyle: basic
+
+union representing single data
+
+.Members of the mossfw_data_t union
+[cols="3,1,6"]
+|===
+|Type |Member name |Description
+
+|<<_mossfw_data_v1c_t>>
+|v1c, xc
+|Array of char scalar data
+
+|<<_mossfw_data_v1s_t>>
+|v1s, xs
+|Array of short scalar data
+
+|<<_mossfw_data_v1i32_t>>
+|v1i32, xi32 
+|Array of scalar data of type int 32_t
+
+|<<_mossfw_data_v1f_t>>
+|v1f, xf
+|Array of float scalar data
+
+|<<_mossfw_data_v2c_t>>
+|v2c, xyc
+|Array of two-dimensional vector data of type char
+
+|<<_mossfw_data_v2s_t>>
+|v2s, xys
+|Array of short 2D vector data
+
+|<<_mossfw_data_v2i32_t>>
+|v2i32, xyi32
+|Array of 2-D vector data of type int 32_t
+
+|<<_mossfw_data_v2f_t>>
+|v2f, xyf
+|Array of two-dimensional vector data of type float
+
+|<<_mossfw_data_v3c_t>>
+|v3c, xyzc
+|Array of three-dimensional vector data of type char
+
+|<<_mossfw_data_v3s_t>>
+|v3s, xyzs
+|Array of short 3D vector data
+
+|<<_mossfw_data_v3i32_t>>
+|v3i32, xyzi32
+|Array of 3D vector data of type int 32_t
+
+|<<_mossfw_data_v3f_t>>
+|v3f, xyzf
+|Array of 3D vector data of type float
+
+|<<_mossfw_data_v3ts_t>>
+|vt3s, xyzts
+|Array of short 3D vector data + Time Stamp
+
+|<<_mossfw_data_v3tf_t>>
+|v3tf, xyztf
+|Array of 3D vector data of type float + Time Stamp
+
+|<<_mossfw_data_qs_t>>
+|qs
+|Array of short quaternion data
+
+|<<_mossfw_data_qf_t>>
+|qf
+|Array of float quaternion data
+
+|<<_mossfw_data_qts_t>>
+|qts
+|Array of short quaternion data + Time Stamp
+
+|<<_mossfw_data_qtf_t>>
+|qtf
+|Array of float quaternion data + Time Stamp
+
+|<<_mossfw_data_v4s_t>>
+|v8s
+|Array of short 8-dimensional vector data
+|===
+
+==== mossfw_input_t 
+
+A type representing an input object, generated with <<_mossfw_input_create>> and freed with <<_mossfw_input_delete>>.
+
+[cols="1,1,3"]
+.Members of the mossfw_input_t structure
+|===
+|Type |Member name |Description
+
+|uint32_t
+|type
+|Keeps the value of argument type in <<_mossfw_input_create>>
+
+|<<_mossfw_output_t>> *
+|out
+|Binding output node.
+
+|union
+|ringbuff
+|Union type data for <<tableid_ringbuff>>
+
+|int
+|wait_dat<<_mossfw_input_t>>asize
+|Wait data size on input node
+
+|<<_mossfw_lock_t>>
+|lock
+|lock for exclution access
+
+|<<_mossfw_callback_op_t>> *
+|op
+|Operator to operate data from this input node.
+
+|<<_mossfw_input_t>>
+|bind_next
+|Parallel binding inputs.
+
+|<<_mossfw_input_t>>
+|cb_next
+|Inputs which is operated by same operator.
+|===
+
+The union of ringbuff is defined as follows:
+
+:xrefstyle: basic
+[#tableid_ringbuff]
+.Members of the union used by ringbuff in mossfw_input_t
+[cols="3,1,6"]
+
+|===
+|Type |Member name |Description
+|struct mossfw_ringbuffer_s *
+|single
+|Ring buffer for single data type
+
+|struct mossfw_ringbuffarray_s
+|array
+|Ring buffer for array data type
+|===
+
+==== mossfw_output_t
+
+A type representing an output object, created with <<_mossfw_output_create>> and freed with <<_mossfw_output_delete>>.
+
+[cols="1,1,3"]
+.Members of the mossfw_input_t structure
+|===
+|Type |Member name |Description
+
+|uint32_t
+|type
+|Keeps the value of argument type in <<_mossfw_output_create>>
+
+|mossfw_lock_t
+|bindlock
+|lock for exclution access
+
+|<<_mossfw_input_t>> *
+|binded
+|Input binding this output.
+|===
+
+==== mossfw_callback_op_t
+
+A structure type representing an arithmetic object, generated by <<_mossfw_callback_op_create>> and freed by <<_mossfw_callback_op_delete>>.
+
+[cols="1,1,3"]
+.Members of the mossfw_callback_op_t structure
+|===
+|Type |Member name |Description
+
+|mossfw_lock_t
+|lock
+|lock for exclution access
+
+|<<_mossfw_operator_t>>
+|operate
+|Callback operator function
+
+|unsigned long
+|op_arg
+|Private argument for operator
+
+|mossfw_async_op_t *
+|async
+|Asynchronouse control class
+
+|int
+|stack_sz
+|Stack size for async thread
+
+|int
+|prio
+|Scheduler priority for async thread
+
+|<<_mossfw_input_t>> *
+|input
+|Input object giving the input data of the operation
+|===
+
+=== Type Definition
+
+==== mossfw_operator_t
+
+Type of function representing the operation to be used in the operation object
+
+[cols="1"]
+.The function type that mossfw_operator_t represents
+|===
+|Type
+
+|int (*)(<<_mossfw_callback_op_t>> *in, unsigned long arg)
+|===
+
+
+== Function specification
+
+=== Component API
+
+==== mossfw_input_create
+:xrefstyle: short
+
+.Features
+--
+Generate input objects for components
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|uint32_t
+|type
+|Represents the type of sensor data and assigns bits like <<graphid_sensordatatype>> to each element of <<tableid_sensordatatype>>
+|IN
+
+|int
+|block_num
+|Input queue size in blocks
+|IN
+|===
+
+:xrefstyle: basic
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|Not null
+|Input object of type <<_mossfw_input_t>> * generated
+
+|NULL
+|Abnormal termination
+|===
+
+IMPORTANT: The generated input object must always be released by calling <<_mossfw_input_delete>>.
+
+[#tableid_sensordatatype]
+[cols="1,1,1"]
+.Element of sensor data type represented by argument type
+|===
+|Element |Description |Possible values
+
+|Element data type (TYPE)
+|Data type of the element data (char/short/int32_t/float/double)
+|Constants defined in <<_mossfw_data_type>>
+
+|Data Structure (TYPEGRP)
+|Structure of the data (scalar/2-D vector/3-D vector/quaternion)
+|Constants defined in <<_mossfw_data_typegrp>>
+
+|Sensor type (TYPENAME)
+|Type of sensor from which the data was obtained (accelerometer/gyroscope/magnetometer/GNSS/barometer)
+|Constants defined in <<_mossfw_data_typename>>
+
+|Memory Usage (TYPEARRAY)
+|Memory usage when I/O between components (single/array)
+|Constants defined in <<_mossfw_data_typearray>>
+|===
+
+[#graphid_sensordatatype]
+.Bit assignment of argument type
+[graphviz, format=svg, align=center]
+--
+graph typeformat {
+    node1 [
+        shape=plaintext
+        label = <
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                    <td border="1" fixedsize="true" width="16" height="10"></td>
+                </tr>
+                <tr>
+                    <td border="1" colspan="4"  height="6" sides="R"></td>
+                    <td border="1" colspan="16" height="6" sides="R"></td>
+                    <td border="1" colspan="8"  height="6" sides="R"></td>
+                    <td            colspan="4"  height="6" sides="LR"></td>
+                </tr>
+                <tr>
+                    <td colspan="4" ><font point-size="10">TYPEARRAY</font></td>
+                    <td colspan="16"><font point-size="10">TYPENAME</font></td>
+                    <td colspan="8" ><font point-size="10">TYPEGRP</font></td>
+                    <td colspan="4" ><font point-size="10">TYPE</font></td>
+                </tr>
+            </table>
+        >
+    ]
+}
+--
+
+==== mossfw_input_delete
+
+.Features
+--
+Free an input object
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|<<_mossfw_input_t>> *
+|in
+|Input object to release
+|IN
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|0
+|Normal termination
+
+|non-zero
+|Abnormal termination
+|===
+
+==== mossfw_output_create 
+
+.Features
+--
+Generate an output object for a component
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|uint32_t
+|type
+|Type of sensor data (same as the type argument in <<_mossfw_input_create>>)
+|IN
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|Not null
+|Output object of type <<_mossfw_output_t>> * generated
+
+|NULL
+|Abnormal termination
+|===
+
+IMPORTANT: The generated output object must always be freed by calling <<_mossfw_output_delete>>.
+
+==== mossfw_output_delete
+
+.Features
+--
+Free an output object
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|<<_mossfw_output_t>> *
+|out
+|Output object to free
+|IN
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|0
+|Normal termination
+
+|non-zero
+|Normal termination
+|===
+
+==== mossfw_callback_op_create
+
+.Features
+--
+Generates an arithmetic object for a component.
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|<<_mossfw_operator_t>> *
+|op
+|Data Processing Functions
+|IN
+
+|unsigned long
+|arg
+|Arguments to pass to the function
+|IN
+
+|bool
+|async
+|Set data processing to be synchronous or asynchronous. true when asynchronous, false when synchronous
+|IN
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|Not null
+|Generated arithmetic object of type <<_mossfw_callback_op_t>> *
+
+|NULL
+|Abnormal termination
+|===
+
+IMPORTANT: The generated arithmetic object must always be freed by calling <<_mossfw_callback_op_delete>>.
+
+==== mossfw_callback_op_delete
+
+.Features
+--
+Free an arithmetic object.
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN
+
+|<<_mossfw_callback_op_t>> *
+|op
+|Arithmetic object to free
+|IN
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|0
+|Normal termination
+
+|non-zero
+|Abnormal termination
+|===
+
+==== mossfw_bind_inout
+
+.Features
+--
+Connect output and input objects.
+At connection time, the bit arrays of the output and input data types are compared using the mask values specified by the mask argument of this API.
+If (output data type & mask) and (input data type & mask) do not match, return abend.
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|<<_mossfw_output_t>> *
+|out
+|Output object to connect
+|IN/OUT
+
+|<<_mossfw_input_t>> *
+|in
+|Input object to connect
+|IN
+
+|uint32_t
+|mask
+|Mask value used to compare output and input data types where 0 is not a comparison 1 represents the bits to be compared
+|IN
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|0
+|Normal termination
+
+|non-zero
+|Abnormal termination
+|===
+
+==== mossfw_deliver_data
+
+.Features
+--
+Sending single data to an output object
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|<<_mossfw_output_t>> *
+|out
+|Output object to send data to
+|IN/OUT
+
+|<<_mossfw_data_t>> *
+|dat
+|Data to output
+|OUT
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|0
+|Normal termination
+
+|-EINVAL
+|Bad argument error
+
+|-EIO
+|Error due to non-single data in output object
+
+|Other
+|Abnormal termination
+|===
+
+==== mossfw_deliver_dataarray
+
+.Features
+--
+Send array data to the output object
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|<<_mossfw_output_t>> *
+|out
+|Output object to send data to
+|IN/OUT
+
+|<<_mossfw_data_t>> *
+|dat
+|Data to output
+|OUT
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|0
+|Normal termination
+
+|-EINVAL
+|Bad argument error
+
+|-EIO
+|Error due to output object's data not being array
+
+|Other
+|Abnormal termination
+|===
+
+==== mossfw_get_delivereddata_num
+
+.Features
+--
+Get the size of the data in the input object
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|<<_mossfw_input_t>> *
+|in
+|Input object to get size of data
+|IN
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|0
+|Normal termination
+
+|non-zero
+|Abnormal termination
+|===
+
+==== mossfw_get_delivereddata_single
+
+.Features
+--
+Fetch single data from buffer of input object
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|<<_mossfw_input_t>> *
+|in
+|Input object from which to retrieve data
+|IN/OUT
+
+|<<_mossfw_data_t>> *
+|rdat
+|Area for storing retrieved data
+|OUT
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|0
+|Normal termination
+
+|non-zero
+|Abnormal termination
+|===
+
+==== mossfw_get_delivereddata_array
+
+.Features
+--
+Fetch array data from the input object's buffer.
+The argument used specifies the address of an int variable to store the output value from this function.
+In the acquired array data, the number of data given by used from the first data represents used.
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|<<_mossfw_input_t>> *
+|in
+|Input object from which to retrieve data
+|IN/OUT
+
+|int
+|sz
+|Size of data to retrieve
+|IN
+
+|int *
+|used
+|Address of int variable to receive number of used data
+|OUT
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|Not null
+|Data retrieved <<_mossfw_data_t>> * 
+
+|NULL
+|Abnormal termination
+|===
+
+IMPORTANT: You must always call <<_mossfw_data_free>> when you are finished referencing the data you have retrieved.
+
+==== mossfw_deliverback_dataarray
+
+.Features
+--
+array data back into the input queue. If only a portion of the array data is to be used, the number is specified by the argument used.
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|<<_mossfw_input_t>> *
+|in
+|Input queue returning data
+|IN/OUT
+
+|<<_mossfw_data_t>> *
+|dat
+|Data to return
+|OUT
+
+|int
+|used
+|Number of used data
+|OUT
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|true
+|Normal termination
+
+|false
+|Abnormal termination
+|===
+
+=== Memory Allocator API
+
+==== mossfw_fixedmem_create
+
+.Features
+--
+Generates a fixed-length memory allocator.
+where you specify the size of one block and the maximum number of blocks that the allocator can subsequently allocate, and
+Within that range, allocators can allocate and free fixed-length memory.
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|int
+|block_sz
+|Size of a single block (byte)
+|IN
+
+|int
+|block_num
+|Number of blocks
+|IN
+|===
+
+IMPORTANT: After the generated allocator frees all the allocated memory,
+<<_mossfw_fixedmem_delete>> must be called and released.
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|Not null
+|Generated allocator (type mossfw_allocator_t *)
+
+|NULL
+|Abnormal termination
+|===
+
+==== mossfw_fixedmem_delete
+:xrefstyle: short
+
+.Features
+--
+Frees a fixed-length memory allocator.
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|mossfw_allocator_t *
+|inst
+|Fixed-length memory allocator to free
+|IN
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|0
+|Normal termination
+
+|non-zero
+|Abnormal termination
+|===
+
+IMPORTANT: The allocator specified here must have all allocated memory freed from that allocator.
+
+==== mossfw_data_alloc
+:xrefstyle: basic
+
+.Features
+--
+Generating data with allocator
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|mossfw_allocator_t *
+|inst
+|The allocator used to generate the data
+|IN
+
+|int
+|size
+|Size of data to generate (byte)
+|IN
+
+|bool
+|nonblock
+|Specify what to do when competing with other threads when generating data.
+If true is specified, exit with an error. If false, wait until the conflict is resolved.
+|IN
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|Not null
+|Generated data (type <<_mossfw_data_t>> *)
+
+|NULL
+|Abnormal termination
+|===
+
+IMPORTANT: You must always call <<_mossfw_data_free>> when you are finished referencing the data you have generated.
+
+==== mossfw_data_refer
+
+.Features
+--
+Start a new reference to the array data
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|<<_mossfw_data_t>> *
+|mem
+|Data to start referencing
+|IN/OUT
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|void
+|No return value
+|===
+
+IMPORTANT: You must always call <<_mossfw_data_free>> when you finish referencing the data you started here.
+
+==== mossfw_data_free
+
+.Features
+--
+End references to data
+--
+
+[caption=]
+[cols="2,1,6,1"]
+.Argument
+|===
+|Type |Argument Name |Description |IN/OUT
+
+|<<_mossfw_data_t>> *
+|mem
+|array data to end reference
+|IN
+|===
+
+[caption=]
+[cols="1,4"]
+.Return value
+|===
+|Return value |Description
+
+|void
+|No return value
+|===
+
+NOTE: When all references to a piece of data are gone, the memory for that data is freed
+
+
+:xrefstyle: short
+
+:sectnums!:
+== Revision history
+
+[cols="1,1,5"]
+|===
+|Version |Date |Description
+
+|1.0.0
+|2023-03-07
+|New
+
+|===
+

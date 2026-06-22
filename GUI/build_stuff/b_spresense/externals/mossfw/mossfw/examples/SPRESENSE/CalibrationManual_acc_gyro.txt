@@ -1,0 +1,135 @@
+This document describes how to calibrate accelerometers and gyrosensors using SPRESENSE.
+- SPRESENSE connects the expansion board to the SD card.
+- Use the IMU-TK for calibration.
+
+1. Get sample code for IMU data output from SPRESENSE
+  The sample code acquires data from the target sensor using SCU.
+  Target sensor
+  - Accelerometer        : BMI160
+  - Gyro sensor          : BMI160
+
+  URL:https://github.com/SonySemiconductorSolutions/SF1DSW/tree/develop/examples/spresense/calibration_data_acc_gyro
+  Destination : spresense/examples/
+
+  URL:https://github.com/SonySemiconductorSolutions/SF1DSW/tree/develop/examples/spresense/configs/AccGyroConfigs
+  Destination : spresense/sdk/configs/
+
+  URL:https://github.com/SonySemiconductorSolutions/SF1DSW/tree/develop/examples/spresense/configs/examples/calibration_data_acc_gyro
+  Destination : spresense/sdk/configs/examples/
+
+2. Setting Up Sample Programs
+  2-1. Setting the SCU Frequency
+  Set the SCU frequency for acquiring data from the sensor.
+  Set the frequency you want to use for the following definitions.
+  - SCU_SAMPLE_RATE : SCU frequency of the sensor
+
+  2-2. Setting SCU Watermarks
+  Sets the number of data to retrieve collectively in the SCU.
+  - WATERMARK_COUNT
+
+  2-3. Setting the number of times to retrieve data
+  Number of data is WATERMARK_COUNT x SAMPLING_LOOP_COUNT
+  - SAMPLING_LOOP_COUNT
+
+3. Setting the sensor frequency
+  Set the frequency of the sensor to be used.
+  3-1. ACC
+    File: bmi160_scu.c (spresense/nuttx/boards/arm/cxd56xx/drivers/sensors/)
+      Line 600 : bmi160_putreg8 (priv, BMI 160_ACCEL_CONFIG, ACCEL_OSR4_AVG1 | 0x8)
+      0x8 in the third argument is the sensor frequency, 0x8 = 100 hz
+
+  3-2. GYRO
+    File: bmi160_scu.c (spresense/nuttx/boards/arm/cxd56xx/drivers/sensors/)
+      Line 561 : bmi160_putreg8 (priv, BMI160_ACCEL_CONFIG, ACCEL_OSR4_AVG1 | 0x8)
+      0x8 in the third argument is the sensor frequency, 0x8 = 100 hz
+
+4. Set up and build
+  > cd spresense/sdk
+  > make distclean
+  > ./tools/config.py AccGyroConfig
+  > make -j
+
+5. Writing to SPRESENSE
+  > ./tools/flash.sh -c COM* nuttx.spk 
+
+6. Retrieving IMU Data
+  Calibration requires IMU data.
+  The required IMU data is the data that made the calibration work.
+
+  6-1. Serial settings
+  Connect your PC to SPRESENSE using a USB cable.
+  Set baudrate for Serial application. 
+
+  6-2. Calibration action
+  See the paper below for the calibration operation.
+  https://albertopretto.altervista.org/papers/tpm_icra2014.pdf
+  The latency T seconds before starting the calibration operation and the latency T seconds during the operation are related to the parameters of the IMU-TK.
+
+  6-3. Retrieving IMU Data
+  Enter "calibration_data_acc_gyro" in the Serial application and the IMU data will be output to the SD card.
+  After executing the command, perform the calibration operation.
+
+    Output File
+    - acc.mat
+    - gyr.mat
+    See here for data formats
+    https://github.com/Kyle-ak/imu_tk/blob/master/bin/test_data/xsens_acc.mat
+
+7. Acquiring IMU-TK
+  URL:https://github.com/Kyle-ak/imu_tk
+  Get Code From Git
+  Introductory command
+    > sudo apt update
+    > sudo apt upgrade
+    > sudo apt install g++ gcc make
+    > sudo apt install build-essential cmake libeigen3-dev freeglut3-dev gnuplot
+    > mkdir temp
+    > cd temp/
+    > wget https://boostorg.jfrog.io/artifactory/main/release/1.78.0/source/boost_1_78_0.tar.bz2
+    > tar xjvf boost_1_78_0.tar.bz2 
+    > cd boost_1_78_0/
+    > ./bootstrap.sh 
+    > sudo ./b2 install -j2
+    > sudo apt install libgoogle-glog-dev libgflags-dev libatlas-base-dev libsuitesparse-dev
+    > cd ~
+    > git clone https://ceres-solver.googlesource.com/ceres-solver
+    > cd ceres-solver/
+    > git checkout 2.1.0
+    > cd ../
+    > mkdir ceres-bin
+    > cd ceres-bin/
+    > cmake ../ceres-solver
+    > make -j3
+    > sudo make install
+    > mkdir imu_tk
+    > cd imu_tk/
+    > git clone https://github.com/Kyle-ak/imu_tk
+    > cd imu_tk/
+    > mkdir build
+    > cd build/
+    > sudo ln -s /usr/include/eigen3/Eigen/ /usr/include/Eigen
+    > sudo add-apt-repository ppa:rock-core/qt4
+    > sudo apt update
+    > sudo apt install libqt4-dev libqt4-opengl-dev
+    > cmake ..
+    > make
+    > sudo strip --remove-section=.note.ABI-tag/ /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
+
+8. Determining the parameters of the IMU-TK
+    Set the parameters. File: apps/test_imu_calib.cpp
+    - setIntervalsNumSamples : Number of data when steady
+    - setGravityMagnitude : Gravitational acceleration at the measurement location
+    - mp_calib.setInitStaticIntervalDuration : Stable waiting time to start calibration
+    - init_acc_calib.setBias : Bias of accel sensor
+    - init_gyro_calib.setScale : Scale for Gyro sensor
+
+    After setting the parameters, click
+    1. Running Building on the IMU-TK (https://github.com/Kyle-ak/imu_tk) creates test_imu_calib in the bin directory.
+    2. Calibration calculations are performed by passing a mat file containing calibration actions to the created test_imu_calib.
+      > ./test_imu_calib acc.mat gyr.mat
+
+    Parameter file output after successful calibration
+     - test_imu_acc.calib
+     - test_imu_gyro.calib
+
+

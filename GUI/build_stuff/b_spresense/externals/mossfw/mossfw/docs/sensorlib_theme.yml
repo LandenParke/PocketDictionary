@@ -1,0 +1,28 @@
+extends: default-with-fallback-font
+image:
+  border-width: 2
+  border-color: #FFFFFF
+  caption:
+    align: center
+footer:
+  recto:
+    left:
+      content: 
+    center:
+      content: '{page-number}'
+    right:
+      content: 
+  verso:
+    left:
+      content: 
+    center:
+      content: '{page-number}'
+    right:
+      content: 
+table:
+  head:
+    background-color: #f0f0f0
+title-page:
+  title:
+    top: 20%
+    font-color: #000000

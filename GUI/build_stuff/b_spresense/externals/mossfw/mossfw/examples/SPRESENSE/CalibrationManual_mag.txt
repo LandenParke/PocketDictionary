@@ -1,0 +1,134 @@
+This paper describes how to calibrate a geomagnetic sensor using SPRESENSE.
+- SPRESENSE connects the expansion board to the SD card.
+- Use the IMU-TK for calibration.
+
+1. Get sample code for IMU data output from SPRESENSE
+  The sample code acquires data from the target sensor using SCU.
+  Target sensor
+  - Geomagnetic sensor   : BM1422AGMV
+
+  URL:https://github.com/SonySemiconductorSolutions/SF1DSW/tree/develop/examples/spresense/calibration_data_mag
+  Destination : spresense/examples/
+
+  URL:https://github.com/SonySemiconductorSolutions/SF1DSW/tree/develop/examples/spresense/configs/MagConfigs
+  Destination : spresense/sdk/configs/
+
+  URL:https://github.com/SonySemiconductorSolutions/SF1DSW/tree/develop/examples/spresense/configs/examples/calibration_data_mag
+  Destination : spresense/sdk/configs/examples/
+
+2. Setting Up Sample Programs
+  2-1. Setting the SCU Frequency
+  Set the SCU frequency for acquiring data from the sensor.
+  Set the frequency you want to use for the following definitions.
+  - SCU_SAMPLE_RATE : SCU frequency of the sensor
+
+  2-2. Setting SCU Watermarks
+  Sets the number of data to retrieve collectively in the SCU.
+  - WATERMARK_COUNT
+
+  2-3. Setting the number of times to retrieve data
+  Number of data is WATERMARK_COUNT x SAMPLING_LOOP_COUNT
+  - SAMPLING_LOOP_COUNT
+
+3. Setting the sensor frequency
+  Set the frequency of the sensor to be used.
+  3-1. MAG
+    File: bmi1422gmv_scu.c (spresense/nuttx/boards/arm/cxd56xx/drivers/sensors/)
+      Line 324 : BM1422GMV_CNTL1_ODR_100 Hz is the sensor frequency
+
+4. Set up and build
+  > cd spresense/sdk
+  > make distclean
+  > ./tools/config.py MagConfig
+  > make -j
+
+5. Writing to SPRESENSE
+  > ./tools/flash.sh -c COM* nuttx.spk 
+
+6. Retrieving IMU Data
+  Calibration requires IMU data.
+  The required IMU data is the data that made the calibration work.
+
+  6-1. Serial settings
+  Connect your PC to SPRESENSE using a USB cable.
+  Set baudrate for Serial application. 
+
+  6-2. Calibration action
+  See the paper below for the calibration operation.
+  https://albertopretto.altervista.org/papers/tpm_icra2014.pdf
+  The latency T seconds before starting the calibration operation and the latency T seconds during the operation are related to the parameters of the IMU-TK.
+
+  6-3. Retrieving IMU Data
+  Enter "calibration_data_mag" in the Serial application and the IMU data will be output to the SD card.
+  After executing the command, perform the calibration operation.
+
+    Output File
+    - mag.mat
+    See here for data formats
+    https://github.com/Kyle-ak/imu_tk/blob/master/bin/test_data/xsens_acc.mat
+
+
+
+  6-4. Check sensor data offset
+  Check the geomagnetic sensor offset.
+    1. The sensor is rotated in the yaw, pitch and roll directions to obtain data.
+    2. Creates a graph of rotated data along the X-Y, Y-Z and Z-X axes.
+    3. There is one with a circle on the graph. You can see the X, Y and Z axis offsets from the center of the circle.
+
+7. Acquiring IMU-TK
+  URL:https://github.com/Kyle-ak/imu_tk
+  Get Code From Git
+  Introductory command
+    > sudo apt update
+    > sudo apt upgrade
+    > sudo apt install g++ gcc make
+    > sudo apt install build-essential cmake libeigen3-dev freeglut3-dev gnuplot
+    > mkdir temp
+    > cd temp/
+    > wget https://boostorg.jfrog.io/artifactory/main/release/1.78.0/source/boost_1_78_0.tar.bz2
+    > tar xjvf boost_1_78_0.tar.bz2 
+    > cd boost_1_78_0/
+    > ./bootstrap.sh 
+    > sudo ./b2 install -j2
+    > sudo apt install libgoogle-glog-dev libgflags-dev libatlas-base-dev libsuitesparse-dev
+    > cd ~
+    > git clone https://ceres-solver.googlesource.com/ceres-solver
+    > cd ceres-solver/
+    > git checkout 2.1.0
+    > cd ../
+    > mkdir ceres-bin
+    > cd ceres-bin/
+    > cmake ../ceres-solver
+    > make -j3
+    > sudo make install
+    > mkdir imu_tk
+    > cd imu_tk/
+    > git clone https://github.com/Kyle-ak/imu_tk
+    > cd imu_tk/
+    > mkdir build
+    > cd build/
+    > sudo ln -s /usr/include/eigen3/Eigen/ /usr/include/Eigen
+    > sudo add-apt-repository ppa:rock-core/qt4
+    > sudo apt update
+    > sudo apt install libqt4-dev libqt4-opengl-dev
+    > cmake ..
+    > make
+    > sudo strip --remove-section=.note.ABI-tag/ /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
+
+8. Determining the parameters of the IMU-TK
+    Set the parameters. File: apps/test_imu_calib.cpp
+    - setIntervalsNumSamples : Number of data when steady
+    - setGravityMagnitude : Gravitational acceleration at the measurement location
+    - mp_calib.setInitStaticIntervalDuration : Stable waiting time to start calibration
+    - init_acc_calib.setBias(Vector3d(750.0, 1000, -2500.0)) : for geomagnetic offsets X: 750, Y: 1000, Z: -2500
+    - mp_calib.setGravityMagnitude(34.3) : magnetic flux density of the measurement environment, e.g. 343 mG
+    - mp_calib.getAccCalib().save("test_imu_mag.calib") : rewrite argument to mag.
+
+    Build imu-tk.
+    1. Running Building on the IMU-TK (https://github.com/Kyle-ak/imu_tk) creates test_imu_calib in the bin directory.
+    2. Calibration calculations are performed by passing a mat file containing calibration actions to the created test_imu_calib.
+      > ./test_imu_calib mag.mat mag.mat
+
+    Parameter file output after successful calibration
+     - test_imu_mag.calib
+     - test_imu_gyro.calib (not used)

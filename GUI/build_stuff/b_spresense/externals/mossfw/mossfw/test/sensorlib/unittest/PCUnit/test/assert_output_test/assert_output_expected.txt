@@ -1,0 +1,561 @@
+
+Suite: AssertDoubleTest
+
+Test: test_assert_dbl_equal_FAIL
+ AssertDoubleTest.c:XXX: PCU_ASSERT_DOUBLE_EQUAL(a, b, delta)
+  expected : |value1 - value2| <= |delta|
+  value1   : 100
+  value2   : 100.1
+  delta    : 0.0999
+
+Test: test_assert_dbl_equal_MSG
+ AssertDoubleTest.c:XXX: PCU_ASSERT_DOUBLE_EQUAL(a, b, delta)
+  expected : |value1 - value2| <= |delta|
+  value1   : 100
+  value2   : 100.1
+  delta    : 0.0999
+  100, 100.1
+
+Test: test_assert_dbl_not_equal_FAIL
+ AssertDoubleTest.c:XXX: PCU_ASSERT_DOUBLE_NOT_EQUAL(a, b, delta)
+  expected : |value1 - value2| > |delta|
+  value1   : 100
+  value2   : 100.1
+  delta    : 0.1
+
+Test: test_assert_dbl_not_equal_MSG
+ AssertDoubleTest.c:XXX: PCU_ASSERT_DOUBLE_NOT_EQUAL(a, b, delta)
+  expected : |value1 - value2| > |delta|
+  value1   : 100
+  value2   : 100.1
+  delta    : 0.1
+  100, 100.1
+
+6 Tests, 4 Failures, 0 Skipped
+
+
+Suite: AssertEqualTest
+
+Test: test_assert_equal_FAIL
+ AssertEqualTest.c:XXX: PCU_ASSERT_EQUAL(a, b)
+  expected : 0x00000064 (100) 'd'
+  actual   : 0x00000063 (99) 'c'
+
+Test: test_assert_equal_MSG
+ AssertEqualTest.c:XXX: PCU_ASSERT_EQUAL(a, b)
+  expected : 0x00000064 (100) 'd'
+  actual   : 0x00000065 (101) 'e'
+  100, 101
+
+Test: test_assert_equal_char_FAIL
+ AssertEqualTest.c:XXX: PCU_ASSERT_EQUAL(a, b)
+  expected : 0x0000000000000064 (100) 'd'
+  actual   : 0xffffffffffffffff (-1)
+
+Test: test_assert_equal_short_FAIL
+ AssertEqualTest.c:XXX: PCU_ASSERT_EQUAL(a, b)
+  expected : 0x0000000000000064 (100) 'd'
+  actual   : 0xffffffffffffffff (-1)
+
+Test: test_assert_equal_long_FAIL
+ AssertEqualTest.c:XXX: PCU_ASSERT_EQUAL(a, b)
+  expected : 0x0000000000000064 (100) 'd'
+  actual   : 0xffffffffffffffff (-1)
+
+Test: test_assert_equal_longlong_FAIL
+ AssertEqualTest.c:XXX: PCU_ASSERT_EQUAL(a, b)
+  expected : 0x0000000000000064 (100) 'd'
+  actual   : 0xffffffffffffffff (-1)
+
+Test: test_assert_not_equal_FAIL
+ AssertEqualTest.c:XXX: PCU_ASSERT_NOT_EQUAL(a, b)
+  value1   : 0x00000064 (100) 'd'
+  value2   : 0x00000064 (100) 'd'
+
+Test: test_assert_not_equal_MSG
+ AssertEqualTest.c:XXX: PCU_ASSERT_NOT_EQUAL(a, b)
+  value1   : 0x00000064 (100) 'd'
+  value2   : 0x00000064 (100) 'd'
+  100, 100
+
+10 Tests, 8 Failures, 0 Skipped
+
+
+Suite: AssertMemoryTest
+
+Test: test_assert_mem_equal_FAIL
+ AssertMemoryTest.c:XXX: PCU_ASSERT_MEMORY_EQUAL(&a[0], &b[0], sizeof a[0], 2)
+  nth      : 1
+  expected : 03 00 00 00 04 00 00 00  (XXXXXXXX)
+  actual   : 03 00 00 00 05 00 00 00  (XXXXXXXX)
+  size     : 8
+
+Test: test_assert_mem_equal_MSG
+ AssertMemoryTest.c:XXX: PCU_ASSERT_MEMORY_EQUAL(&a[0], &b[0], sizeof a[0], 2)
+  nth      : 1
+  expected : 03 00 00 00 04 00 00 00  (XXXXXXXX)
+  actual   : 03 00 00 00 05 00 00 00  (XXXXXXXX)
+  size     : 8
+  3, 5
+
+Test: test_assert_mem_equal_FAIL_expect_null
+ AssertMemoryTest.c:XXX: PCU_ASSERT_MEMORY_EQUAL(NULL, &b[0], sizeof a[0], 1)
+  expected : NULL
+  actual   : 01 00 00 00 02 00 00 00  (XXXXXXXX)
+  size     : 8
+
+Test: test_assert_mem_equal_FAIL_actual_null
+ AssertMemoryTest.c:XXX: PCU_ASSERT_MEMORY_EQUAL(&a[0], NULL, sizeof a[0], 1)
+  expected : 01 00 00 00 02 00 00 00  (XXXXXXXX)
+  actual   : NULL
+  size     : 8
+
+Test: test_assert_mem_not_equal_FAIL
+ AssertMemoryTest.c:XXX: PCU_ASSERT_MEMORY_NOT_EQUAL(&a[0], &b[0], sizeof a[0], 2)
+  nth      : 0
+  value1   : 01 00 00 00 02 00 00 00  (XXXXXXXX)
+  value2   : 01 00 00 00 02 00 00 00  (XXXXXXXX)
+  size     : 8
+
+Test: test_assert_mem_not_equal_MSG
+ AssertMemoryTest.c:XXX: PCU_ASSERT_MEMORY_NOT_EQUAL(&a[0], &b[0], sizeof a[0], 1)
+  value1   : 01 00 00 00 02 00 00 00  (XXXXXXXX)
+  value2   : 01 00 00 00 02 00 00 00  (XXXXXXXX)
+  size     : 8
+  1, 2
+
+Test: test_assert_mem_not_equal_FAIL_null_null
+ AssertMemoryTest.c:XXX: PCU_ASSERT_MEMORY_NOT_EQUAL(NULL, NULL, 1, 4)
+  nth      : 0
+  value1   : NULL
+  value2   : NULL
+  size     : 1
+
+14 Tests, 7 Failures, 0 Skipped
+
+
+Suite: AssertOperatorTest
+
+Test: test_assert_operator_FAIL1
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR((-1) < (1))
+  value1   : 0xffffffffffffffff (-1)
+  value2   : 0x0000000000000001 (1)
+
+Test: test_assert_operator_FAIL2
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR((a) ^ (b))
+  value1   : 0x00000100 (256)
+  value2   : 0x00000100 (256)
+
+Test: test_assert_operator_FAIL3
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR((a) & (~b))
+  value1   : 0x00000100 (256)
+  value2   : 0xfffffeff (4294967039)
+
+Test: test_assert_operator_FAIL4
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR((a) == (b))
+  value1   : 0x00000100 (256)
+  value2   : 0x00000101 (257)
+
+Test: test_assert_operator_FAIL5
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR((0x10 <= a) && (a < 0x100))
+  value1   : 0x00000001 (1)
+  value2   : 0x00000000 (0)
+
+Test: test_assert_operator_FAIL6
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR((a < 0x10) || (0x100 < a))
+  value1   : 0x00000000 (0)
+  value2   : 0x00000000 (0)
+
+Test: test_assert_operator_MSG
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR((a) == (b))
+  value1   : 0x00000100 (256)
+  value2   : 0x00000000 (0)
+  256, 0
+
+Test: test_assert_operator_int_FAIL1
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR_INT((-1) > (1))
+  value1   : 0xffffffffffffffff (-1)
+  value2   : 0x0000000000000001 (1)
+
+Test: test_assert_operator_int_FAIL2
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR_INT((a) ^ (b))
+  value1   : 0x00000100 (256)
+  value2   : 0x00000100 (256)
+
+Test: test_assert_operator_int_FAIL3
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR_INT((a) & (~b))
+  value1   : 0x0000000000000100 (256)
+  value2   : 0xfffffffffffffeff (-257)
+
+Test: test_assert_operator_int_FAIL4
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR_INT((a) == (b))
+  value1   : 0x00000100 (256)
+  value2   : 0x00000101 (257)
+
+Test: test_assert_operator_int_FAIL5
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR_INT((0x10 <= a) && (a < 0x100))
+  value1   : 0x00000001 (1)
+  value2   : 0x00000000 (0)
+
+Test: test_assert_operator_int_FAIL6
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR_INT((a < 0x10) || (0x100 < a))
+  value1   : 0x00000000 (0)
+  value2   : 0x00000000 (0)
+
+Test: test_assert_operator_int_MSG
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR_INT((a) == (b))
+  value1   : 0x00000100 (256)
+  value2   : 0x00000000 (0)
+  256, 0
+
+Test: test_assert_operator_dbl_FAIL1
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR_DOUBLE((0) > (1))
+  value1   : 0
+  value2   : 1
+
+Test: test_assert_operator_dbl_FAIL2
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR_DOUBLE((a) < (b))
+  value1   : 100
+  value2   : 100
+
+Test: test_assert_operator_dbl_FAIL3
+ AssertOperatorTest.c:XXX: PCU_ASSERT_OPERATOR_DOUBLE((a) == (b))
+  value1   : 100
+  value2   : 100.1
+
+20 Tests, 17 Failures, 0 Skipped
+
+
+Suite: AssertPtrTest
+
+Test: test_assert_ptr_equal_FAIL
+ AssertPtrTest.c:XXX: PCU_ASSERT_PTR_EQUAL(&a, &b)
+  expected : 0xXXXXXXXX
+  actual   : 0xXXXXXXXX
+
+Test: test_assert_ptr_equal_MSG
+ AssertPtrTest.c:XXX: PCU_ASSERT_PTR_EQUAL(&a, &b)
+  expected : 0xXXXXXXXX
+  actual   : 0xXXXXXXXX
+  0xXXXXXXXX, 0xXXXXXXXX
+
+Test: test_assert_ptr_not_equal_FAIL
+ AssertPtrTest.c:XXX: PCU_ASSERT_PTR_NOT_EQUAL(&a, &a)
+  value1   : 0xXXXXXXXX
+  value2   : 0xXXXXXXXX
+
+Test: test_assert_ptr_not_equal_MSG
+ AssertPtrTest.c:XXX: PCU_ASSERT_PTR_NOT_EQUAL(&a, &a)
+  value1   : 0xXXXXXXXX
+  value2   : 0xXXXXXXXX
+  0xXXXXXXXX, 0xXXXXXXXX
+
+Test: test_assert_ptr_null_FAIL
+ AssertPtrTest.c:XXX: PCU_ASSERT_PTR_NULL(p)
+  expected : NULL
+  actual   : 0xXXXXXXXX
+
+Test: test_assert_ptr_null_MSG
+ AssertPtrTest.c:XXX: PCU_ASSERT_PTR_NULL(p)
+  expected : NULL
+  actual   : 0xXXXXXXXX
+  0xXXXXXXXX
+
+Test: test_assert_ptr_not_null_FAIL
+ AssertPtrTest.c:XXX: PCU_ASSERT_PTR_NOT_NULL(p)
+  expected : non-NULL
+  actual   : NULL
+
+Test: test_assert_ptr_not_null_MSG
+ AssertPtrTest.c:XXX: PCU_ASSERT_PTR_NOT_NULL(p)
+  expected : non-NULL
+  actual   : NULL
+  0x0
+
+12 Tests, 8 Failures, 0 Skipped
+
+
+Suite: AssertStringTest
+
+Test: test_assert_str_equal_FAIL
+ AssertStringTest.c:XXX: PCU_ASSERT_STRING_EQUAL(a, b)
+  expected : "hoge" (0xXXXXXXXX)
+  actual   : "piyo" (0xXXXXXXXX)
+
+Test: test_assert_str_equal_MSG
+ AssertStringTest.c:XXX: PCU_ASSERT_STRING_EQUAL(a, b)
+  expected : "hoge" (0xXXXXXXXX)
+  actual   : "piyo" (0xXXXXXXXX)
+  hoge, piyo
+
+Test: test_assert_str_equal_FAIL_expect_null
+ AssertStringTest.c:XXX: PCU_ASSERT_STRING_EQUAL(NULL, a)
+  expected : NULL
+  actual   : "hoge" (0xXXXXXXXX)
+
+Test: test_assert_str_equal_FAIL_actual_null
+ AssertStringTest.c:XXX: PCU_ASSERT_STRING_EQUAL(a, NULL)
+  expected : "hoge" (0xXXXXXXXX)
+  actual   : NULL
+
+Test: test_assert_str_not_equal_FAIL
+ AssertStringTest.c:XXX: PCU_ASSERT_STRING_NOT_EQUAL(a, b)
+  value1   : "hoge" (0xXXXXXXXX)
+  value2   : "hoge" (0xXXXXXXXX)
+
+Test: test_assert_str_not_equal_MSG
+ AssertStringTest.c:XXX: PCU_ASSERT_STRING_NOT_EQUAL(a, b)
+  value1   : "hoge" (0xXXXXXXXX)
+  value2   : "hoge" (0xXXXXXXXX)
+  hoge, hoge
+
+Test: test_assert_str_not_equal_FAIL_null_null
+ AssertStringTest.c:XXX: PCU_ASSERT_STRING_NOT_EQUAL(NULL, NULL)
+  value1   : NULL
+  value2   : NULL
+
+Test: test_assert_nstr_equal_FAIL
+ AssertStringTest.c:XXX: PCU_ASSERT_NSTRING_EQUAL(a, b, 4)
+  expected : "hogu" (0xXXXXXXXX)
+  actual   : "hoge" (0xXXXXXXXX)
+  length   : 4
+
+Test: test_assert_nstr_equal_MSG
+ AssertStringTest.c:XXX: PCU_ASSERT_NSTRING_EQUAL(a, b, 4)
+  expected : "hogu" (0xXXXXXXXX)
+  actual   : "hoge" (0xXXXXXXXX)
+  length   : 4
+  hogu, hogehoge
+
+Test: test_assert_nstr_equal_FAIL_expect_null
+ AssertStringTest.c:XXX: PCU_ASSERT_NSTRING_EQUAL(NULL, a, 1)
+  expected : NULL
+  actual   : "h" (0xXXXXXXXX)
+  length   : 1
+
+Test: test_assert_nstr_equal_FAIL_actual_null
+ AssertStringTest.c:XXX: PCU_ASSERT_NSTRING_EQUAL(a, NULL, 1)
+  expected : "h" (0xXXXXXXXX)
+  actual   : NULL
+  length   : 1
+
+Test: test_assert_nstr_not_equal_FAIL
+ AssertStringTest.c:XXX: PCU_ASSERT_NSTRING_NOT_EQUAL(a, b, 4)
+  value1   : "hoge" (0xXXXXXXXX)
+  value2   : "hoge" (0xXXXXXXXX)
+  length   : 4
+
+Test: test_assert_nstr_not_equal_MSG
+ AssertStringTest.c:XXX: PCU_ASSERT_NSTRING_NOT_EQUAL(a, b, 3)
+  value1   : "hog" (0xXXXXXXXX)
+  value2   : "hog" (0xXXXXXXXX)
+  length   : 3
+  hogu, hogehoge
+
+Test: test_assert_nstr_not_equal_FAIL_null_null
+ AssertStringTest.c:XXX: PCU_ASSERT_NSTRING_NOT_EQUAL(NULL, NULL, 1)
+  value1   : NULL
+  value2   : NULL
+  length   : 1
+
+24 Tests, 14 Failures, 0 Skipped
+
+
+Suite: AssertStringWTest
+
+Test: test_assert_strw_equal_FAIL
+ AssertStringWTest.c:XXX: PCU_ASSERT_STRINGW_EQUAL(a, b)
+  expected : L"hoge" (0xXXXXXXXX)
+  actual   : L"piyo" (0xXXXXXXXX)
+
+Test: test_assert_strw_equal_MSG
+ AssertStringWTest.c:XXX: PCU_ASSERT_STRINGW_EQUAL(a, b)
+  expected : L"hoge" (0xXXXXXXXX)
+  actual   : L"piyo" (0xXXXXXXXX)
+  hoge, piyo
+
+Test: test_assert_strw_equal_FAIL_expect_null
+ AssertStringWTest.c:XXX: PCU_ASSERT_STRINGW_EQUAL(NULL, a)
+  expected : NULL
+  actual   : L"hoge" (0xXXXXXXXX)
+
+Test: test_assert_strw_equal_FAIL_actual_null
+ AssertStringWTest.c:XXX: PCU_ASSERT_STRINGW_EQUAL(a, NULL)
+  expected : L"hoge" (0xXXXXXXXX)
+  actual   : NULL
+
+Test: test_assert_strw_not_equal_FAIL
+ AssertStringWTest.c:XXX: PCU_ASSERT_STRINGW_NOT_EQUAL(a, b)
+  value1   : L"hoge" (0xXXXXXXXX)
+  value2   : L"hoge" (0xXXXXXXXX)
+
+Test: test_assert_strw_not_equal_MSG
+ AssertStringWTest.c:XXX: PCU_ASSERT_STRINGW_NOT_EQUAL(a, b)
+  value1   : L"hoge" (0xXXXXXXXX)
+  value2   : L"hoge" (0xXXXXXXXX)
+  hoge, hoge
+
+Test: test_assert_strw_not_equal_FAIL_null_null
+ AssertStringWTest.c:XXX: PCU_ASSERT_STRINGW_NOT_EQUAL(NULL, NULL)
+  value1   : NULL
+  value2   : NULL
+
+Test: test_assert_nstrw_equal_FAIL
+ AssertStringWTest.c:XXX: PCU_ASSERT_NSTRINGW_EQUAL(a, b, 4)
+  expected : L"hogu" (0xXXXXXXXX)
+  actual   : L"hoge" (0xXXXXXXXX)
+  length   : 4
+
+Test: test_assert_nstrw_equal_MSG
+ AssertStringWTest.c:XXX: PCU_ASSERT_NSTRINGW_EQUAL(a, b, 4)
+  expected : L"hogu" (0xXXXXXXXX)
+  actual   : L"hoge" (0xXXXXXXXX)
+  length   : 4
+  hogu, hogehoge
+
+Test: test_assert_nstrw_equal_FAIL_expect_null
+ AssertStringWTest.c:XXX: PCU_ASSERT_NSTRINGW_EQUAL(NULL, a, 1)
+  expected : NULL
+  actual   : L"h" (0xXXXXXXXX)
+  length   : 1
+
+Test: test_assert_nstrw_equal_FAIL_actual_null
+ AssertStringWTest.c:XXX: PCU_ASSERT_NSTRINGW_EQUAL(a, NULL, 1)
+  expected : L"h" (0xXXXXXXXX)
+  actual   : NULL
+  length   : 1
+
+Test: test_assert_nstrw_not_equal_FAIL
+ AssertStringWTest.c:XXX: PCU_ASSERT_NSTRINGW_NOT_EQUAL(a, b, 4)
+  value1   : L"hoge" (0xXXXXXXXX)
+  value2   : L"hoge" (0xXXXXXXXX)
+  length   : 4
+
+Test: test_assert_nstrw_not_equal_MSG
+ AssertStringWTest.c:XXX: PCU_ASSERT_NSTRINGW_NOT_EQUAL(a, b, 3)
+  value1   : L"hog" (0xXXXXXXXX)
+  value2   : L"hog" (0xXXXXXXXX)
+  length   : 3
+  hogu, hogehoge
+
+Test: test_assert_nstrw_not_equal_FAIL_null_null
+ AssertStringWTest.c:XXX: PCU_ASSERT_NSTRINGW_NOT_EQUAL(NULL, NULL, 1)
+  value1   : NULL
+  value2   : NULL
+  length   : 1
+
+24 Tests, 14 Failures, 0 Skipped
+
+
+Suite: AssertTest
+
+Test: test_assert_FAIL
+ AssertTest.c:XXX: PCU_ASSERT(0)
+  expected : TRUE
+  actual   : FALSE (0)
+
+Test: test_assert_MSG
+ AssertTest.c:XXX: PCU_ASSERT(a)
+  expected : TRUE
+  actual   : FALSE (0)
+  0
+
+Test: test_assert_true_FAIL
+ AssertTest.c:XXX: PCU_ASSERT_TRUE(a)
+  expected : TRUE
+  actual   : FALSE (0)
+
+Test: test_assert_true_MSG
+ AssertTest.c:XXX: PCU_ASSERT_TRUE(a)
+  expected : TRUE
+  actual   : FALSE (0)
+  0
+
+Test: test_assert_false_FAIL
+ AssertTest.c:XXX: PCU_ASSERT_FALSE(a)
+  expected : FALSE
+  actual   : TRUE (1)
+
+Test: test_assert_false_MSG
+ AssertTest.c:XXX: PCU_ASSERT_FALSE(a)
+  expected : FALSE
+  actual   : TRUE (1)
+  1
+
+9 Tests, 6 Failures, 0 Skipped
+
+
+Suite: CleanupTest
+
+1 Tests, 0 Failures, 0 Skipped
+OK
+
+CLEANUP FAILED : -1
+
+
+Suite: FailTest
+
+Test: test_fail1
+ FailTest.c:XXX: PCU_FAIL
+  test_fail
+
+Test: test_fail2
+ FailTest.c:XXX: PCU_FAIL
+  test_fail: 1,0x2, 3, 0004, 5, 0x00000006, +7, 8       ,-9,         10
+
+Test: test_message1
+ FailTest.c:XXX: PCU_MESSAGE
+  test_message
+
+Test: test_message2
+ FailTest.c:XXX: PCU_MESSAGE
+  test_message: 1,0x2, 3, 0004, 5, 0x00000006, +7, 8       ,-9,         10
+
+Test: test_message_fail
+ FailTest.c:XXX: PCU_MESSAGE
+  test_message
+ FailTest.c:XXX: PCU_FAIL
+  test_fail
+
+5 Tests, 3 Failures, 0 Skipped
+
+
+Suite: InitializeTest
+
+INITIALIZE FAILED : -1
+
+
+Suite: SetupTest
+
+Test: test_assert_setup_err
+ test_assert_setup_err: SETUP FAILED
+  return   : -1
+
+Test: test_assert_teardown_err
+ test_assert_teardown_err: TEARDOWN FAILED
+  return   : -2
+
+Test: test_repeated
+ SetupTest.c:XXX: PCU_ASSERT_EQUAL(-1, PCU_repeat_counter())
+  expected : 0xffffffffffffffff (-1)
+  actual   : 0x0000000000000000 (0)
+  repeat   : 0
+ SetupTest.c:XXX: PCU_ASSERT_EQUAL(-1, PCU_repeat_counter())
+  expected : 0xffffffffffffffff (-1)
+  actual   : 0x0000000000000001 (1)
+  repeat   : 1
+ SetupTest.c:XXX: PCU_ASSERT_EQUAL(-1, PCU_repeat_counter())
+  expected : 0xffffffffffffffff (-1)
+  actual   : 0x0000000000000002 (2)
+  repeat   : 2
+ SetupTest.c:XXX: PCU_ASSERT_EQUAL(-1, PCU_repeat_counter())
+  expected : 0xffffffffffffffff (-1)
+  actual   : 0x0000000000000003 (3)
+  repeat   : 3
+ SetupTest.c:XXX: PCU_ASSERT_EQUAL(-1, PCU_repeat_counter())
+  expected : 0xffffffffffffffff (-1)
+  actual   : 0x0000000000000004 (4)
+  repeat   : 4
+
+4 Tests, 3 Failures, 1 Skipped
+

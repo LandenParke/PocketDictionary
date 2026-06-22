@@ -1,0 +1,29 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_CALIB_DATA_ACC_GYRO
+	tristate "Examples of calibration data for accelerometers and gyro sensors"
+	default n
+	---help---
+		Example of data output for calibration
+
+if EXAMPLES_CALIB_DATA_ACC_GYRO
+
+config EXAMPLES_CALIB_DATA_ACC_GYRO_PROGNAME
+	string "Program name"
+	default "calibration_data_acc_gyro"
+	---help---
+		This is the name of the program that will be use when the NSH ELF
+		program is installed.
+
+config EXAMPLES_CALIB_DATA_ACC_GYRO_PRIORITY
+	int "Sensor task priority"
+	default 100
+
+config EXAMPLES_CALIB_DATA_ACC_GYRO_STACKSIZE
+	int "Sensor stack size"
+	default 2048
+
+endif
