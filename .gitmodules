@@ -1,0 +1,6 @@
+[submodule "GUI/build_stuff/submod_spresense"]
+	path = GUI/build_stuff/submod_spresense
+	url = git@github.com:sonydevworld/spresense.git
+[submodule "GUI/build_stuff/spresense"]
+	path = GUI/build_stuff/spresense
+	url = git@github.com:sonydevworld/spresense.git
