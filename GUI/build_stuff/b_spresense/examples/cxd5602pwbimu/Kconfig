@@ -1,0 +1,25 @@
+
+config EXAMPLES_CXD5602PWBIMU
+	tristate "CXD5602PWBIMU example"
+	default n
+	---help---
+		Enable the pwbimu app
+
+if EXAMPLES_CXD5602PWBIMU
+
+config EXAMPLES_CXD5602PWBIMU_PROGNAME
+	string "Program name"
+	default "pwbimu"
+	---help---
+		This is the name of the program that will be use when the NSH ELF
+		program is installed.
+
+config EXAMPLES_CXD5602PWBIMU_PRIORITY
+	int "pwbimu task priority"
+	default 100
+
+config EXAMPLES_CXD5602PWBIMU_STACKSIZE
+	int "pwbimu stack size"
+	default 2048
+
+endif
