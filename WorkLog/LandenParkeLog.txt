@@ -1,5 +1,12 @@
-6.19.21
+6.19.26
 Tried to get the keyboard to work for about 4 hours, nothing HAPPENED!!!!!
 Got more used to the VS Code IDE implementation, can help anyone that needs help getting it set up.
 
-Test
+6.24.26
+Went to Osaka to buy new ESP32 and other equipment
+
+6.25.26
+Soldered the esp32 dev board and the microsd card reader
+
+6.26.26
+Tried to get a LVGl demo running on the esp32, could not get working. 
