@@ -1,3 +1,10 @@
+ESP32 Stuff
+==================================
+Board purchased:
+http://ssci.to/8311 
+LVGL demo I'm trying to get working:
+https://github.com/espressif/esp-dev-kits/tree/master/examples/esp32-s3-lcd-ev-board/examples/lvgl_demos
+
 Environment setup with Hello world
 ==================================
 
