@@ -9,4 +9,10 @@ Went to Osaka to buy new ESP32 and other equipment
 Soldered the esp32 dev board and the microsd card reader
 
 6.26.26
-Tried to get a LVGl demo running on the esp32, could not get working. 
+Tried to get a LVGl demo running on the esp32, could not get working.
+
+6.29.26
+Environment set up on new laptop. Tried to get a demo working but it didn't work.
+
+6.30.26
+Got the program flashing working. Attemped to get I2C working but I'm still facing issues somehow. Will ask Jake tomorrow about what to do as I'm quite lost. 
