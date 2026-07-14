@@ -1,4 +1,0 @@
-
-ifneq ($(CONFIG_EXAMPLES_DIRECT_AUDIO_MICINPUT),)
-CONFIGURED_APPS += direct_audio_micinput
-endif

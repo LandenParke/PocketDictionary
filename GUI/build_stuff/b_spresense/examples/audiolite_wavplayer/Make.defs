@@ -1,4 +1,0 @@
-
-ifneq ($(CONFIG_EXAMPLES_AUDIOLITE_WAVPLAYER),)
-CONFIGURED_APPS += audiolite_wavplayer
-endif

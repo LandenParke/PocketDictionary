@@ -1,4 +1,0 @@
-
-ifneq ($(CONFIG_EXAMPLES_AUDIOLITE_REC2NET),)
-CONFIGURED_APPS += audiolite_rec2net
-endif

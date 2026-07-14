@@ -1,6 +1,0 @@
-*.out
-test_runner
-*.gcno
-*.gcda
-/lcov.info
-/lcov

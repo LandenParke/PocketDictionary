@@ -1,8 +1,0 @@
-/Kconfig
-.depend
-.built
-.context
-Make.dep
-*.a
-*.a.lock
-*.o

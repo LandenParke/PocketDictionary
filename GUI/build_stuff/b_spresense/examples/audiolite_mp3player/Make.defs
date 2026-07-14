@@ -1,4 +1,0 @@
-
-ifneq ($(CONFIG_EXAMPLES_AUDIOLITE_MP3PLAYER),)
-CONFIGURED_APPS += audiolite_mp3player
-endif

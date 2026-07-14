@@ -1,4 +1,0 @@
-
-ifneq ($(CONFIG_EXAMPLES_AUDIOLITE_RECORDER),)
-CONFIGURED_APPS += audiolite_wavrecorder
-endif

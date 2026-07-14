@@ -121,6 +121,10 @@ static void keypad_read_cb(lv_indev_t *indev,
 
 
 
+
+
+
+
 /////////////////////////////////////////
 // MAIN
 /////////////////////////////////////////
@@ -129,26 +133,18 @@ int main(int argc, FAR char *argv[])
 {
 	lv_nuttx_dsc_t info;
 	lv_nuttx_result_t result;
-
-
-	if (lv_is_initialized())
-		{
-		LV_LOG_ERROR("LVGL already initialized! aborting.");
-		return -1;
-		}
+	info.fb_path = "/dev/lcd0"
 
 	lv_init();
 
 	lv_nuttx_dsc_init(&info);
 
-
 	lv_nuttx_init(&info, &result);
 
-	if (result.disp == NULL)
-		{
+	if (result.disp == NULL) {
 		LV_LOG_ERROR("lv_demos initialization failure!");
 		return 1;
-		}
+	}
 
 
 	// input
@@ -161,13 +157,10 @@ int main(int argc, FAR char *argv[])
 	create_ui();
 
 
-  	while (1)
-	{
+  	while (1) {
 	uint32_t idle;
 	idle = lv_timer_handler();
-
-	/* Minimum sleep of 1ms */
-
+	// minimum sleep of 1ms
 	idle = idle ? idle : 1;
 	usleep(idle * 1000);
 	}

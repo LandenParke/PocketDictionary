@@ -1,4 +1,0 @@
-
-ifneq ($(CONFIG_EXAMPLES_POSPREDICT_PWBIMU),)
-CONFIGURED_APPS += pospredict_pwbimu
-endif
