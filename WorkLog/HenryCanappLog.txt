@@ -45,4 +45,17 @@ https://github.com/m5stack/M5Stack/blob/master/examples/Unit/CardKB/CardKB.ino
 
 
 
+---------7/14/2026---------
+Researching good pracices for readme and instrcutions to support the open-sourceness of our project.
+Since we're shifting to just make sure we can get a simulation working, that is what I will make instrcutions for
+Readme structure guides:
+https://github.com/mhucka/readmine
+https://github.com/banesullivan/README
+https://www.thegooddocsproject.dev/template/readme
 
+Sections that the readme will need:
+- Intro of what the project is and its purpose
+- Actual set up on someones computer (either super step by step, or instructions on how to use a bash script)
+- How to use/run
+
+Tomorrow I'm gonna have Ian help me get the sim running, I'll document the steps, and then I'll start putting together readme instructions
