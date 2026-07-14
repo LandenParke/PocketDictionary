@@ -5,18 +5,42 @@
 #include <nuttx/config.h>
 #include <unistd.h>
 #include <sys/boardctl.h>
-
 #include <lvgl/lvgl.h>
-
-
 #include <termios.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <jp_font_24.c>
-void create_ui(void);
-
-
 #include <lvgl/demos/lv_demos.h>
+
+
+
+
+#include <jp_font_24.c>
+static void create_ui();
+static void populate_list(int start);
+static void update_bottom_highlight();
+
+// lookup results
+// fill more elements + format later
+typedef struct {
+    const char *word;
+	const char *accent;
+    const char *detail;
+} dict_entry;
+// word + details
+static dict_entry entries[] = {
+    {"器官", " common | JLPT N1", "1. organ (noun)"},
+    {"期間", " common | JLPT N3", "1. period (noun)\n2. interval (noun)"},
+    {"機関", " common | JLPT N3", "1. institution (noun)"},
+    {"帰還", " common", "1. return (noun)\n2. feedback (noun)"},
+    {"旗艦", "", "1. flagship (noun)"},
+    {"季刊", " common | JLPT N1", "1. quarterly (noun)"}
+};
+
+
+
+
+
+
 
 
 /////////////////////////////////////////
@@ -45,6 +69,14 @@ static void enable_raw_mode(void)
 }
 
 
+
+
+static int bottom_sel_index = 0;
+static int window_start = 0;
+static int results_count = 0;
+#define BOTTOM_ITEM_COUNT 4
+
+
 static void poll_keyboard(void)
 {
 	char c;
@@ -59,22 +91,36 @@ static void poll_keyboard(void)
 
 	switch (c) {
 		case '1':
-			g_last_key = LV_KEY_UP;
+			if (window_start > 0) {
+				populate_list(window_start - 1);
+			}
+
 			g_key_pressed = true;
 			break;
 
 		case '2':
-			g_last_key = LV_KEY_DOWN;
+			if (window_start < results_count - 1) {
+				populate_list(window_start + 1);
+			}
+
 			g_key_pressed = true;
 			break;
 
 		case '3':
-			g_last_key = LV_KEY_LEFT;
+			if (bottom_sel_index > 0) {
+				bottom_sel_index--;
+				update_bottom_highlight();
+			}
+
 			g_key_pressed = true;
 			break;
 
 		case '4':
-			g_last_key = LV_KEY_RIGHT;
+			if (bottom_sel_index < BOTTOM_ITEM_COUNT - 1) {
+				bottom_sel_index++;
+				update_bottom_highlight();
+			}
+
 			g_key_pressed = true;
 			break;
 
@@ -124,11 +170,11 @@ int main(int argc, FAR char *argv[])
 {
 	lv_nuttx_dsc_t info;
 	lv_nuttx_result_t result;
-	info.fb_path = "/dev/lcd0";
-
+	
 	lv_init();
 
 	lv_nuttx_dsc_init(&info);
+	info.fb_path = "/dev/lcd0";
 
 	lv_nuttx_init(&info, &result);
 
@@ -146,7 +192,7 @@ int main(int argc, FAR char *argv[])
 	lv_indev_set_read_cb(kb_indev, keypad_read_cb);
 
 	create_ui();
-
+	
 
   	while (1) {
 	uint32_t idle;
@@ -184,36 +230,14 @@ int h2 = 210;
 int v1 = 40;
 
 
-// lookup results
-// fill more elements + format later
-typedef struct {
-    const char *word;
-	const char *accent;
-    const char *detail;
-} dict_entry;
-// word + details
-static const dict_entry entries[] = {
-    {"器官", " common | JLPT N1", "1. organ (noun)"},
-    {"期間", " common | JLPT N3", "1. period (noun)\n2. interval (noun)"},
-    {"機関", " common | JLPT N3", "1. institution (noun)"},
-    {"帰還", " common", "1. return (noun)\n2. feedback (noun)"},
-    {"旗艦", "", "1. flagship (noun)"},
-    {"季刊", " common | JLPT N1", "1. quarterly (noun)"}
-};
-static const int results_count = sizeof(entries) / sizeof(entries[0]);
-
-
 // word list
 #define list_element_count 6
 static lv_obj_t *list_items[list_element_count];
-static int window_start = 0;
 
 
 // bottom bar
-#define BOTTOM_ITEM_COUNT 4
 static lv_obj_t *bottom_items[BOTTOM_ITEM_COUNT];
-static int bottom_sel_index = 0;
-static void update_bottom_highlight(void) {
+static void update_bottom_highlight() {
 	for (int i = 0; i < BOTTOM_ITEM_COUNT; i++) {
 		if (i == bottom_sel_index) {
 			lv_obj_set_style_bg_color(bottom_items[i], lv_color_hex(0xF58E27), 0);
@@ -232,8 +256,7 @@ static void update_results(void) {
 static lv_obj_t *selected_label;
 static lv_obj_t *accent_label;
 static lv_obj_t *details_label;
-static void populate_list(int start)
-{
+static void populate_list(int start) {
     window_start = start;
     lv_label_set_text(selected_label, entries[start].word);
 	lv_label_set_text(accent_label, entries[start].accent);
@@ -251,95 +274,14 @@ static void populate_list(int start)
 }
 
 
-static lv_group_t *g;
-
-static void keyboard_event_cb(lv_event_t *e);
-static lv_obj_t *search;
-static lv_obj_t *kb = NULL;
-void osc_keyboard(void)
-{
-	if (kb) {
-		lv_obj_del(kb);
-		kb = NULL;
-		return;
-	}
-
-	kb = lv_keyboard_create(lv_layer_top());
-	lv_obj_set_size(kb, LV_PCT(100), LV_PCT(50));
-	lv_obj_align(kb, LV_ALIGN_BOTTOM_MID, 0, 0);
-
-	lv_keyboard_set_textarea(kb, search);
-
-	lv_group_add_obj(g, search);
-	lv_group_focus_obj(search);
-	lv_obj_add_event_cb(kb, keyboard_event_cb, LV_EVENT_ALL, NULL);
-}
-
-lv_obj_t *list;
-static void keyboard_event_cb(lv_event_t *e)
-{
-	lv_event_code_t code = lv_event_get_code(e);
-
-	uint32_t key = lv_event_get_key(e);
-
-	if (key == LV_KEY_DOWN)
-	{
-		if (window_start < results_count - 1)
-		{
-			populate_list(window_start + 1);
-		}
-	}
-	if (key == LV_KEY_UP)
-	{
-		if (window_start > 0)
-		{
-			populate_list(window_start - 1);
-		}
-	}
-	if (key == LV_KEY_LEFT) {
-		if (bottom_sel_index > 0) {
-			bottom_sel_index--;
-			update_bottom_highlight();
-		}
-	}
-	if (key == LV_KEY_RIGHT) {
-		if (bottom_sel_index < BOTTOM_ITEM_COUNT - 1) {
-			bottom_sel_index++;
-			update_bottom_highlight();
-		}
-
-	}
-	if (key == LV_KEY_ENTER) {
-		int word_idx = window_start;
-		if (word_idx < results_count) {
-			printf("word=%s  option=%d\n", entries[word_idx].word, bottom_sel_index);
-			fflush(stdout);
-		}
-		if (bottom_sel_index == 1) {
-			osc_keyboard();
-		}
-	}
-
-	// on screen keyboard
-	if (code == LV_EVENT_READY) {
-		// enter/submit
-		printf("search text submitted: %s\n", lv_textarea_get_text(search));
-
-		lv_obj_del(kb);
-		kb = NULL;
-		lv_group_focus_obj(list);
-	}
-	else if (code == LV_EVENT_CANCEL) {
-		lv_obj_del(kb);
-		kb = NULL;
-		lv_group_focus_obj(list);
-	}
-}
 
 
 
-void create_ui(void)
-{
+
+
+
+
+static void create_ui() {
     lv_obj_t *scr = lv_screen_active();
     lv_obj_remove_flag(scr, LV_OBJ_FLAG_SCROLLABLE);
 
@@ -353,6 +295,7 @@ void create_ui(void)
 	
 
     // top search bar
+	static lv_obj_t *search;
 	search = lv_textarea_create(root);
 	lv_obj_set_style_text_font(search, &lv_font_montserrat_14, 0);
 	lv_obj_set_width(search, LV_PCT(100));
@@ -390,6 +333,7 @@ void create_ui(void)
 	lv_obj_set_flex_flow(middle, LV_FLEX_FLOW_ROW);
 
     // left word list
+	static lv_obj_t *list;
 	list = lv_obj_create(middle);
 	lv_obj_set_width(list, 45);
 	lv_obj_set_height(list, LV_PCT(100));
@@ -477,18 +421,11 @@ void create_ui(void)
 
 
 
-
+	results_count = sizeof(entries) / sizeof(entries[0]);
 	populate_list(0);
 	update_bottom_highlight();
 	update_results();
 	
-
-	g = lv_group_create();
-	lv_indev_set_group(kb_indev, g);
-	lv_group_add_obj(g, list);
-	lv_group_focus_obj(list);
-	lv_obj_add_event_cb(list, keyboard_event_cb, LV_EVENT_ALL, NULL);
-
 
 	
 
