@@ -133,7 +133,7 @@ int main(int argc, FAR char *argv[])
 {
 	lv_nuttx_dsc_t info;
 	lv_nuttx_result_t result;
-	info.fb_path = "/dev/lcd0"
+	info.fb_path = "/dev/lcd0";
 
 	lv_init();
 
