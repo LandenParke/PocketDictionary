@@ -19,8 +19,9 @@ void create_ui(void);
 #include <lvgl/demos/lv_demos.h>
 
 
-
+/////////////////////////////////////////
 // INPUT
+/////////////////////////////////////////
 
 static lv_indev_t *kb_indev;
 
@@ -28,13 +29,11 @@ static uint32_t g_last_key;
 static bool g_key_pressed;
 
 
-
 static void set_stdin_nonblock(void)
 {
   int flags = fcntl(STDIN_FILENO, F_GETFL, 0);
   fcntl(STDIN_FILENO, F_SETFL, flags | O_NONBLOCK);
 }
-
 static struct termios oldt;
 static void enable_raw_mode(void)
 {
@@ -45,68 +44,60 @@ static void enable_raw_mode(void)
   tcsetattr(STDIN_FILENO, TCSANOW, &newt);
 }
 
+
 static void poll_keyboard(void)
 {
-  char c;
-  int n;
+	char c;
+	int n;
 
-  n = read(STDIN_FILENO, &c, 1);
+	n = read(STDIN_FILENO, &c, 1);
 
-  if (n <= 0)
-    {
-      g_key_pressed = false;
-      return;
-    }
+	if (n <= 0){
+		g_key_pressed = false;
+		return;
+	}
 
-  switch (c)
-    {
-      case 'w':
-        g_last_key = LV_KEY_UP;
-        g_key_pressed = true;
-        break;
+	switch (c) {
+		case '1':
+			g_last_key = LV_KEY_UP;
+			g_key_pressed = true;
+			break;
 
-      case 's':
-        g_last_key = LV_KEY_DOWN;
-        g_key_pressed = true;
-        break;
+		case '2':
+			g_last_key = LV_KEY_DOWN;
+			g_key_pressed = true;
+			break;
 
-      case 'a':
-        g_last_key = LV_KEY_LEFT;
-        g_key_pressed = true;
-        break;
+		case '3':
+			g_last_key = LV_KEY_LEFT;
+			g_key_pressed = true;
+			break;
 
-      case 'r':
-        g_last_key = LV_KEY_RIGHT;
-        g_key_pressed = true;
-        break;
+		case '4':
+			g_last_key = LV_KEY_RIGHT;
+			g_key_pressed = true;
+			break;
 
-      case '\r':
-      case '\n':
-        g_last_key = LV_KEY_ENTER;
-        g_key_pressed = true;
-        break;
+		case '\r':
+		case '\n':
+			g_last_key = LV_KEY_ENTER;
+			g_key_pressed = true;
+			break;
 
-      default:
-        g_key_pressed = false;
-        break;
-    }
+		default:
+			g_key_pressed = false;
+			break;
+	}
 
-  if (g_key_pressed)
-    {
-      printf("LVGL key=%lu\n", (unsigned long)g_last_key);
-      fflush(stdout);
-    }
+	if (g_key_pressed) {
+		printf("LVGL key=%lu\n", (unsigned long)g_last_key);
+		fflush(stdout);
+	}
 }
 
 
-static void keypad_read_cb(lv_indev_t *indev,
-                           lv_indev_data_t *data) 
-{
-	#ifndef CONFIG_ARCH_BOARD_SPRESENSE
+static void keypad_read_cb(lv_indev_t *indev, lv_indev_data_t *data) {
 	poll_keyboard();
-	#else
-	poll_buttons();
-	#endif
 
 	if (g_key_pressed)
 		{
