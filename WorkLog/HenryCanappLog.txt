@@ -62,5 +62,9 @@ Tomorrow I'm gonna have Ian help me get the sim running, I'll document the steps
 
 
 ---------7/15/2026---------
-Worked with Ian to get sim working on my computer along with documenting everything I did to get it to work. Nex is probably a bash file? to streamline the process for everyone. Since I did it on WSL it should be the same on most linux platforms, we probably need to make some notes on different prereqs for specific linux platforms (Ian said arch, whcih is what he runs, for example needs to be a bit different)
-Mac is a different story then I don't know yet
+Worked with Ian to get sim working on my computer along with documenting everything I did to get it to work.
+Next is probably a bash file? to streamline the process for everyone.
+Since I did it on WSL it should be the same on most linux platforms, 
+we probably need to make some notes on different prereqs for specific linux platforms 
+(Ian said arch, whcih is what he runs, for example needs to be a bit different)
+Mac is a different story that I don't know yet
