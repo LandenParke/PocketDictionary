@@ -1,12 +1,17 @@
-# premise
+# Important
+main UI file is lvgldemo.c\
+nuttxspace folder reflects nuttx sim structure\
+nuttxspace folder uses symlinks to reference files elsewhere in repo
+
+# Premise
 use open source LVGL library to create GUI
 - modified by user input and dictionary queries
 - outputs to lcd (320x240px)
 
-# design reference
+# Design Reference
 ![](gui_design_reference.png)
 
-# sim setup
+# Sim Setup
 using nuttx sim LATEST (lvgl v9.2.2)\
 using sim:lvgl_lcd
 

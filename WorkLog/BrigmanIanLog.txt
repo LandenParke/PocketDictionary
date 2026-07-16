@@ -159,3 +159,11 @@ https://lvgl.io/docs/open/8.2/get-started/pc-simulator
 
 
 > 2026-07-16
+- input portion of search functionality effectively completed
+- created a second, smaller jp font for "furigana" above user input term
+- using teammates furigana converter to interpret user input as romaji
+- reorganized repo to reflect nuttx sim structure file placement 
+- updated repo notes
+
+
+> 2026-07-17

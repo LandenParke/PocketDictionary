@@ -14,11 +14,12 @@
 
 
 
-#include <jp_font_24.c>
+#include <jp_fonts.h>
+#include <romaji.h>
 static void create_ui();
 static void populate_list(int start);
 static void update_bottom_highlight();
-static void update_search(char *word);
+static void update_search_bar(char *f_word, char *s_word);
 
 // lookup results
 // fill more elements + format later
@@ -68,12 +69,12 @@ static void enable_raw_mode(void)
 
 
 
-
 #define BOTTOM_ITEM_COUNT 4
 static int bottom_sel_index = 0;
 static int window_start = 0;
 static int results_count = 0;
-static char search_word[256] = "";
+static char search_word[512] = "";
+static char furigana_word[512] = "";
 
 
 static void poll_keyboard(void)
@@ -82,16 +83,23 @@ static void poll_keyboard(void)
 	read(STDIN_FILENO, &c, 1);
 
 	if (c > '0') {
-		printf("key read=%c\n", c);
+		printf("keycode read: %d\n", (unsigned char)c);
 	}
-
 	
 	if (c >= 'a' && c <= 'z') {
 		int len = strlen(search_word);
 		search_word[len] = c;
 		search_word[len + 1] = '\0';
-		update_search(search_word);
-		// append to WORD and update search bar
+		romaji_to_kana(search_word, furigana_word, sizeof(furigana_word));
+		printf("f_word: %s\ns_word: %s\n", furigana_word, search_word);
+		update_search_bar(furigana_word, search_word);
+	}
+	if (c == 127) {
+		int len = strlen(search_word);
+		search_word[len - 1] = '\0';
+		romaji_to_kana(search_word, furigana_word, sizeof(furigana_word));
+		printf("f_word: %s\ns_word: %s\n", furigana_word, search_word);
+		update_search_bar(furigana_word, search_word);
 	}
 	if (c == '1') {
 		if (window_start > 0) {
@@ -200,9 +208,11 @@ int v1 = 40;
 
 
 // live update search bar
+static lv_obj_t *furigana;
 static lv_obj_t *search;
-static void update_search(char *word) {
-	lv_label_set_text(search, word);
+static void update_search_bar(char *f_word, char *s_word) {
+	lv_label_set_text(furigana, f_word);
+	lv_label_set_text(search, s_word);
 }
 
 // word list
@@ -267,11 +277,20 @@ static void create_ui() {
 	lv_obj_set_flex_flow(root, LV_FLEX_FLOW_COLUMN);
 	
 
-    // top search bar
-	search = lv_textarea_create(root);
+	// top container
+	lv_obj_t *top = lv_obj_create(root);
+	lv_obj_set_width(top, LV_PCT(100));
+	lv_obj_set_height(top, 40);
+	// top search furigana
+	furigana = lv_label_create(top);
+	lv_obj_set_style_text_font(furigana, &jp_font_16_hiragana, 0);
+	lv_obj_set_height(furigana, 16);
+    // top search 
+	search = lv_label_create(top);
 	lv_obj_set_style_text_font(search, &lv_font_montserrat_14, 0);
-	lv_obj_set_width(search, LV_PCT(100));
-	lv_obj_set_height(search, 30);
+	lv_obj_set_height(search, 14);
+	lv_obj_set_pos(search, 0, 16);
+	
 
 
 	// selected word
@@ -410,6 +429,18 @@ static void create_ui() {
 	lv_obj_set_style_pad_column(root, 0, 0);
 	lv_obj_remove_flag(root, LV_OBJ_FLAG_SCROLLABLE);
 	lv_obj_set_style_radius(root, 0, 0);
+	// top
+	lv_obj_set_style_pad_all(top, 0, 0);
+	lv_obj_set_style_pad_row(top, 0, 0);
+	lv_obj_set_style_pad_column(top, 0, 0);
+	lv_obj_remove_flag(top, LV_OBJ_FLAG_SCROLLABLE);
+	lv_obj_set_style_radius(top, 0, 0);
+	// furigana
+	lv_obj_set_style_pad_all(furigana, 0, 0);
+	lv_obj_set_style_pad_row(furigana, 0, 0);
+	lv_obj_set_style_pad_column(furigana, 0, 0);
+	lv_obj_remove_flag(furigana, LV_OBJ_FLAG_SCROLLABLE);
+	lv_obj_set_style_radius(furigana, 0, 0);
 	// search
 	lv_obj_set_style_pad_all(search, 0, 0);
 	lv_obj_set_style_pad_row(search, 0, 0);
