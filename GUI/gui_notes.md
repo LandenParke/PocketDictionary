@@ -13,13 +13,9 @@ use open source LVGL library to create GUI
 
 # Sim Setup
 using nuttx sim LATEST (lvgl v9.2.2)\
-using sim:lvgl_lcd
+using sim:sqlite\
+(but actually using frankenstein .config)
 
-LVGL params to be set, use ```make menuconfig```
-```
-#define LV_USE_FONT_COMPRESSED 1
-#define LV_FONT_FMT_TXT_LARGE 1
-```
 ---
 from nuttx sim to hardware
 https://lvgl.io/docs/open/integration/rtos/nuttx#nuttx-on-device
