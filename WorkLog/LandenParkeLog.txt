@@ -24,4 +24,7 @@ Got a LVGL program running through the ILI9341 and ESP-IDF. Its an official exam
 After consulting with team we've decided to focus on just getting at least the simulator working. I will be focusing on figuring out how to implement in hardware. Over the last two days I've been attempting to get the LVGL demo working on the Spresense.
 
 7.16.26
-Fixed David's button code. 
+Fixed David's button code.
+
+7.18.26
+Got the SD card on the Spresense working. Should make it so we now can load fonts from the sd card and pull data in our code. Still need to figure out how we can implement this in code. 
