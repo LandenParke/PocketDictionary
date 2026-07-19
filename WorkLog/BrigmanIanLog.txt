@@ -166,4 +166,14 @@ https://lvgl.io/docs/open/8.2/get-started/pc-simulator
 - updated repo notes
 
 
-> 2026-07-17
+> 2026-07-18
+- attempted to implement sqlite search api
+- noted the need to use nuttx specific hooks for sqlite
+- noted the need to access the database though nuttx sim's virtual filesystem
+
+
+> 2026-07-19
+- spent 10 hours attempting to wrangle sqlite into working on nuttx sim
+- successfully got sqlite and lvgl working in tandem on nuttx sim
+- implemented basic ui search funtionality
+- noted that parts of the database require katakana for lookup rather than hiragana

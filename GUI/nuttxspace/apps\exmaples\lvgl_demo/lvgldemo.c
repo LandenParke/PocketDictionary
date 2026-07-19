@@ -13,12 +13,17 @@
 
 
 
-
+#include <sys/mount.h>
+#include <sys/stat.h>
+#include <stdio.h>
+#include <sqlite3.h>
 #include <jp_fonts.h>
 #include <romaji.h>
+#include <dict.h>
 static void create_ui();
 static void populate_list(int start);
 static void update_bottom_highlight();
+static void update_results();
 static void update_search_bar(char *f_word, char *s_word);
 
 // lookup results
@@ -29,7 +34,8 @@ typedef struct {
     const char *detail;
 } dict_entry;
 // word + details
-static dict_entry entries[] = {
+// testing entries
+static dict_entry entries_test[] = {
     {"器官", " common | JLPT N1", "1. organ (noun)"},
     {"期間", " common | JLPT N3", "1. period (noun)\n2. interval (noun)"},
     {"機関", " common | JLPT N3", "1. institution (noun)"},
@@ -37,9 +43,7 @@ static dict_entry entries[] = {
     {"旗艦", "", "1. flagship (noun)"},
     {"季刊", " common | JLPT N1", "1. quarterly (noun)"}
 };
-
-
-
+static const dict_result *entries; // dict.h entry struct
 
 
 
@@ -124,7 +128,11 @@ static void poll_keyboard(void)
 		}
 	}
 	if (c == '\r' || c == '\n') {
-		// enter key
+		results_count = dict_search(furigana_word, &entries);
+		furigana_word[0] = '\0';
+		search_word[0] = '\0';
+		populate_list(0);
+		update_results();
 	}
 }
 
@@ -136,6 +144,18 @@ static void keypad_read_cb(lv_indev_t *indev, lv_indev_data_t *data) {
 
 
 
+static void mount_hostfs(void)
+{
+    mkdir("/host", 0777);
+	// hardcoded, dict.db at /usr/nuttx_stuff
+    int ret = mount(NULL, "/host", "hostfs", 0, "fs=/usr/nuttx_stuff");
+
+    if (ret < 0) {
+        perror("hostfs mount failed\n");
+    } else {
+        printf("hostfs mounted\n");
+    }
+}
 
 
 
@@ -160,6 +180,11 @@ int main(int argc, FAR char *argv[])
 		return 1;
 	}
 
+	// db
+	mount_hostfs();
+	dict_open("/host/dict.db");
+
+
 
 	// input
 	enable_raw_mode();
@@ -168,9 +193,10 @@ int main(int argc, FAR char *argv[])
 	lv_indev_set_type(kb_indev, LV_INDEV_TYPE_KEYPAD);
 	lv_indev_set_read_cb(kb_indev, keypad_read_cb);
 
+	
 	create_ui();
 	
-
+	
   	while (1) {
 	uint32_t idle;
 	idle = lv_timer_handler();
@@ -178,8 +204,6 @@ int main(int argc, FAR char *argv[])
 	idle = idle ? idle : 1;
 	usleep(idle * 1000);
 	}
-
-
 }
 
 
@@ -283,10 +307,12 @@ static void create_ui() {
 	lv_obj_set_height(top, 40);
 	// top search furigana
 	furigana = lv_label_create(top);
+	lv_label_set_text(furigana, "");
 	lv_obj_set_style_text_font(furigana, &jp_font_16_hiragana, 0);
 	lv_obj_set_height(furigana, 16);
     // top search 
 	search = lv_label_create(top);
+	lv_label_set_text(search, "search");
 	lv_obj_set_style_text_font(search, &lv_font_montserrat_14, 0);
 	lv_obj_set_height(search, 14);
 	lv_obj_set_pos(search, 0, 16);
@@ -412,7 +438,6 @@ static void create_ui() {
 
 
 
-	results_count = sizeof(entries) / sizeof(entries[0]);
 	populate_list(0);
 	update_bottom_highlight();
 	update_results();
@@ -486,6 +511,5 @@ static void create_ui() {
 
 
 }
-
 
 
