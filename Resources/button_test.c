@@ -4,8 +4,8 @@
 #include <arch/board/board.h>
 #include <nuttx/arch.h>
 
-#define BUTTON1 PIN_D02
-#define BUTTON2 PIN_D03
+#define BUTTON1 PIN_UART2_TXD
+#define BUTTON2 PIN_UART2_RXD
 
 int main(int argc, char *argv[]) {
 

@@ -1,4 +1,0 @@
-
-ifneq ($(CONFIG_EXAMPLES_AUDIOLITE_THROUGH),)
-CONFIGURED_APPS += audiolite_through
-endif

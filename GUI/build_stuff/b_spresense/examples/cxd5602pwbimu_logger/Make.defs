@@ -1,4 +1,0 @@
-
-ifneq ($(CONFIG_EXAMPLES_CXD5602PWBIMU_LOGGER),)
-CONFIGURED_APPS += cxd5602pwbimu_logger
-endif

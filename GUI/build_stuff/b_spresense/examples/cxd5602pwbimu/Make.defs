@@ -1,4 +1,0 @@
-
-ifneq ($(CONFIG_EXAMPLES_CXD5602PWBIMU),)
-CONFIGURED_APPS += cxd5602pwbimu
-endif

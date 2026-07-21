@@ -1,0 +1,1 @@
+/mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/PocketDictionary/Dictionary_Resources/dict.c

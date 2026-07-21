@@ -1,4 +1,0 @@
-
-ifneq ($(CONFIG_EXAMPLES_FFT_PWBIMU),)
-CONFIGURED_APPS += fft_pwbimu
-endif

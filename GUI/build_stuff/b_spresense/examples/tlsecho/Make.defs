@@ -1,4 +1,0 @@
-
-ifneq ($(CONFIG_EXAMPLES_TLSECHO),)
-CONFIGURED_APPS += tlsecho
-endif

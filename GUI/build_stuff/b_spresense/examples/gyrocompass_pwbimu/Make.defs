@@ -1,4 +1,0 @@
-
-ifneq ($(CONFIG_EXAMPLES_GYROCOMPASS_PWBIMU),)
-CONFIGURED_APPS += gyrocompass_pwbimu
-endif
