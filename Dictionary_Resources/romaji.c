@@ -202,3 +202,40 @@ int romaji_to_kana(const char *src, char *dst, size_t dst_size) {
 
     return (int)pos;
 }
+
+// hiragana (U+3041-U+3096) maps to katakana (U+30A1-U+30F6) by a fixed +0x60
+// codepoint offset. converts in place, decodes the 3 byte utf-8 sequence, shifts
+// the codepoint, re-encode. sequences stay 3 bytes so length is unchanged.
+// anything outside the hiragana block is skipped
+static void romaji__hira_to_kata(char *s) {
+    unsigned char *p = (unsigned char *)s;
+
+    while (*p) {
+        if ((p[0] & 0x80) == 0) { // ascii
+            p += 1;
+        } else if ((p[0] & 0xE0) == 0xC0) { // 2 byte
+            p += 2;
+        } else if ((p[0] & 0xF0) == 0xE0) { // 3 byte, could be kana
+            unsigned int cp = ((unsigned int)(p[0] & 0x0F) << 12)
+                              | ((unsigned int)(p[1] & 0x3F) << 6) | (unsigned int)(p[2] & 0x3F);
+
+            if (cp >= 0x3041 && cp <= 0x3096) {
+                unsigned int k = cp + 0x60;
+                p[0] = (unsigned char)(0xE0 | (k >> 12));
+                p[1] = (unsigned char)(0x80 | ((k >> 6) & 0x3F));
+                p[2] = (unsigned char)(0x80 | (k & 0x3F));
+            }
+            p += 3;
+        } else { // 4 byte
+            p += 4;
+        }
+    }
+}
+
+int romaji_to_katakana(const char *src, char *dst, size_t dst_size) {
+    int r = romaji_to_kana(src, dst, dst_size);
+    if (r < 0)
+        return -1;
+    romaji__hira_to_kata(dst);
+    return r;
+}
