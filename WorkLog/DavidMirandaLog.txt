@@ -1,0 +1,20 @@
+---------5/26/2026---------
+Get NUTTX flashed onto the spresense board via terminal on WSL (tutorial on how to bind on ports via WSL is on UsefulDocs.txt)
+
+
+---------6/6/2026---------
+Got screen to display things properly, wiring is correct however proper displaying isnt possible yet
+
+---------6/17/2026---------
+Push buttons via utilizing the Arduino IDE work (Hooray!) but will need to test using the NuttX setup on VSCode
+One side the pushbuttons need to be connected to ground and the other side to any of the digital pins that can be utilized by the
+Arduino IDE (I believe 1-10 please refer to the pin digrams on discord)
+
+---------7/14/2026---------
+Found an OCR that can be run on python for a language binding and added testing with a C library, probably wont be able to get it to work
+100% with the NUTTX simulator unless we do it via API calls with a host machine
+
+---------7/22/2026---------
+Pushed the python tests since github did not work. Decided not to do anything with OCR since any of the models found would be too
+difficult to work with due to size.
+Will work on creating a bash script to get the simulator to work for users.
