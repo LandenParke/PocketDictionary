@@ -24,6 +24,7 @@ configure:
 	
 
 move_stuff:
+	cd ..
 	mv ./PocketDictionary/GUI/nuttxspace/.config ./nuttxspace/nuttx/.config
 	mv ./PocketDictionary/GUI/fonts/jp_font_16_hiragana.c ./nuttxspace/apps/examples/lvgldemo/
 	mv ./PocketDictionary/GUI/fonts/jp_font_24.c ./nuttxspace/apps/examples/lvgldemo/
