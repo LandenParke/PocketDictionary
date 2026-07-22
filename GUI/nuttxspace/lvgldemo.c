@@ -34,15 +34,7 @@ typedef struct {
     const char *detail;
 } dict_entry;
 // word + details
-// testing entries
-static dict_entry entries_test[] = {
-    {"器官", " common | JLPT N1", "1. organ (noun)"},
-    {"期間", " common | JLPT N3", "1. period (noun)\n2. interval (noun)"},
-    {"機関", " common | JLPT N3", "1. institution (noun)"},
-    {"帰還", " common", "1. return (noun)\n2. feedback (noun)"},
-    {"旗艦", "", "1. flagship (noun)"},
-    {"季刊", " common | JLPT N1", "1. quarterly (noun)"}
-};
+
 static const dict_result *entries; // dict.h entry struct
 
 
@@ -79,6 +71,9 @@ static int window_start = 0;
 static int results_count = 0;
 static char search_word[512] = "";
 static char furigana_word[512] = "";
+static lv_obj_t *selected_label;
+static lv_obj_t *accent_label;
+static lv_obj_t *details_label;
 
 
 static void poll_keyboard(void)
@@ -90,6 +85,7 @@ static void poll_keyboard(void)
 		printf("keycode read: %d\n", (unsigned char)c);
 	}
 	
+	// any qwerty input
 	if (c >= 'a' && c <= 'z') {
 		int len = strlen(search_word);
 		search_word[len] = c;
@@ -98,6 +94,7 @@ static void poll_keyboard(void)
 		printf("f_word: %s\ns_word: %s\n", furigana_word, search_word);
 		update_search_bar(furigana_word, search_word);
 	}
+	// backspace
 	if (c == 127) {
 		int len = strlen(search_word);
 		search_word[len - 1] = '\0';
@@ -127,12 +124,16 @@ static void poll_keyboard(void)
 			update_bottom_highlight();
 		}
 	}
+	// enter key
 	if (c == '\r' || c == '\n') {
 		results_count = dict_search(furigana_word, &entries);
-		furigana_word[0] = '\0';
 		search_word[0] = '\0';
+		update_search_bar(furigana_word, search_word);
+		printf("search cleared");
+		furigana_word[0] = '\0';
 		populate_list(0);
 		update_results();
+		//lv_label_set_text(details_label, "no results found");
 	}
 }
 
@@ -183,17 +184,20 @@ int main(int argc, FAR char *argv[])
 	// db
 	mount_hostfs();
 	dict_open("/host/dict.db");
+	dict_search("ame", &entries);
 
 
 
 	// input
 	enable_raw_mode();
 	set_stdin_nonblock();
+	printf("raw input mode set\n");
 	kb_indev = lv_indev_create();
 	lv_indev_set_type(kb_indev, LV_INDEV_TYPE_KEYPAD);
 	lv_indev_set_read_cb(kb_indev, keypad_read_cb);
-
+	printf("lvgl indev created\n");
 	
+
 	create_ui();
 	
 	
@@ -244,16 +248,15 @@ static void update_search_bar(char *f_word, char *s_word) {
 static lv_obj_t *list_items[list_element_count];
 
 // fill middle ui elements using dict entry array
-static lv_obj_t *selected_label;
-static lv_obj_t *accent_label;
-static lv_obj_t *details_label;
 static void populate_list(int start) {
     window_start = start;
     lv_label_set_text(selected_label, entries[start].word);
 	lv_label_set_text(accent_label, entries[start].accent);
     lv_label_set_text(details_label, entries[start].detail);
+	printf(entries[start].word);
+	printf(entries[start].detail);
 
-    for (int i = 1; i < list_element_count; i++){
+    for (int i = 0; i < list_element_count; i++){
 		lv_obj_t *label = lv_obj_get_child(list_items[i], 0);
         int idx = start + i;
         if (idx < results_count) {
@@ -312,7 +315,7 @@ static void create_ui() {
 	lv_obj_set_height(furigana, 16);
     // top search 
 	search = lv_label_create(top);
-	lv_label_set_text(search, "search");
+	lv_label_set_text(search, "type to search");
 	lv_obj_set_style_text_font(search, &lv_font_montserrat_14, 0);
 	lv_obj_set_height(search, 14);
 	lv_obj_set_pos(search, 0, 16);
@@ -334,7 +337,7 @@ static void create_ui() {
 	lv_obj_set_style_radius(selected_label, 0, 0);
 	// accent
 	accent_label = lv_label_create(selected);
-	lv_obj_set_style_text_font(accent_label, &lv_font_montserrat_14, 0);
+	lv_obj_set_style_text_font(accent_label, &lv_font_montserrat_10, 0);
 	lv_obj_set_style_text_color(accent_label, lv_color_hex(0xF58E27), 0);
 	lv_obj_set_flex_grow(accent_label, 1);
 	lv_obj_set_pos(accent_label, 0, -10);
@@ -352,15 +355,18 @@ static void create_ui() {
     // left word list
 	static lv_obj_t *list;
 	list = lv_obj_create(middle);
-	lv_obj_set_width(list, 45);
+	lv_obj_set_width(list, 40);
 	lv_obj_set_height(list, LV_PCT(100));
 	lv_obj_set_flex_flow(list, LV_FLEX_FLOW_COLUMN);
 	for (int i = 1; i < list_element_count; i++)
 	{
 		lv_obj_t *item = lv_obj_create(list);
-		lv_obj_set_size(item, 45, 32);
+		lv_obj_set_size(item, 40, 32);
+		lv_obj_set_style_bg_opa(item, LV_OPA_TRANSP, 0);
 
 		lv_obj_t *label = lv_label_create(item);
+		lv_obj_set_style_text_color(label, lv_color_hex(0xffffff), 0);
+		lv_obj_set_style_bg_opa(label, LV_OPA_TRANSP, 0);
 		lv_obj_set_width(label, LV_PCT(100));
 		lv_label_set_long_mode(label, LV_LABEL_LONG_CLIP);
 		lv_obj_set_style_text_align(label, LV_TEXT_ALIGN_LEFT, 0);
@@ -390,7 +396,7 @@ static void create_ui() {
 	lv_obj_set_flex_align(details, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_START);
 	// details label
 	details_label = lv_label_create(details);
-	lv_obj_set_style_text_font(details_label, &lv_font_montserrat_14, 0);
+	lv_obj_set_style_text_font(details_label, &lv_font_montserrat_10, 0);
 	lv_obj_set_style_text_color(details_label, lv_color_hex(0xF58E27), 0);
 	lv_obj_set_width(details_label, LV_PCT(100));
 	lv_label_set_long_mode(details_label, LV_LABEL_LONG_WRAP);
@@ -413,7 +419,7 @@ static void create_ui() {
 		lv_obj_set_flex_grow(item, 1);
 
 		lv_obj_t *label = lv_label_create(item);
-		lv_obj_set_style_text_font(label, &lv_font_montserrat_14, 0);
+		lv_obj_set_style_text_font(label, &lv_font_montserrat_10, 0);
 		lv_obj_set_width(label, LV_SIZE_CONTENT);
 		lv_obj_center(label);
 
@@ -449,36 +455,43 @@ static void create_ui() {
 	// styling shotgun
 	///////////////////
 	// root
+	lv_obj_set_style_bg_color(root, lv_color_hex(0x202020), 0);
 	lv_obj_set_style_pad_all(root, 0, 0);
 	lv_obj_set_style_pad_row(root, 0, 0);
 	lv_obj_set_style_pad_column(root, 0, 0);
 	lv_obj_remove_flag(root, LV_OBJ_FLAG_SCROLLABLE);
 	lv_obj_set_style_radius(root, 0, 0);
 	// top
+	lv_obj_set_style_bg_opa(top, LV_OPA_TRANSP, 0);
 	lv_obj_set_style_pad_all(top, 0, 0);
 	lv_obj_set_style_pad_row(top, 0, 0);
 	lv_obj_set_style_pad_column(top, 0, 0);
 	lv_obj_remove_flag(top, LV_OBJ_FLAG_SCROLLABLE);
 	lv_obj_set_style_radius(top, 0, 0);
 	// furigana
+	lv_obj_set_style_text_color(furigana, lv_color_hex(0xffffff), 0);
 	lv_obj_set_style_pad_all(furigana, 0, 0);
 	lv_obj_set_style_pad_row(furigana, 0, 0);
 	lv_obj_set_style_pad_column(furigana, 0, 0);
 	lv_obj_remove_flag(furigana, LV_OBJ_FLAG_SCROLLABLE);
 	lv_obj_set_style_radius(furigana, 0, 0);
 	// search
+	lv_obj_set_style_text_color(search, lv_color_hex(0xffffff), 0);
 	lv_obj_set_style_pad_all(search, 0, 0);
 	lv_obj_set_style_pad_row(search, 0, 0);
 	lv_obj_set_style_pad_column(search, 0, 0);
 	lv_obj_remove_flag(search, LV_OBJ_FLAG_SCROLLABLE);
 	lv_obj_set_style_radius(search, 0, 0);
 	// selected word
+	lv_obj_set_style_text_color(selected, lv_color_hex(0xffffff), 0);
+	lv_obj_set_style_bg_opa(selected, LV_OPA_TRANSP, 0);
 	lv_obj_set_style_pad_all(selected, 0, 0);
 	lv_obj_set_style_pad_row(selected, 0, 0);
 	lv_obj_set_style_pad_column(selected, 0, 0);
 	lv_obj_remove_flag(selected, LV_OBJ_FLAG_SCROLLABLE);
 	lv_obj_set_style_radius(selected, 0, 0);
 	// middle
+	lv_obj_set_style_bg_opa(middle, LV_OPA_TRANSP, 0);
 	lv_obj_set_style_pad_all(middle, 0, 0);
 	lv_obj_set_style_pad_row(middle, 0, 0);
 	lv_obj_set_style_pad_column(middle, 0, 0);
@@ -486,6 +499,7 @@ static void create_ui() {
 	lv_obj_set_style_radius(middle, 0, 0);
 	lv_obj_set_style_border_width(middle, 0, 0);
 	// word list
+	lv_obj_set_style_bg_opa(list, LV_OPA_TRANSP, 0);
 	lv_obj_set_style_pad_all(list, 0, 0);
 	lv_obj_set_style_pad_row(list, 0, 0);
 	lv_obj_set_style_pad_column(list, 0, 0);
@@ -493,12 +507,15 @@ static void create_ui() {
 	lv_obj_set_style_radius(list, 0, 0);
 	lv_obj_set_style_border_width(list, 0, 0);
 	// details
+	lv_obj_set_style_text_color(details, lv_color_hex(0xffffff), 0);
+	lv_obj_set_style_bg_opa(details, LV_OPA_TRANSP, 0);
 	lv_obj_set_style_pad_all(details, 0, 0);
 	lv_obj_set_style_pad_row(details, 0, 0);
 	lv_obj_set_style_pad_column(details, 0, 0);
 	lv_obj_remove_flag(details, LV_OBJ_FLAG_SCROLLABLE);
 	lv_obj_set_style_radius(details, 0, 0);
 	// bottom
+	lv_obj_set_style_bg_opa(bottom, LV_OPA_TRANSP, 0);
 	lv_obj_set_style_pad_all(bottom, 0, 0);
 	lv_obj_set_style_pad_row(bottom, 0, 0);
 	lv_obj_set_style_pad_column(bottom, 0, 0);
