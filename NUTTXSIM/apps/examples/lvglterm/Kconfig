@@ -1,0 +1,87 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+menuconfig EXAMPLES_LVGLTERM
+	tristate "LVGL Terminal"
+	default n
+	depends on GRAPHICS_LVGL
+	---help---
+		Enable LVGL Terminal
+
+if EXAMPLES_LVGLTERM
+
+choice
+	prompt "LVGL Terminal input source"
+	default EXAMPLES_LVGLTERM_INPUT_TOUCH
+	---help---
+		Select how the terminal receives keystrokes.  Only one input source
+		is built at a time.  The physical-keyboard options differ in the data
+		the keyboard device delivers on read(), so pick the one that matches
+		the hardware.
+
+config EXAMPLES_LVGLTERM_INPUT_TOUCH
+	bool "On-screen keyboard (touch)"
+	---help---
+		Input comes from an on-screen LVGL keyboard operated by touch; a
+		command line is typed and submitted with Enter.  This is the default
+		and matches the original behaviour.
+
+config EXAMPLES_LVGLTERM_INPUT_KBD_MATRIX
+	bool "Matrix / upper-half keyboard (keyboard events)"
+	depends on INPUT_KEYBOARD
+	---help---
+		Physical keyboard registered through the INPUT_KEYBOARD upper half,
+		whose read() returns struct keyboard_event_s events (for example the
+		M5Stack Cardputer matrix keyboard on /dev/kbd0).  Fn Up/Down scroll
+		the terminal.
+
+config EXAMPLES_LVGLTERM_INPUT_KBD_USB
+	bool "USB HID keyboard (byte stream)"
+	depends on USBHOST_HIDKBD
+	select LIBC_KBDCODEC
+	---help---
+		USB HID keyboard (for example on /dev/kbda with CONFIG_USBHOST_HIDKBD).
+		read() returns a byte stream that is decoded with the keyboard codec:
+		normal keys go to the shell and, when the driver is built with
+		CONFIG_HIDKBD_ENCODED, the Up/Down cursor keys scroll the terminal.
+
+endchoice
+
+config EXAMPLES_LVGLTERM_KBD_DEV
+	string "Keyboard device path"
+	default "/dev/kbda" if EXAMPLES_LVGLTERM_INPUT_KBD_USB
+	default "/dev/kbd0"
+	depends on EXAMPLES_LVGLTERM_INPUT_KBD_MATRIX || EXAMPLES_LVGLTERM_INPUT_KBD_USB
+	---help---
+		Keyboard device the terminal reads from.  Can also be overridden at
+		run time by passing the path as the first command-line argument
+		(useful when more than one keyboard is present).
+
+choice
+	prompt "LVGL Terminal font"
+	default EXAMPLES_LVGLTERM_FONT_UNSCII_16
+	---help---
+		Monospaced font used to render the terminal.  Use the smaller UNSCII 8
+		on low-resolution displays where UNSCII 16 shows too few columns.
+
+config EXAMPLES_LVGLTERM_FONT_UNSCII_8
+	bool "UNSCII 8 (small)"
+	select LV_FONT_UNSCII_8
+
+config EXAMPLES_LVGLTERM_FONT_UNSCII_16
+	bool "UNSCII 16"
+	select LV_FONT_UNSCII_16
+
+endchoice
+
+config EXAMPLES_LVGLTERM_PRIORITY
+	int "lvglterm task priority"
+	default 100
+
+config EXAMPLES_LVGLTERM_STACKSIZE
+	int "lvglterm stack size"
+	default 16384
+
+endif # EXAMPLES_LVGLTERM
