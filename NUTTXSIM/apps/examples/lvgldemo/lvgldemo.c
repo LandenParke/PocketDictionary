@@ -269,17 +269,19 @@ static void populate_list(int start) {
 
 // bottom bar
 static lv_obj_t *bottom_items[BOTTOM_ITEM_COUNT];
+static lv_obj_t *bottom_labels[BOTTOM_ITEM_COUNT];
 static void update_bottom_highlight() {
 	for (int i = 0; i < BOTTOM_ITEM_COUNT; i++) {
 		if (i == bottom_sel_index) {
+			lv_obj_set_style_text_color(bottom_labels[i], lv_color_hex(0x000000), 0);
 			lv_obj_set_style_bg_color(bottom_items[i], lv_color_hex(0xF58E27), 0);
 			lv_obj_set_style_bg_opa(bottom_items[i], LV_OPA_COVER, 0);
 		} else {
+			lv_obj_set_style_text_color(bottom_labels[i], lv_color_hex(0xffffff), 0);
 			lv_obj_set_style_bg_opa(bottom_items[i], LV_OPA_TRANSP, 0);
 		}
 	}
 }
-static lv_obj_t *bottom_labels[BOTTOM_ITEM_COUNT];
 static void update_results(void) {
 	lv_label_set_text_fmt(bottom_labels[0], "%d found", results_count);
 }
@@ -409,7 +411,7 @@ static void create_ui() {
 	lv_obj_t *bottom = lv_obj_create(root);
 	//AAAAAAAAAAAA
 	lv_obj_set_width(bottom, LV_PCT(100));
-	lv_obj_set_height(bottom, 30);
+	lv_obj_set_height(bottom, 20);
 	lv_obj_set_flex_flow(bottom, LV_FLEX_FLOW_ROW);
 	for (int i = 0; i < BOTTOM_ITEM_COUNT; i++)
 	{
@@ -419,6 +421,7 @@ static void create_ui() {
 		lv_obj_set_flex_grow(item, 1);
 
 		lv_obj_t *label = lv_label_create(item);
+		lv_obj_set_style_text_color(label, lv_color_hex(0xffffff), 0);
 		lv_obj_set_style_text_font(label, &lv_font_montserrat_10, 0);
 		lv_obj_set_width(label, LV_SIZE_CONTENT);
 		lv_obj_center(label);
