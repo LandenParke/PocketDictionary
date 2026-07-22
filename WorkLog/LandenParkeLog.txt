@@ -28,3 +28,6 @@ Fixed David's button code.
 
 7.18.26
 Got the SD card on the Spresense working. Should make it so we now can load fonts from the sd card and pull data in our code. Still need to figure out how we can implement this in code. 
+
+7.22.26
+Got Ian's simulator working on my device. Will start the translation to hardware soon.
