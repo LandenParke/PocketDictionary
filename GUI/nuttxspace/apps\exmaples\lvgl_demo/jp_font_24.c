@@ -1,1 +1,0 @@
-/mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/PocketDictionary/GUI/fonts/jp_font_24.c
