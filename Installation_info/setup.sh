@@ -11,7 +11,12 @@ check_cmd() {
     fi
 }
 
+#build nuttx first
+#./nuttx
+#
+
+
 #NEED TO DO: Setup checks for simulator
 
 printf '\nSetup checks passed.\n'
-printf 'Next step: follow the simulator build instructions in GUI/gui_notes.md and the NuttX workspace.\n'
+printf 'Next step: follow the simulator build instructions'
