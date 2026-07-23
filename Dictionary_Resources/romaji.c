@@ -207,7 +207,7 @@ int romaji_to_kana(const char *src, char *dst, size_t dst_size) {
 // codepoint offset. converts in place, decodes the 3 byte utf-8 sequence, shifts
 // the codepoint, re-encode. sequences stay 3 bytes so length is unchanged.
 // anything outside the hiragana block is skipped
-static void romaji__hira_to_kata(char *s) {
+void romaji__hira_to_kata(const char *s) {
     unsigned char *p = (unsigned char *)s;
 
     while (*p) {

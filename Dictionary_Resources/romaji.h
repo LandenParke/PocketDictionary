@@ -14,4 +14,5 @@
 #include <stddef.h>
 int romaji_to_kana(const char *src, char *dst, size_t dst_size);
 int romaji_to_katakana(const char *src, char *dst, size_t dst_size);
+void romaji__hira_to_kata(const char *s);
 #endif
