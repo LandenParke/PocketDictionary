@@ -1,0 +1,58 @@
+---------5/26/2026---------
+Get NUTTX flashed onto the spresense board via terminal on WSL (tutorial on how to bind on ports via WSL is on UsefulDocs.txt)
+
+
+---------6/6/2026---------
+Got screen to display things properly, wiring is correct however proper displaying isnt possible yet
+
+---------6/17/2026---------
+Push buttons via utilizing the Arduino IDE work (Hooray!) but will need to test using the NuttX setup on VSCode
+One side the pushbuttons need to be connected to ground and the other side to any of the digital pins that can be utilized by the
+Arduino IDE (I believe 1-10 please refer to the pin digrams on discord)
+
+---------7/14/2026---------
+Found an OCR that can be run on python for a language binding and added testing with a C library, probably wont be able to get it to work
+100% with the NUTTX simulator unless we do it via API calls with a host machine
+
+---------7/22/2026---------
+Pushed the python tests since github did not work. Decided not to do anything with OCR since any of the models found would be too
+difficult to work with due to size.
+Will work on creating a bash script to get the simulator to work for users.
+
+SETTING UP SIMULATOR ON WINDOWS WSL!!!!!!!!!!!!!!!!!!!!!!!!!
+
+> dependencies
+> install deps from packages.txt
+> install pocket dict repo
+
+> install nuttx repo
+mkdir nuttxspace
+cd nuttxspace
+git clone https://github.com/apache/nuttx.git nuttx
+git clone https://github.com/apache/nuttx-apps apps
+
+
+tools/configure.sh sim:sqlite
+> replace .config in /nuttxspace/nuttx with pocketdict .config
+
+
+
+> from pocketdict place lvgldemo.c, romaji.c, dict.c, jp_font_24.c, jp_font_16_hiragana.c in /nuttxspace/nuttx/apps/examples/lvgldemo
+()
+> from pocketdict place dict.h, romaji.h, jp_fonts.h 
+make
+./nuttx
+
+mv ./PocketDictionary/GUI/fonts/jp_font_16_hiragana.c ./nuttxspace/apps/examples/lvgldemo/
+mv ./PocketDictionary/GUI/fonts/jp_font_24.c ./nuttxspace/apps/examples/lvgldemo/
+mv ./PocketDictionary/Dictionary_Resources/romaji.c ./nuttxspace/apps/examples/lvgldemo/
+mv ./PocketDictionary/Dictionary_Resources/romaji.h ./nuttxspace/apps/examples/lvgldemo/
+mv ./PocketDictionary/Dictionary_Resources/dict.h ./nuttxspace/apps/examples/lvgldemo/
+mv ./PocketDictionary/Dictionary_Resources/dict.c ./nuttxspace/apps/examples/lvgldemo/
+mv ./PocketDictionary/GUI/nuttxspace/jp_fonts.h ./nuttxspace/apps/examples/lvgldemo/
+mv ./PocketDictionary/GUI/nuttxspace/lvgldemo.c ./nuttxspace/apps/examples/lvgldemo/
+
+
+---------7/23/2026---------
+Installed ubuntu on virtual machine for testing the install makefile
+UI now works 

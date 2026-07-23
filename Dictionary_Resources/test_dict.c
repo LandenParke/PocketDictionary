@@ -1,4 +1,4 @@
-// build: clang test_dict.c dict.c -lsqlite3 -o test_dict
+d// build: clang test_dict.c dict.c -lsqlite3 -o test_dict
 // run:   ./test_dict path/to/dict.db
 #include "dict.h"
 
