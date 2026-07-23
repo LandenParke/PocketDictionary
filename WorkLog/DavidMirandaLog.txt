@@ -51,3 +51,8 @@ mv ./PocketDictionary/Dictionary_Resources/dict.h ./nuttxspace/apps/examples/lvg
 mv ./PocketDictionary/Dictionary_Resources/dict.c ./nuttxspace/apps/examples/lvgldemo/
 mv ./PocketDictionary/GUI/nuttxspace/jp_fonts.h ./nuttxspace/apps/examples/lvgldemo/
 mv ./PocketDictionary/GUI/nuttxspace/lvgldemo.c ./nuttxspace/apps/examples/lvgldemo/
+
+
+---------7/23/2026---------
+Installed ubuntu on virtual machine for testing the install makefile
+UI now works 
