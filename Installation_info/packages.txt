@@ -1,4 +1,5 @@
 git
+make
 curl
 sqlite3
 libsqlite3-dev
@@ -15,7 +16,8 @@ automake
 libtool
 pkg-config
 build-essential
-gperf genromfs
+gperf
+genromfs
 libgmp-dev
 libmpc-dev
 libmpfr-dev

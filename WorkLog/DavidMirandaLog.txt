@@ -56,3 +56,5 @@ mv ./PocketDictionary/GUI/nuttxspace/lvgldemo.c ./nuttxspace/apps/examples/lvgld
 ---------7/23/2026---------
 Installed ubuntu on virtual machine for testing the install makefile
 UI now works 
+
+Makefile for project now builds on a fresh install of Ubuntu so intaller is done hooray
