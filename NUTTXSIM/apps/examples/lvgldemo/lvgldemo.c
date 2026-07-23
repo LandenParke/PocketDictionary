@@ -74,6 +74,8 @@ static char furigana_word[512] = "";
 static lv_obj_t *selected_label;
 static lv_obj_t *accent_label;
 static lv_obj_t *details_label;
+static lv_obj_t *furigana;
+static lv_obj_t *search;
 
 
 static void poll_keyboard(void)
@@ -92,6 +94,8 @@ static void poll_keyboard(void)
 		search_word[len + 1] = '\0';
 		romaji_to_kana(search_word, furigana_word, sizeof(furigana_word));
 		printf("f_word: %s\ns_word: %s\n", furigana_word, search_word);
+		lv_obj_set_style_text_color(search, lv_color_hex(0xF58E27), 0);
+		lv_obj_set_style_text_color(furigana, lv_color_hex(0xF58E27), 0);
 		update_search_bar(furigana_word, search_word);
 	}
 	// backspace
@@ -128,12 +132,12 @@ static void poll_keyboard(void)
 	if (c == '\r' || c == '\n') {
 		results_count = dict_search(furigana_word, &entries);
 		search_word[0] = '\0';
+		lv_obj_set_style_text_color(search, lv_color_hex(0xffffff), 0);
 		update_search_bar(furigana_word, search_word);
 		printf("search cleared");
+		lv_label_set_text(search, "type to search");
 		furigana_word[0] = '\0';
 		populate_list(0);
-		update_results();
-		//lv_label_set_text(details_label, "no results found");
 	}
 }
 
@@ -236,15 +240,13 @@ int v1 = 40;
 
 
 // live update search bar
-static lv_obj_t *furigana;
-static lv_obj_t *search;
 static void update_search_bar(char *f_word, char *s_word) {
 	lv_label_set_text(furigana, f_word);
 	lv_label_set_text(search, s_word);
 }
 
 // word list
-#define list_element_count 6
+#define list_element_count 5
 static lv_obj_t *list_items[list_element_count];
 
 // fill middle ui elements using dict entry array
@@ -265,25 +267,20 @@ static void populate_list(int start) {
 			lv_label_set_text(label, "");
 		}
     }
+	update_results();
 }
 
 // bottom bar
 static lv_obj_t *bottom_items[BOTTOM_ITEM_COUNT];
 static lv_obj_t *bottom_labels[BOTTOM_ITEM_COUNT];
+static lv_obj_t *bot_item;
+static lv_obj_t *bot_label;
+
 static void update_bottom_highlight() {
-	for (int i = 0; i < BOTTOM_ITEM_COUNT; i++) {
-		if (i == bottom_sel_index) {
-			lv_obj_set_style_text_color(bottom_labels[i], lv_color_hex(0x000000), 0);
-			lv_obj_set_style_bg_color(bottom_items[i], lv_color_hex(0xF58E27), 0);
-			lv_obj_set_style_bg_opa(bottom_items[i], LV_OPA_COVER, 0);
-		} else {
-			lv_obj_set_style_text_color(bottom_labels[i], lv_color_hex(0xffffff), 0);
-			lv_obj_set_style_bg_opa(bottom_items[i], LV_OPA_TRANSP, 0);
-		}
-	}
+	printf("update_bottom does nothing lol");
 }
 static void update_results(void) {
-	lv_label_set_text_fmt(bottom_labels[0], "%d found", results_count);
+	lv_label_set_text_fmt(bot_label, "%d/%d", window_start+1, results_count);
 }
 
 
@@ -294,18 +291,17 @@ static void update_results(void) {
 
 
 static void create_ui() {
-    lv_obj_t *scr = lv_screen_active();
-    lv_obj_remove_flag(scr, LV_OBJ_FLAG_SCROLLABLE);
+	lv_obj_t *scr = lv_screen_active();
+	lv_obj_remove_flag(scr, LV_OBJ_FLAG_SCROLLABLE);
 
 	// using 24px bitmap from noto sans CJK jp regular
-    lv_obj_set_style_text_font(scr, &jp_font_24, 0);
+	lv_obj_set_style_text_font(scr, &jp_font_24, 0);
 
 	// root
 	lv_obj_t *root = lv_obj_create(scr);
 	lv_obj_set_size(root, LV_PCT(100), LV_PCT(100));
 	lv_obj_set_flex_flow(root, LV_FLEX_FLOW_COLUMN);
 	
-
 	// top container
 	lv_obj_t *top = lv_obj_create(root);
 	lv_obj_set_width(top, LV_PCT(100));
@@ -315,7 +311,7 @@ static void create_ui() {
 	lv_label_set_text(furigana, "");
 	lv_obj_set_style_text_font(furigana, &jp_font_16_hiragana, 0);
 	lv_obj_set_height(furigana, 16);
-    // top search 
+	// top search 
 	search = lv_label_create(top);
 	lv_label_set_text(search, "type to search");
 	lv_obj_set_style_text_font(search, &lv_font_montserrat_14, 0);
@@ -354,7 +350,7 @@ static void create_ui() {
 	lv_obj_set_flex_grow(middle, 1);
 	lv_obj_set_flex_flow(middle, LV_FLEX_FLOW_ROW);
 
-    // left word list
+	// left word list
 	static lv_obj_t *list;
 	list = lv_obj_create(middle);
 	lv_obj_set_width(list, 40);
@@ -391,7 +387,7 @@ static void create_ui() {
 	}
 	
 
-    // right details panel
+	// right details panel
 	lv_obj_t *details = lv_obj_create(middle);
 	lv_obj_set_flex_grow(details, 1);
 	lv_obj_set_height(details, LV_PCT(100));
@@ -407,50 +403,46 @@ static void create_ui() {
 
 
 
-    // bottom options row
-	lv_obj_t *bottom = lv_obj_create(root);
+	// bottom options row
+	lv_obj_t *bottom = lv_obj_create(list);
 	//AAAAAAAAAAAA
+	lv_obj_set_style_bg_opa(bottom, LV_OPA_TRANSP, 0);
 	lv_obj_set_width(bottom, LV_PCT(100));
 	lv_obj_set_height(bottom, 20);
 	lv_obj_set_flex_flow(bottom, LV_FLEX_FLOW_ROW);
-	for (int i = 0; i < BOTTOM_ITEM_COUNT; i++)
-	{
-		lv_obj_t *item = lv_obj_create(bottom);
-		lv_obj_set_height(item, LV_PCT(100));
-		lv_obj_set_width(item, LV_SIZE_CONTENT);
-		lv_obj_set_flex_grow(item, 1);
+	
+	bot_item = lv_obj_create(bottom);
+	lv_obj_set_height(bottom, 40);
+	lv_obj_set_style_bg_opa(bot_item, LV_OPA_TRANSP, 0);
+	lv_obj_set_height(bot_item, LV_PCT(100));
+	lv_obj_set_width(bot_item, LV_SIZE_CONTENT);
+	lv_obj_set_flex_grow(bot_item, 1);
 
-		lv_obj_t *label = lv_label_create(item);
-		lv_obj_set_style_text_color(label, lv_color_hex(0xffffff), 0);
-		lv_obj_set_style_text_font(label, &lv_font_montserrat_10, 0);
-		lv_obj_set_width(label, LV_SIZE_CONTENT);
-		lv_obj_center(label);
+	bot_label = lv_label_create(bot_item);
+	lv_obj_set_style_bg_opa(bot_label, LV_OPA_TRANSP, 0);
+	lv_obj_set_style_text_color(bot_label, lv_color_hex(0xffffff), 0);
+	lv_obj_set_style_text_font(bot_label, &lv_font_montserrat_10, 0);
+	lv_obj_set_width(bot_label, LV_SIZE_CONTENT);
+	lv_obj_center(bot_label);
 
-		bottom_items[i] = item;
-		bottom_labels[i] = label;
-
-		lv_obj_set_style_pad_all(item, 0, 0);
-		lv_obj_set_style_pad_row(item, 0, 0);
-		lv_obj_set_style_pad_column(item, 0, 0);
-		lv_obj_remove_flag(item, LV_OBJ_FLAG_SCROLLABLE);
-		lv_obj_set_style_radius(item, 0, 0);
-		lv_obj_set_style_pad_all(label, 0, 0);
-		lv_obj_set_style_pad_row(label, 0, 0);
-		lv_obj_set_style_pad_column(label, 0, 0);
-		lv_obj_remove_flag(label, LV_OBJ_FLAG_SCROLLABLE);
-		lv_obj_set_style_radius(label, 0, 0);
-		lv_obj_set_style_border_width(label, 0, 0);
-	}
-	lv_label_set_text(bottom_labels[1], "search");
-	lv_label_set_text(bottom_labels[2], "EN -> JP");
-	lv_label_set_text(bottom_labels[3], "options");
+	lv_obj_set_style_pad_all(bot_item, 0, 0);
+	lv_obj_set_style_pad_row(bot_item, 0, 0);
+	lv_obj_set_style_pad_column(bot_item, 0, 0);
+	lv_obj_remove_flag(bot_item, LV_OBJ_FLAG_SCROLLABLE);
+	lv_obj_set_style_radius(bot_item, 0, 0);
+	lv_obj_set_style_pad_all(bot_label, 0, 0);
+	lv_obj_set_style_pad_row(bot_label, 0, 0);
+	lv_obj_set_style_pad_column(bot_label, 0, 0);
+	lv_obj_remove_flag(bot_label, LV_OBJ_FLAG_SCROLLABLE);
+	lv_obj_set_style_radius(bot_label, 0, 0);
+	lv_obj_set_style_border_width(bot_label, 0, 0);
+	
 
 
 
 	populate_list(0);
 	update_bottom_highlight();
-	update_results();
-	
+
 
 	
 
