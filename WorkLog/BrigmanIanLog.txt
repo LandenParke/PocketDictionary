@@ -177,3 +177,22 @@ https://lvgl.io/docs/open/8.2/get-started/pc-simulator
 - successfully got sqlite and lvgl working in tandem on nuttx sim
 - implemented basic ui search funtionality
 - noted that parts of the database require katakana for lookup rather than hiragana
+
+
+> 2026-07-21
+- assisted teammate in setting up simulator enviroment
+- discussed the need for a build script to easily assemble our environment
+- fixed existing issues within the project structure
+- began simplifying the project structure for easier understanding  
+
+
+> 2026-07-22
+- assisted another teammate in setting up updated simulator enviroment
+- implemented katakana search to fix holes in database lookup
+- placed entire nuttxsim structure in repo for simplicity at the cost of readability
+
+
+> 2026-07-23
+- modified ui style for improved readability
+- modified ui states to be more intuitive
+- assisted teammate in creation of build script targeting ubuntu
