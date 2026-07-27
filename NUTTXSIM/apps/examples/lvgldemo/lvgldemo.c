@@ -12,7 +12,7 @@
 #include <lvgl/demos/lv_demos.h>
 
 
-
+#include <string.h>
 #include <sys/mount.h>
 #include <sys/stat.h>
 #include <stdio.h>
@@ -46,6 +46,7 @@ static const dict_result *entries; // dict.h entry struct
 /////////////////////////////////////////
 
 static lv_indev_t *kb_indev;
+static bool en_mode = false;
 
 
 static void set_stdin_nonblock(void)
@@ -130,14 +131,32 @@ static void poll_keyboard(void)
 	}
 	// enter key
 	if (c == '\r' || c == '\n') {
-		results_count = dict_search(furigana_word, &entries);
-		search_word[0] = '\0';
+		if (!en_mode) {
+			results_count = dict_search(furigana_word, &entries);
+			search_word[0] = '\0';
+			lv_label_set_text(search, "type search keyword (romaji JP -> EN)");
+		} else {
+			results_count = dict_search_en(search_word, &entries);
+			//strcpy(furigana_word, search_word);
+			update_search_bar(search_word, search_word);
+			search_word[0] = '\0';
+			lv_label_set_text(search, "type search keyword (EN -> JP)");
+		}
 		lv_obj_set_style_text_color(search, lv_color_hex(0xffffff), 0);
-		update_search_bar(furigana_word, search_word);
 		printf("search cleared");
-		lv_label_set_text(search, "type to search");
-		furigana_word[0] = '\0';
 		populate_list(0);
+	}
+	// en mode
+	if (c == '3') {
+		if (!en_mode) {
+			en_mode = true;
+			search_word[0] = '\0';
+			lv_label_set_text(search, "type search keyword (EN -> JP)");
+		} else {
+			en_mode = false;
+			search_word[0] = '\0';
+			lv_label_set_text(search, "type search keyword (romaji JP -> EN)");
+		}
 	}
 }
 
@@ -256,7 +275,9 @@ static void populate_list(int start) {
 	lv_label_set_text(accent_label, entries[start].accent);
     lv_label_set_text(details_label, entries[start].detail);
 	printf(entries[start].word);
+	printf("\n");
 	printf(entries[start].detail);
+	printf("\n");
 
     for (int i = 0; i < list_element_count; i++){
 		lv_obj_t *label = lv_obj_get_child(list_items[i], 0);
@@ -313,7 +334,7 @@ static void create_ui() {
 	lv_obj_set_height(furigana, 16);
 	// top search 
 	search = lv_label_create(top);
-	lv_label_set_text(search, "type to search");
+	lv_label_set_text(search, "type search keyword (romaji JP -> EN)");
 	lv_obj_set_style_text_font(search, &lv_font_montserrat_14, 0);
 	lv_obj_set_height(search, 14);
 	lv_obj_set_pos(search, 0, 16);
@@ -442,7 +463,13 @@ static void create_ui() {
 
 	populate_list(0);
 	update_bottom_highlight();
-
+	lv_label_set_text(details_label, 
+		"INPUT THROUGH CLI, NOT NUTTX WINDOW"
+		"\nemulated controls:"
+		"\n1: up"
+		"\n2: down"
+		"\n3: switch translation mode (JP -> EN)/(EN -> JP)"
+		"\nenter: search");
 
 	
 

@@ -22,6 +22,8 @@ int dict_open(const char *db_path);
 // dict_search call, should not be freed
 int dict_search(const char *query, const dict_result **out_results);
 
+int dict_search_en(const char *query, const dict_result **out_results);
+
 void dict_close(void);
 
 #endif
