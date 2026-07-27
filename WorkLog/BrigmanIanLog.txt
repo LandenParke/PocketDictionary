@@ -196,3 +196,9 @@ https://lvgl.io/docs/open/8.2/get-started/pc-simulator
 - modified ui style for improved readability
 - modified ui states to be more intuitive
 - assisted teammate in creation of build script targeting ubuntu
+
+
+> 2026-07-27
+- implemented reverse search / en->jp search
+- improved ui states
+- added input guide on startup
