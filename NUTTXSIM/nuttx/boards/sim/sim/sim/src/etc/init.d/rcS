@@ -25,3 +25,7 @@
 #ifdef CONFIG_FS_HOSTFS
 mount -t hostfs -o fs=. /data
 #endif
+
+
+echo "=== rcS is running ==="
+lvgldemo
