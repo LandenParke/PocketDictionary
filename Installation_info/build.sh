@@ -8,7 +8,38 @@ POCKETDICT_REPO="https://github.com/LandenParke/PocketDictionary"
 echo "Installing packages..."
 set +e
 sudo apt update
-sudo apt install -y $(<packages.txt)
+sudo apt install -y \
+    git \
+    curl \
+    sqlite3 \
+    libsqlite3-dev \
+    kconfig-frontends \
+    bison \
+    flex \
+    gettext \
+    texinfo \
+    libncurses5-dev \
+    libncursesw5-dev \
+    xxd \
+    gperf \
+    automake \
+    libtool \
+    pkg-config \
+    build-essential \
+    genromfs \
+    libgmp-dev \
+    libmpc-dev \
+    libmpfr-dev \
+    libisl-dev \
+    binutils-dev \
+    libelf-dev \
+    libexpat1-dev \
+    gcc-multilib \
+    g++-multilib \
+    picocom \
+    u-boot-tools \
+    util-linux \
+    tcl
 set -e
 
 if [ -d "PocketDictionary" ]; then
