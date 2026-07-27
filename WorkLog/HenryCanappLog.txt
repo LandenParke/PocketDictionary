@@ -68,3 +68,9 @@ Since I did it on WSL it should be the same on most linux platforms,
 we probably need to make some notes on different prereqs for specific linux platforms 
 (Ian said arch, whcih is what he runs, for example needs to be a bit different)
 Mac is a different story that I don't know yet
+
+
+---------7/27/2026---------
+Current goal is to do the steps that we would expect a user to do to run the simulation, and then have good instrcutions on the readme
+Attempted to run make file david made, but coudn't get it to do what it was supped to do.
+Ian sent me a bash script to run but my internet is too bad rn to actually download what is needed, will try later with better interent
