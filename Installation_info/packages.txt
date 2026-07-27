@@ -28,3 +28,4 @@ g++-multilib
 picocom
 u-boot-tools
 util-linux
+tcl
