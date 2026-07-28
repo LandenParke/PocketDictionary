@@ -1,0 +1,12 @@
+[package]
+name = "romaji"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "romaji"
+path = "./romaji.rs"
+crate-type = ["staticlib", "cdylib"]
+
+[profile.release]
+panic = "abort"
