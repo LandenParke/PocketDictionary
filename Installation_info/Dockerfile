@@ -55,6 +55,10 @@ RUN cp ../../GUI/nuttxspace/.config .
 RUN mkdir -p /usr/nuttx_stuff \
     && cp ../../Dictionary_Resources/dict.db /usr/nuttx_stuff/
 
+# Install Rust toolchain
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ENV PATH="/root/.cargo/bin:${PATH}"
+
 # Build the binary
 RUN make
 
