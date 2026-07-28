@@ -80,3 +80,5 @@ After some debugging and a few changes to bash script, got it working perfectly.
 
 ---------7/28/2026---------
 Started updating the readme for the final submission
+
+Used claude to make docker file for easy one file submission. Updated read me instructions to reflect this.
