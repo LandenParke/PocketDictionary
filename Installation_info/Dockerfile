@@ -62,4 +62,4 @@ RUN apt-get update && apt-get install -y cargo && rm -rf /var/lib/apt/lists/*
 RUN make
 
 # On container start: launch the simulator and auto-run lvgldemo
-CMD ["bash", "-c", "(sleep 1; echo lvgldemo) | ./nuttx"]
+CMD ["bash", "-c", "(sleep 1; echo lvgldemo; cat) | ./nuttx"]
