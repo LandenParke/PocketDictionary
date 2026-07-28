@@ -68,7 +68,7 @@ on Linux, or install [Docker Desktop](https://www.docker.com/products/docker-des
 
 Make sure the Dockerfile has no extension such as .txt, then build the image from the directory containing the file.
 
-**Linux / WSL2:**
+**Linux / WSL2 and Windows:**
 
 ```
 sudo docker build -t pocketdictionary .
@@ -110,4 +110,3 @@ Those commands should auto launch the UI, where you can interact with it via the
 Type out the romanji and it will appear on the UI, press enter to search.
 Press '2' to go down through the options, and '1' to go up.
 
-# Change me before submitting
