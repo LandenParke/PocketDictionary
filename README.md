@@ -10,6 +10,15 @@ If you are using Windows, follow [this tutorial](https://ubuntu.com/wsl/docs/sta
 
 Then download the Dockerfile [here](https://github.com/LandenParke/PocketDictionary/releases/download/Simulation/Dockerfile), make sure to place the file into a directory in Ubuntu if you are working on a different OS.
 
+first run
+```
+docker --version
+```
+to see if you have docker, if you do not, run
+```
+sudo apt install docker.io
+```
+
 Make sure the Dockerfile has no extension such as .txt, then run the following commands in the directory with the file:
 ```
 sudo docker build -t pocketdictionary .
@@ -18,11 +27,6 @@ sudo docker run -it --rm \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     pocketdictionary
-```
-
-If it fails, saying something like "docker command not found" then run the following to install docker, then rerun the above commands
-```
-sudo apt install docker.io
 ```
 
 Those commands should auto launch the ui, where you can interact with it via the command line.
