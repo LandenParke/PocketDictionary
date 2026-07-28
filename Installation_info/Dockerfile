@@ -36,6 +36,7 @@ RUN apt-get update && apt-get install -y \
     util-linux \
     tcl \
     unzip \
+    cargo \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Rust toolchain for cargo/libromaji
