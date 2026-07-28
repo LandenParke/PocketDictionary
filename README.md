@@ -56,25 +56,18 @@ Then run the container using the command block for your OS:
 **Linux / WSL2:**
 ```
 xhost +local:docker
-sudo docker run -it --rm \
-    -e DISPLAY=$DISPLAY \
-    -v /tmp/.X11-unix:/tmp/.X11-unix \
-    pocketdictionary
+sudo docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix pocketdictionary
 ```
 
 **macOS:**
 ```
-sudo docker run -it --rm \
-    -e DISPLAY=host.docker.internal:0 \
-    pocketdictionary
+sudo docker run -it --rm -e DISPLAY=host.docker.internal:0 pocketdictionary
 ```
 
 **Native Windows (no WSL, using VcXsrv):**
 Find your machine's IP address first (`ipconfig`, look for your active adapter's IPv4 address), then run:
 ```
-docker run -it --rm ^
-    -e DISPLAY=YOUR_IP_ADDRESS:0.0 ^
-    pocketdictionary
+docker run -it --rm -e DISPLAY=YOUR_IP_ADDRESS:0.0 pocketdictionary
 ```
 
 Those commands should auto launch the ui, where you can interact with it via the command line.
