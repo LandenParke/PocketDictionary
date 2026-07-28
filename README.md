@@ -22,7 +22,7 @@ sudo apt install docker.io
 Make sure the Dockerfile has no extension such as .txt, then run the following commands in the directory with the file:
 ```
 sudo docker build -t pocketdictionary .
-sudo xhost +local:docker
+xhost +local:docker
 sudo docker run -it --rm \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
