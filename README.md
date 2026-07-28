@@ -65,7 +65,10 @@ sudo docker run -it --rm -e DISPLAY=host.docker.internal:0 pocketdictionary
 ```
 
 **Native Windows (no WSL, using VcXsrv):**
-Find your machine's IP address first (`ipconfig`, look for your active adapter's IPv4 address), then run:
+
+Ensure that Docker Desktop is open or else it will fail.
+
+Find your machine's IP address first (`ipconfig`, look for your active adapter's IPv4 address), then run (replacing YOUR_IP_ADDRESS with your address):
 ```
 docker run -it --rm -e DISPLAY=YOUR_IP_ADDRESS:0.0 pocketdictionary
 ```
