@@ -8,7 +8,9 @@ To use the simulation preview Chiisho on your local device, follow these steps.
 The simulation requires Ubuntu architecture.
 If you are using Windows, follow [this tutorial](https://ubuntu.com/wsl/docs/stable/howto/install-ubuntu-wsl2/#install-and-enable-wsl) for installing Ubuntu on WSL
 
-Then download the Dockerfile [here](https://github.com/LandenParke/PocketDictionary/releases/download/Simulation/Dockerfile), make sure to place the file into a directory in Ubuntu if you are working on a different OS.
+Then download the Dockerfile 
+## [HERE](https://github.com/LandenParke/PocketDictionary/releases/download/Simulation/Dockerfile)
+make sure to place the file into a directory in Ubuntu if you are working on a different OS.
 
 first run
 ```
