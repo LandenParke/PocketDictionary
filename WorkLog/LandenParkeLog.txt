@@ -28,3 +28,9 @@ Fixed David's button code.
 
 7.18.26
 Got the SD card on the Spresense working. Should make it so we now can load fonts from the sd card and pull data in our code. Still need to figure out how we can implement this in code. 
+
+7.22.26
+Got Ian's simulator working on my device. Will start the translation to hardware soon.
+
+7.24-27.26
+Tried to port Ian's code to hardware but due to restrictions involving the lvgl upgrade to version 9 I was not able to do get it working. Version 9 of LVGL is not officially supported by the SPRESENSE toolkit, resulting in me attempting to upgrade myself to no avail. It is unlikely I will be able to get it running on hardware unfortunately as I face issues with NuttX and getting the LCD0 device to show up properly as well.
