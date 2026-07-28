@@ -1,0 +1,62 @@
+# Use Ubuntu as the base image
+FROM ubuntu:22.04
+
+# Prevent interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Update apt and install all required packages [1, 2]
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    sqlite3 \
+    libsqlite3-dev \
+    kconfig-frontends \
+    bison \
+    flex \
+    gettext \
+    texinfo \
+    libncurses5-dev \
+    libncursesw5-dev \
+    xxd \
+    gperf \
+    automake \
+    libtool \
+    pkg-config \
+    build-essential \
+    genromfs \
+    libgmp-dev \
+    libmpc-dev \
+    libmpfr-dev \
+    libisl-dev \
+    binutils-dev \
+    libelf-dev \
+    libexpat1-dev \
+    gcc-multilib \
+    g++-multilib \
+    picocom \
+    u-boot-tools \
+    util-linux \
+    tcl \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set the working directory
+WORKDIR /workspace
+
+# Clone the PocketDictionary repository [1]
+RUN git clone "https://github.com/LandenParke/PocketDictionary"
+
+# Create the required directory and copy the dictionary database [1]
+RUN mkdir -p /usr/nuttx_stuff && \
+    cp PocketDictionary/Dictionary_Resources/dict.db /usr/nuttx_stuff/
+
+# Set working directory to the NuttX source folder [1]
+WORKDIR /workspace/PocketDictionary/NUTTXSIM/nuttx
+
+# Configure the simulator, copy the custom config, and compile NuttX [1]
+RUN ./tools/configure.sh sim:sqlite && \
+    cp ../../GUI/nuttxspace/.config . && \
+    make
+
+# Set the default command to run the simulator and pass "lvgldemo" to it [1]
+CMD ["sh", "-c", "(sleep 1; echo \"lvgldemo\") | ./nuttx"]
