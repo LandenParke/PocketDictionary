@@ -19,6 +19,6 @@ sudo docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix po
 
 If it fails, saying something like "docker command not found" then run the following to install docker, then rerun the above commands
 ```
-sudo apt install docker.io or something CHANGE ME
+sudo apt install docker.io
 ```
 # Change me before submitting
