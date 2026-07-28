@@ -29,6 +29,18 @@ LVGL_DIR_NAME = lvgl
 
 -include ./lvgl/lvgl.mk
 
+
+RUST_DIR = $(APPDIR)/graphics/lvgl/rust
+RUST_LIB = $(RUST_DIR)/target/release/libromaji.a
+
+$(RUST_LIB):
+	cd $(RUST_DIR) && cargo build --release
+
+$(PREFIX).built: $(RUST_LIB)
+
+
+
+
 ifneq ($(CONFIG_LV_ASSERT_HANDLER_INCLUDE), "")
 CFLAGS += "-DLV_ASSERT_HANDLER=ASSERT(0);"
 endif
@@ -94,3 +106,6 @@ distclean::
 	$(call DELDIR, $(LVGL_UNPACKNAME))
 	$(call DELFILE, $(LVGL_TARBALL))
 endif
+
+
+

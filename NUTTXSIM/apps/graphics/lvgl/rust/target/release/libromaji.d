@@ -1,0 +1,1 @@
+/mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/PocketDictionary/NUTTXSIM/apps/graphics/lvgl/rust/target/release/libromaji.a: /mnt/jefuty/110_estudiar/2026_summer_JAPAN/perfprog/PocketDictionary/NUTTXSIM/apps/graphics/lvgl/rust/romaji.rs

@@ -29,3 +29,8 @@ CFLAGS += ${INCDIR_PREFIX}$(APPDIR)/graphics/lvgl
 CXXFLAGS += ${INCDIR_PREFIX}$(APPDIR)/graphics/lvgl
 
 endif
+
+
+RUST_DIR = $(APPDIR)/graphics/lvgl/rust
+
+EXTRA_LIBS += $(RUST_DIR)/target/release/libromaji.a
