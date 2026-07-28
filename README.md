@@ -8,7 +8,17 @@ To use the simulation preview Chiisho on your local device, follow these steps.
 The simulation requires Ubuntu architecture.
 If you are using Windows, follow [this tutorial](https://ubuntu.com/wsl/docs/stable/howto/install-ubuntu-wsl2/#install-and-enable-wsl) for installing Ubuntu on WSL
 
-Then download the [whatever the file becomes bro] [here](url), make sure to place the file into a directory in Ubuntu if you are working on a different OS.
+Then download the Dockerfile [here](https://raw.githubusercontent.com/LandenParke/PocketDictionary/refs/heads/main/Installation_info/Dockerfile), make sure to place the file into a directory in Ubuntu if you are working on a different OS.
 
-Then, in the directory with the file, run it bro LMAO 
+Make sure the Dockerfile has no extension such as .txt, then run the following commands in the directory with the file:
+```
+sudo docker build -t pocketdictionary .
+sudo xhost +local:docker
+sudo docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix pocketdictionary
+```
+
+If it fails, saying something like "docker command not found" then run the following to install docker, then rerun the above commands
+```
+sudo apt install docker.io or something CHANGE ME
+```
 # Change me before submitting
